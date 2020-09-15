@@ -279,22 +279,15 @@ public class CommonInterface extends javax.swing.JFrame {
         newreqsubmitBut = new javax.swing.JButton();
         newreqScrollPanel = new javax.swing.JScrollPane();
         explainTextArea = new javax.swing.JTextArea();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel61 = new javax.swing.JLabel();
         reqhispanel = new javax.swing.JPanel();
         reqhisfilterLabel = new javax.swing.JLabel();
         reqhisfilterComboBox = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        reqhistable = new javax.swing.JTable();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         securitypanel = new javax.swing.JPanel();
         securitytab = new javax.swing.JTabbedPane();
-        svpanel = new javax.swing.JPanel();
-        svheaderLabel = new javax.swing.JLabel();
-        svnameLabel = new javax.swing.JLabel();
-        svnameField = new javax.swing.JTextField();
-        svcontactLabel = new javax.swing.JLabel();
-        svcontactField = new javax.swing.JTextField();
-        svsubmitBut = new javax.swing.JButton();
-        svscrollpanel = new javax.swing.JScrollPane();
-        svtable = new javax.swing.JTable();
         grouppanel = new javax.swing.JPanel();
         guestHeaderLabel2 = new javax.swing.JLabel();
         guestnameLabel3 = new javax.swing.JLabel();
@@ -309,6 +302,15 @@ public class CommonInterface extends javax.swing.JFrame {
         guestsubmitBut1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableguest = new javax.swing.JTable();
+        svpanel = new javax.swing.JPanel();
+        svheaderLabel = new javax.swing.JLabel();
+        svnameLabel = new javax.swing.JLabel();
+        svnameField = new javax.swing.JTextField();
+        svcontactLabel = new javax.swing.JLabel();
+        svcontactField = new javax.swing.JTextField();
+        svsubmitBut = new javax.swing.JButton();
+        svscrollpanel = new javax.swing.JScrollPane();
+        svtable = new javax.swing.JTable();
         signinasLabel = new javax.swing.JLabel();
         signindesLabel = new javax.swing.JLabel();
         signinimageLabel = new javax.swing.JLabel();
@@ -599,31 +601,31 @@ public class CommonInterface extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rescompanelLayout = new javax.swing.GroupLayout(rescompanel);
         rescompanel.setLayout(rescompanelLayout);
         rescompanelLayout.setHorizontalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
         );
         rescompanelLayout.setVerticalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rescompanelLayout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -755,7 +757,7 @@ public class CommonInterface extends javax.swing.JFrame {
             spotablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(spotablepanelLayout.createSequentialGroup()
                 .addComponent(spotablescrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(spotablebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -767,15 +769,15 @@ public class CommonInterface extends javax.swing.JFrame {
         spolayeredpanel.setLayout(spolayeredpanelLayout);
         spolayeredpanelLayout.setHorizontalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE))
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.PREFERRED_SIZE, 618, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE))
         );
 
         managertabbedpane.addTab("tab3", spolayeredpanel);
@@ -1364,7 +1366,7 @@ public class CommonInterface extends javax.swing.JFrame {
         );
         residentLayout.setVerticalGroup(
             residentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 585, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("tab3", resident);
@@ -1633,7 +1635,7 @@ public class CommonInterface extends javax.swing.JFrame {
         );
         managerLayout.setVerticalGroup(
             managerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 661, Short.MAX_VALUE)
+            .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("tab2", manager);
@@ -1893,7 +1895,7 @@ public class CommonInterface extends javax.swing.JFrame {
         );
         servicepersonalLayout.setVerticalGroup(
             servicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 596, Short.MAX_VALUE)
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("tab1", servicepersonal);
@@ -1920,7 +1922,7 @@ public class CommonInterface extends javax.swing.JFrame {
         managerpanel.setLayout(managerpanelLayout);
         managerpanelLayout.setHorizontalGroup(
             managerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(managerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(managerpanelLayout.createSequentialGroup()
                     .addComponent(managertabbedpane, javax.swing.GroupLayout.PREFERRED_SIZE, 834, Short.MAX_VALUE)
@@ -1964,6 +1966,7 @@ public class CommonInterface extends javax.swing.JFrame {
         addfundLabel3.setText("Transaction ID:");
 
         addfundBut.setText("SUBMIT");
+        addfundBut.setPreferredSize(new java.awt.Dimension(140, 55));
         addfundBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addfundButActionPerformed(evt);
@@ -1990,10 +1993,10 @@ public class CommonInterface extends javax.swing.JFrame {
                             .addComponent(amountpaidField, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
                             .addComponent(tidField))
                         .addGap(0, 576, Short.MAX_VALUE))))
-            .addGroup(addfundpanelLayout.createSequentialGroup()
-                .addGap(474, 474, 474)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addfundpanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addfundBut, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(161, 161, 161))
         );
         addfundpanelLayout.setVerticalGroup(
             addfundpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2010,12 +2013,12 @@ public class CommonInterface extends javax.swing.JFrame {
                 .addComponent(addfundLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tidField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(144, 144, 144)
                 .addComponent(addfundBut, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
 
-        residenttab.addTab("addfundpanel", addfundpanel);
+        residenttab.addTab("              Add Fund              ", addfundpanel);
 
         fundhistorypanel.setPreferredSize(new java.awt.Dimension(840, 605));
 
@@ -2043,11 +2046,11 @@ public class CommonInterface extends javax.swing.JFrame {
         fundhistorypanelLayout.setVerticalGroup(
             fundhistorypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundhistorypanelLayout.createSequentialGroup()
-                .addComponent(fundhistoryscrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                .addComponent(fundhistoryscrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
                 .addGap(573, 573, 573))
         );
 
-        residenttab.addTab("fundhistorypanel", fundhistorypanel);
+        residenttab.addTab("            Funding History          ", fundhistorypanel);
 
         transpanel.setPreferredSize(new java.awt.Dimension(840, 605));
 
@@ -2073,25 +2076,26 @@ public class CommonInterface extends javax.swing.JFrame {
         transpanel.setLayout(transpanelLayout);
         transpanelLayout.setHorizontalGroup(
             transpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(transictionscrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, transpanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(transactionfilterLabel)
                 .addGap(18, 18, 18)
-                .addComponent(transactionfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
-            .addComponent(transictionscrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
+                .addComponent(transactionfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         transpanelLayout.setVerticalGroup(
             transpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(transpanelLayout.createSequentialGroup()
-                .addGroup(transpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(transactionfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(transactionfilterLabel))
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addGroup(transpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(transactionfilterLabel)
+                    .addComponent(transactionfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(transictionscrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE))
+                .addComponent(transictionscrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1177, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        residenttab.addTab("transpanel", transpanel);
+        residenttab.addTab("      Completed Transaction     ", transpanel);
 
         newreqpanel.setPreferredSize(new java.awt.Dimension(840, 605));
 
@@ -2102,6 +2106,7 @@ public class CommonInterface extends javax.swing.JFrame {
         newreqLabel2.setText("Explanation: (Optional)");
 
         newreqsubmitBut.setText("SUBMIT");
+        newreqsubmitBut.setPreferredSize(new java.awt.Dimension(140, 55));
         newreqsubmitBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newreqsubmitButActionPerformed(evt);
@@ -2112,22 +2117,29 @@ public class CommonInterface extends javax.swing.JFrame {
         explainTextArea.setRows(5);
         newreqScrollPanel.setViewportView(explainTextArea);
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+
+        jLabel61.setText("Priority : (Higher number more priority)");
+
         javax.swing.GroupLayout newreqpanelLayout = new javax.swing.GroupLayout(newreqpanel);
         newreqpanel.setLayout(newreqpanelLayout);
         newreqpanelLayout.setHorizontalGroup(
             newreqpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(newreqpanelLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(newreqpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(newreqScrollPanel)
-                    .addComponent(newreqLabel2)
-                    .addComponent(reqField, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newreqLabel1))
-                .addContainerGap(182, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newreqpanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(newreqsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(newreqsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87))
+            .addGroup(newreqpanelLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(newreqpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(newreqpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(newreqScrollPanel)
+                        .addComponent(newreqLabel2)
+                        .addComponent(reqField, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newreqLabel1))
+                    .addComponent(jLabel61)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         newreqpanelLayout.setVerticalGroup(
             newreqpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2140,12 +2152,16 @@ public class CommonInterface extends javax.swing.JFrame {
                 .addComponent(newreqLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(newreqScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(newreqsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(jLabel61)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(newreqsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        residenttab.addTab("newreqpanel", newreqpanel);
+        residenttab.addTab("         New Requests           ", newreqpanel);
 
         reqhispanel.setPreferredSize(new java.awt.Dimension(840, 605));
 
@@ -2159,7 +2175,7 @@ public class CommonInterface extends javax.swing.JFrame {
             }
         });
 
-        reqhistable.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2170,37 +2186,35 @@ public class CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(reqhistable);
+        jScrollPane20.setViewportView(jTable1);
 
         javax.swing.GroupLayout reqhispanelLayout = new javax.swing.GroupLayout(reqhispanel);
         reqhispanel.setLayout(reqhispanelLayout);
         reqhispanelLayout.setHorizontalGroup(
             reqhispanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(reqhispanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reqhispanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(reqhispanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reqhispanelLayout.createSequentialGroup()
-                        .addComponent(reqhisfilterLabel)
-                        .addGap(28, 28, 28)
-                        .addComponent(reqhisfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reqhispanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addComponent(reqhisfilterLabel)
+                .addGap(18, 18, 18)
+                .addComponent(reqhisfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
         reqhispanelLayout.setVerticalGroup(
             reqhispanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(reqhispanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(reqhispanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(reqhisfilterLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(reqhisfilterComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(637, 637, 637)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(reqhispanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(reqhisfilterLabel)
+                    .addComponent(reqhisfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(646, 646, 646))
         );
 
-        residenttab.addTab("reqhispanel", reqhispanel);
+        residenttab.addTab("          Request History      ", reqhispanel);
 
         javax.swing.GroupLayout residentpanelLayout = new javax.swing.GroupLayout(residentpanel);
         residentpanel.setLayout(residentpanelLayout);
@@ -2215,12 +2229,135 @@ public class CommonInterface extends javax.swing.JFrame {
             residentpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, residentpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(residenttab, javax.swing.GroupLayout.PREFERRED_SIZE, 648, Short.MAX_VALUE))
+                .addComponent(residenttab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         securitypanel.setPreferredSize(new java.awt.Dimension(840, 610));
 
         securitytab.setPreferredSize(new java.awt.Dimension(840, 610));
+
+        grouppanel.setPreferredSize(new java.awt.Dimension(840, 605));
+
+        guestHeaderLabel2.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        guestHeaderLabel2.setText("Info of Guest");
+
+        guestnameLabel3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        guestnameLabel3.setText("Full Name:");
+
+        guestnameField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guestnameField3ActionPerformed(evt);
+            }
+        });
+
+        guestcontactLabel1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        guestcontactLabel1.setText("Contact No.:");
+
+        guestcontactField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guestcontactField1ActionPerformed(evt);
+            }
+        });
+
+        guestheaderLabel3.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        guestheaderLabel3.setText("Whom to Visit");
+
+        guestnameLabel4.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        guestnameLabel4.setText("Name:");
+
+        guestnameField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guestnameField4ActionPerformed(evt);
+            }
+        });
+
+        guestflatLabel1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        guestflatLabel1.setText("Flat No.:");
+
+        guestflatField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guestflatField1ActionPerformed(evt);
+            }
+        });
+
+        guestsubmitBut1.setText("SUBMIT");
+        guestsubmitBut1.setMaximumSize(new java.awt.Dimension(75, 30));
+        guestsubmitBut1.setMinimumSize(new java.awt.Dimension(75, 30));
+        guestsubmitBut1.setPreferredSize(new java.awt.Dimension(140, 55));
+        guestsubmitBut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guestsubmitBut1ActionPerformed(evt);
+            }
+        });
+
+        tableguest.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tableguest);
+
+        javax.swing.GroupLayout grouppanelLayout = new javax.swing.GroupLayout(grouppanel);
+        grouppanel.setLayout(grouppanelLayout);
+        grouppanelLayout.setHorizontalGroup(
+            grouppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, grouppanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(grouppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(guestnameField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(guestcontactField1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(guestHeaderLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(guestnameLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(guestcontactLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(guestnameLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(guestflatLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(guestheaderLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, grouppanelLayout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(guestsubmitBut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guestnameField3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(guestflatField1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE))
+        );
+        grouppanelLayout.setVerticalGroup(
+            grouppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(grouppanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(guestHeaderLabel2)
+                .addGap(34, 34, 34)
+                .addComponent(guestnameLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(guestnameField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(guestcontactLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(guestcontactField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(guestheaderLabel3)
+                .addGap(32, 32, 32)
+                .addComponent(guestnameLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(guestnameField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(guestflatLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(guestflatField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(guestsubmitBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
+            .addGroup(grouppanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+        );
+
+        securitytab.addTab("                       Guest                     ", grouppanel);
 
         svpanel.setPreferredSize(new java.awt.Dimension(840, 605));
 
@@ -2273,26 +2410,27 @@ public class CommonInterface extends javax.swing.JFrame {
             .addGroup(svpanelLayout.createSequentialGroup()
                 .addGroup(svpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(svpanelLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(svpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(svnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(svcontactLabel)
-                            .addComponent(svcontactField, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(svnameLabel)
-                            .addComponent(svheaderLabel)))
+                        .addContainerGap()
+                        .addComponent(svheaderLabel))
                     .addGroup(svpanelLayout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(svsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(svscrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
-                .addContainerGap())
+                        .addContainerGap()
+                        .addGroup(svpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(svcontactLabel)
+                            .addComponent(svnameLabel)
+                            .addComponent(svcontactField)
+                            .addComponent(svnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(svpanelLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(svsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(svscrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         svpanelLayout.setVerticalGroup(
             svpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(svpanelLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(34, 34, 34)
                 .addComponent(svheaderLabel)
-                .addGap(40, 40, 40)
+                .addGap(96, 96, 96)
                 .addComponent(svnameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(svnameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2300,141 +2438,15 @@ public class CommonInterface extends javax.swing.JFrame {
                 .addComponent(svcontactLabel)
                 .addGap(28, 28, 28)
                 .addComponent(svcontactField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
-                .addComponent(svsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(svpanelLayout.createSequentialGroup()
-                .addComponent(svscrollpanel)
-                .addContainerGap())
-        );
-
-        securitytab.addTab("svpanel", svpanel);
-
-        grouppanel.setPreferredSize(new java.awt.Dimension(840, 605));
-
-        guestHeaderLabel2.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        guestHeaderLabel2.setText("Info of Guest");
-
-        guestnameLabel3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        guestnameLabel3.setText("Full Name:");
-
-        guestnameField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guestnameField3ActionPerformed(evt);
-            }
-        });
-
-        guestcontactLabel1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        guestcontactLabel1.setText("Contact No.:");
-
-        guestcontactField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guestcontactField1ActionPerformed(evt);
-            }
-        });
-
-        guestheaderLabel3.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        guestheaderLabel3.setText("Whom to Visit");
-
-        guestnameLabel4.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        guestnameLabel4.setText("Name:");
-
-        guestnameField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guestnameField4ActionPerformed(evt);
-            }
-        });
-
-        guestflatLabel1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        guestflatLabel1.setText("Flat No.:");
-
-        guestflatField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guestflatField1ActionPerformed(evt);
-            }
-        });
-
-        guestsubmitBut1.setText("SUBMIT");
-        guestsubmitBut1.setMaximumSize(new java.awt.Dimension(75, 30));
-        guestsubmitBut1.setMinimumSize(new java.awt.Dimension(75, 30));
-        guestsubmitBut1.setPreferredSize(new java.awt.Dimension(75, 30));
-        guestsubmitBut1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guestsubmitBut1ActionPerformed(evt);
-            }
-        });
-
-        tableguest.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(tableguest);
-
-        javax.swing.GroupLayout grouppanelLayout = new javax.swing.GroupLayout(grouppanel);
-        grouppanel.setLayout(grouppanelLayout);
-        grouppanelLayout.setHorizontalGroup(
-            grouppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, grouppanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(grouppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(guestnameField4)
-                    .addComponent(guestflatField1)
-                    .addComponent(guestcontactField1)
-                    .addGroup(grouppanelLayout.createSequentialGroup()
-                        .addGroup(grouppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(guestHeaderLabel2)
-                            .addComponent(guestnameField3, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guestnameLabel3)
-                            .addComponent(guestcontactLabel1)
-                            .addComponent(guestnameLabel4)
-                            .addComponent(guestflatLabel1)
-                            .addComponent(guestheaderLabel3)
-                            .addGroup(grouppanelLayout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(guestsubmitBut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2))
-        );
-        grouppanelLayout.setVerticalGroup(
-            grouppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(grouppanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(guestHeaderLabel2)
-                .addGap(34, 34, 34)
-                .addComponent(guestnameLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(guestnameField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(guestcontactLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(guestcontactField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(guestheaderLabel3)
-                .addGap(32, 32, 32)
-                .addComponent(guestnameLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(guestnameField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(guestflatLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(guestflatField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(guestsubmitBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(svsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
-            .addGroup(grouppanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2)
+            .addGroup(svpanelLayout.createSequentialGroup()
+                .addComponent(svscrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        securitytab.addTab("tab2", grouppanel);
+        securitytab.addTab("                     Specialized                  ", svpanel);
 
         javax.swing.GroupLayout securitypanelLayout = new javax.swing.GroupLayout(securitypanel);
         securitypanel.setLayout(securitypanelLayout);
@@ -2444,7 +2456,7 @@ public class CommonInterface extends javax.swing.JFrame {
         );
         securitypanelLayout.setVerticalGroup(
             securitypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(securitytab, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+            .addComponent(securitytab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         panellayers.setLayer(managerpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -2465,20 +2477,20 @@ public class CommonInterface extends javax.swing.JFrame {
             .addGroup(panellayersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panellayersLayout.createSequentialGroup()
                     .addComponent(managerpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 20, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         panellayersLayout.setVerticalGroup(
             panellayersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panellayersLayout.createSequentialGroup()
-                .addComponent(residentpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+                .addComponent(residentpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 649, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(panellayersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panellayersLayout.createSequentialGroup()
-                    .addComponent(securitypanel, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+                    .addComponent(securitypanel, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(panellayersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panellayersLayout.createSequentialGroup()
-                    .addComponent(managerpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+                    .addComponent(managerpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -2855,6 +2867,7 @@ public class CommonInterface extends javax.swing.JFrame {
     private javax.swing.JButton guestsubmitBut1;
     private javax.swing.JRadioButton inactive;
     private javax.swing.JComboBox<String> informationbox;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2912,11 +2925,11 @@ public class CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
@@ -2928,6 +2941,7 @@ public class CommonInterface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -2939,6 +2953,7 @@ public class CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
@@ -2985,7 +3000,6 @@ public class CommonInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> reqhisfilterComboBox;
     private javax.swing.JLabel reqhisfilterLabel;
     private javax.swing.JPanel reqhispanel;
-    private javax.swing.JTable reqhistable;
     private javax.swing.JButton requestback;
     private javax.swing.JPanel requestpanel;
     private javax.swing.JTable requesttable;
