@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import java.awt.Image;
@@ -10,10 +5,6 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Tasin
- */
 public class CommonInterface extends javax.swing.JFrame {
 
     /**
@@ -21,6 +12,9 @@ public class CommonInterface extends javax.swing.JFrame {
      */
     public CommonInterface() {
         initComponents();
+        spotablepanel.setVisible(false);
+        requestpanel.setVisible(false);
+        transiction.setVisible(false);
         initializeSelf();
       
     }
@@ -518,7 +512,7 @@ public class CommonInterface extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editsecurityLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4)
                     .addGroup(editsecurityLayout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -813,7 +807,7 @@ public class CommonInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editresidentLayout.createSequentialGroup()
                         .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bidpanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 318, Short.MAX_VALUE)
+                            .addComponent(bidpanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editresidentLayout.createSequentialGroup()
                                 .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(bidorcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -871,7 +865,7 @@ public class CommonInterface extends javax.swing.JFrame {
                         .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(residenteditback))))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Edit Account", editresident);
@@ -1122,7 +1116,7 @@ public class CommonInterface extends javax.swing.JFrame {
         manager.setLayout(managerLayout);
         managerLayout.setHorizontalGroup(
             managerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
+            .addComponent(jTabbedPane3)
         );
         managerLayout.setVerticalGroup(
             managerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1398,7 +1392,7 @@ public class CommonInterface extends javax.swing.JFrame {
         );
         servicepersonalLayout.setVerticalGroup(
             servicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 577, Short.MAX_VALUE)
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("Service Personnel", servicepersonal);
@@ -1559,15 +1553,15 @@ public class CommonInterface extends javax.swing.JFrame {
         spolayeredpanel.setLayout(spolayeredpanelLayout);
         spolayeredpanelLayout.setHorizontalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE))
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))
         );
 
         managertabbedpane.addTab("  Specialized Official Entry  ", spolayeredpanel);
@@ -1833,30 +1827,30 @@ public class CommonInterface extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rescompanelLayout = new javax.swing.GroupLayout(rescompanel);
         rescompanel.setLayout(rescompanelLayout);
         rescompanelLayout.setHorizontalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
         );
         rescompanelLayout.setVerticalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
         );
 
         managertabbedpane.addTab("  Resident Communication  ", rescompanel);
@@ -1882,7 +1876,7 @@ public class CommonInterface extends javax.swing.JFrame {
 
         residentpanel.setPreferredSize(new java.awt.Dimension(840, 610));
 
-        residenttab.setPreferredSize(new java.awt.Dimension(840, 610));
+        residenttab.setPreferredSize(new java.awt.Dimension(840, 605));
 
         addfundpanel.setPreferredSize(new java.awt.Dimension(840, 605));
 
@@ -2177,7 +2171,7 @@ public class CommonInterface extends javax.swing.JFrame {
                 .addComponent(residenttab, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        securitypanel.setPreferredSize(new java.awt.Dimension(840, 610));
+        securitypanel.setPreferredSize(new java.awt.Dimension(840, 605));
 
         securitytab.setPreferredSize(new java.awt.Dimension(840, 610));
 
@@ -2415,11 +2409,11 @@ public class CommonInterface extends javax.swing.JFrame {
         panellayersLayout.setHorizontalGroup(
             panellayersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panellayersLayout.createSequentialGroup()
-                .addComponent(residentpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(residentpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panellayersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panellayersLayout.createSequentialGroup()
-                    .addComponent(securitypanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(securitypanel, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(panellayersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panellayersLayout.createSequentialGroup()
@@ -2429,15 +2423,15 @@ public class CommonInterface extends javax.swing.JFrame {
         panellayersLayout.setVerticalGroup(
             panellayersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panellayersLayout.createSequentialGroup()
-                .addComponent(residentpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(residentpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(panellayersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panellayersLayout.createSequentialGroup()
-                    .addComponent(securitypanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(securitypanel, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 45, Short.MAX_VALUE)))
             .addGroup(panellayersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panellayersLayout.createSequentialGroup()
-                    .addComponent(managerpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+                    .addComponent(managerpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 

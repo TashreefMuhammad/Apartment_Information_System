@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import java.awt.Image;
@@ -11,16 +6,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Tasin
- */
 public class LoginPage extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginPage
      */
-        static String choose;
+    protected static String choose;
     public LoginPage() {
       
         

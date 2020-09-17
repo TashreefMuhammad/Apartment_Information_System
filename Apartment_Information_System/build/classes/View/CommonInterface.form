@@ -168,18 +168,18 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="residentpanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentpanel" min="-2" pref="654" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="securitypanel" min="-2" max="-2" attributes="0"/>
+                          <Component id="securitypanel" min="-2" pref="654" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="45" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="managerpanel" pref="644" max="32767" attributes="0"/>
+                          <Component id="managerpanel" pref="654" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -514,7 +514,7 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="jScrollPane4" pref="504" max="32767" attributes="0"/>
+                                                      <Component id="jScrollPane4" max="32767" attributes="0"/>
                                                       <Group type="102" attributes="0">
                                                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace max="-2" attributes="0"/>
@@ -1050,7 +1050,7 @@
                                                       </Group>
                                                       <Group type="102" alignment="1" attributes="0">
                                                           <Group type="103" groupAlignment="1" attributes="0">
-                                                              <Component id="bidpanel" alignment="0" pref="318" max="32767" attributes="0"/>
+                                                              <Component id="bidpanel" alignment="0" pref="336" max="32767" attributes="0"/>
                                                               <Group type="102" alignment="0" attributes="0">
                                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                                       <Component id="bidorcontact" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
@@ -1121,7 +1121,7 @@
                                                           </Group>
                                                       </Group>
                                                   </Group>
-                                                  <EmptySpace pref="33" max="32767" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
@@ -1294,7 +1294,7 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTabbedPane3" alignment="0" pref="835" max="32767" attributes="0"/>
+                                      <Component id="jTabbedPane3" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
@@ -2187,17 +2187,17 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="spotablepanel" alignment="0" pref="858" max="32767" attributes="0"/>
+                              <Component id="spotablepanel" alignment="0" pref="854" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                  <Component id="spopanel" alignment="0" pref="858" max="32767" attributes="0"/>
+                                  <Component id="spopanel" alignment="0" pref="854" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="spotablepanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="spotablepanel" alignment="0" pref="639" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                  <Component id="spopanel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="spopanel" alignment="0" pref="639" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2439,12 +2439,12 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLayeredPane1" alignment="0" pref="858" max="32767" attributes="0"/>
+                              <Component id="jLayeredPane1" alignment="0" pref="854" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLayeredPane1" pref="605" max="32767" attributes="0"/>
+                              <Component id="jLayeredPane1" pref="639" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                       </Layout>
@@ -2459,23 +2459,23 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="requestpanel" alignment="0" pref="858" max="32767" attributes="0"/>
+                                  <Component id="requestpanel" alignment="0" pref="854" max="32767" attributes="0"/>
                                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                      <Component id="transiction" alignment="0" pref="858" max="32767" attributes="0"/>
+                                      <Component id="transiction" alignment="0" pref="854" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                                      <Component id="rescommain" alignment="0" pref="858" max="32767" attributes="0"/>
+                                      <Component id="rescommain" alignment="0" pref="854" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="requestpanel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="requestpanel" alignment="0" pref="639" max="32767" attributes="0"/>
                                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                      <Component id="transiction" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="transiction" alignment="0" pref="639" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                                      <Component id="rescommain" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="rescommain" alignment="0" pref="639" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2964,7 +2964,7 @@
                 <Container class="javax.swing.JTabbedPane" name="residenttab">
                   <Properties>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[840, 610]"/>
+                      <Dimension value="[840, 605]"/>
                     </Property>
                   </Properties>
 
@@ -3476,7 +3476,7 @@
             <Container class="javax.swing.JPanel" name="securitypanel">
               <Properties>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[840, 610]"/>
+                  <Dimension value="[840, 605]"/>
                 </Property>
               </Properties>
 
