@@ -1,3 +1,11 @@
+-- Creating Database --
+DROP DATABASE ApartmentInformationSystem
+
+CREATE DATABASE ApartmentInformationSystem
+
+USE ApartmentInformationSystem
+
+
 --Creating Table--
 
 /*Entity 1 */
