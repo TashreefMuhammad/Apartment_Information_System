@@ -2671,13 +2671,13 @@ public class CommonInterface extends javax.swing.JFrame {
         securitypanel.setVisible(false);
 
         switch (choice) {
-            case "manager":
+            case "Manager":
                 managerpanel.setVisible(true);
                 break;
-            case "resident":
+            case "Resident":
                 residentpanel.setVisible(true);
                 break;
-            case "security":
+            case "SecurityGuard":
                 securitypanel.setVisible(true);
                 break;
             default:

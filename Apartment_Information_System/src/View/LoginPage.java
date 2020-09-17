@@ -1,7 +1,11 @@
 package View;
 
+import Controller.*;
 import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -11,13 +15,13 @@ public class LoginPage extends javax.swing.JFrame {
     /**
      * Creates new form LoginPage
      */
+    Controller_LoginHandling checker = new Controller_LoginHandling();
     protected static String choose;
+
     public LoginPage() {
-      
-        
         initComponents();
-           initializeSelf();
-        
+        initializeSelf();
+
     }
 
     /**
@@ -67,10 +71,16 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Password");
 
-        ContactNoField.setText(" ");
+        ContactNoField.setText("ged");
         ContactNoField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContactNoFieldActionPerformed(evt);
+            }
+        });
+
+        PasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordFieldActionPerformed(evt);
             }
         });
 
@@ -269,19 +279,19 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_ContactNoFieldActionPerformed
 
     private void SecurityButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecurityButActionPerformed
-      choose = "security";
+        choose = "SecurityGuard";
         goNextPage();
     }//GEN-LAST:event_SecurityButActionPerformed
 
     private void ManagerButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManagerButActionPerformed
         // TODO add your handling code here:
-         choose = "manager";
+        choose = "Manager";
         goNextPage();
     }//GEN-LAST:event_ManagerButActionPerformed
 
     private void ResidentButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResidentButActionPerformed
         // TODO add your handling code here:
-          choose = "resident";
+        choose = "Resident";
         goNextPage();
     }//GEN-LAST:event_ResidentButActionPerformed
 
@@ -292,46 +302,64 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
-         JOptionPane.showInputDialog("Provide valid e-mail address: ");
-        JOptionPane.showMessageDialog(null, "Your password has been sent to your e-mail");
+        String recover = JOptionPane.showInputDialog("Provide valid e-mail address: ");
+        Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
+        Matcher mat = pattern.matcher(recover);
+
+        if (mat.matches()) {
+            boolean res = checker.resetPass(recover);
+            if(res)
+                JOptionPane.showMessageDialog(null, "Your password has been sent to your e-mail");
+            else
+                JOptionPane.showMessageDialog(null, "Provide the e-mail you gave, this is not available to us");
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid E-mail Format");
+        }
     }//GEN-LAST:event_jLabel4MouseClicked
 
-      private void initializeSelf() {
+    private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordFieldActionPerformed
 
-       //ManagerBut.setIcon(Resizing.resizeicon("images/manager.png", ManagerBut));
-        
-        try{
-    Image image = ImageIO.read(new File("images/manager.png")).getScaledInstance(ManagerBut.getWidth(),ManagerBut.getHeight(), Image.SCALE_DEFAULT);
-    ManagerBut.setIcon(new ImageIcon(image));
-    
-    Image image1 = ImageIO.read(new File("images/resident.png")).getScaledInstance(ManagerBut.getWidth(),ManagerBut.getHeight(), Image.SCALE_DEFAULT);
-    ResidentBut.setIcon(new ImageIcon(image1));
-    
-     Image image2 = ImageIO.read(new File("images/securityadmin.png")).getScaledInstance(ManagerBut.getWidth(),ManagerBut.getHeight(), Image.SCALE_DEFAULT);
-    SecurityBut.setIcon(new ImageIcon(image2));
-} 
-catch (Exception e) {
-    
-}
-        
-        
+    private void initializeSelf() {
+
+        //ManagerBut.setIcon(Resizing.resizeicon("images/manager.png", ManagerBut));
+        ContactNoField.setText("");
+        PasswordField.setText("");
+        try {
+            Image image = ImageIO.read(new File("images/manager.png")).getScaledInstance(ManagerBut.getWidth(), ManagerBut.getHeight(), Image.SCALE_DEFAULT);
+            ManagerBut.setIcon(new ImageIcon(image));
+
+            Image image1 = ImageIO.read(new File("images/resident.png")).getScaledInstance(ManagerBut.getWidth(), ManagerBut.getHeight(), Image.SCALE_DEFAULT);
+            ResidentBut.setIcon(new ImageIcon(image1));
+
+            Image image2 = ImageIO.read(new File("images/securityadmin.png")).getScaledInstance(ManagerBut.getWidth(), ManagerBut.getHeight(), Image.SCALE_DEFAULT);
+            SecurityBut.setIcon(new ImageIcon(image2));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
         //ResidentBut.setIcon(Resizing.resizeIcon("images/resident.png", ResidentBut));
         //SecurityBut.setIcon(Resizing.resizeIcon("images/securityadmin.png", SecurityBut));
     }
 
-
-
     public void goNextPage() {
-      CommonInterface tmp = new CommonInterface();
-        tmp.setVisible(true);
-        this.dispose();
+        boolean result = checker.verifyLogin(choose, ContactNoField.getText(), PasswordField.getText());
+        if (result) {
+            CommonInterface tmp = new CommonInterface();
+            tmp.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid Credentials");
+        }
+        ContactNoField.setText("");
+        PasswordField.setText("");
     }
 
     public static String getChoice() {
         return choose;
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */
