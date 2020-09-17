@@ -71,6 +71,7 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Password");
 
+        ContactNoField.setText("ged");
         ContactNoField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContactNoFieldActionPerformed(evt);
@@ -302,10 +303,9 @@ public class LoginPage extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
         String recover = JOptionPane.showInputDialog("Provide valid e-mail address: ");
-       // Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
-       Pattern pattern = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
+        Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
         Matcher mat = pattern.matcher(recover);
-       
+
         if (mat.matches()) {
             boolean res = checker.resetPass(recover);
             if(res)

@@ -2,10 +2,10 @@ package Controller;
 
 import Model.*;
 import View.*;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
-import java.sql.Date;
 import java.util.Properties;
+import java.net.PasswordAuthentication;
+//import javax.mail.Authenticator;
+import java.net.Authenticator;
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -13,14 +13,12 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Controller_LoginHandling {
-
     Model_LoginSys checker = new Model_LoginSys();
-
-    public boolean verifyLogin(String choice, String contact, String pass) {
+    public boolean verifyLogin(String choice, String contact, String pass){
         return checker.verifyInfo(choice, contact, pass);
     }
-
-    public boolean resetPass(String email) {
+    
+    public boolean resetPass(String email){
         String refString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvxyz";
         StringBuilder sb = new StringBuilder(10);
         for (int i = 0; i < 10; i++) {
@@ -33,12 +31,12 @@ public class Controller_LoginHandling {
         System.out.println(sb.toString());
         String useremail = checker.resetPass(email, sb.toString());
         System.out.println(useremail);
-        if (useremail.equals("-1")) {
+        if(useremail.equals("-1")){
             return false;
-        } 
-       else {
+        }
+        else {
 
-           /* final String fromEmail = "apartmentinfosystem@gmail.com";//user.getFromEmail(); //requires valid gmail id
+           final String fromEmail = "apartmentinfosystem@gmail.com";//user.getFromEmail(); //requires valid gmail id
             final String password = "ISD_AIS_A1_G1";//user.getPassword(); // correct password for gmail id
             final String toEmail = useremail; // can be any email id 
 
@@ -83,10 +81,8 @@ public class Controller_LoginHandling {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-       */ }
+       }
 
         return true;
     }
-
 }
-

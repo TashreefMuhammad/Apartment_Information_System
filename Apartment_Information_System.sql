@@ -80,7 +80,7 @@ INSERT INTO Resident(ResidentID, NID_BID, Name, Citizenship,Flat_No,Contact_No,E
 ('2RID','3859204934', 'Shams Al Ahsan','False','A1',' ','','',' ',' ','True',''),
 ('3RID','2134234564', 'Arafat Uddin','True','A2','01745363894','arafatuddin21@gmail.com','22/C Polashi,Lalbagh,Dhaka','Gynecologist','Square Hospital,Panthapath,Dhaka','True',HASHBYTES('MD5','01745363894')),
 ('4RID','1943950476', 'Tashreef Mahmud','True','B3','01813637954','tashreef14@gmail.com','Doctor Goli,Malibagh,Dhaka','Teacher','Dhaka University,Dhaka','False',HASHBYTES('MD5','01813637954')),
-('5RID','4325678532', 'Tasnid Swaad','True','D1','01642063894','tasnidswaad1920@gmail.com','Comilla cantonment road,Comilla,Bangladesh','Actor','FDC Mor,Moghbazar','True',HASHBYTES('MD5','01642063894'))
+('5RID','4325678532', 'Tasnid Swaad','True','D1','01642063894','shahalam.tasin@gmail.com','Comilla cantonment road,Comilla,Bangladesh','Actor','FDC Mor,Moghbazar','True',HASHBYTES('MD5','01642063894'))
 
 
 INSERT INTO SecurityGuard(SecurityID,NID,Name,Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass)VALUES
