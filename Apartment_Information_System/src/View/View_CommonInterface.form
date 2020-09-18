@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="chooseCitizenship">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="undecorated" type="boolean" value="true"/>
@@ -262,7 +266,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="acountmngtabpane" min="-2" pref="605" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -337,12 +341,12 @@
                                                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                                  <Component id="addcontactinput" alignment="0" max="32767" attributes="0"/>
+                                                                  <Component id="addpermanentadress" alignment="0" max="32767" attributes="0"/>
                                                                   <Component id="nidnoinput" alignment="0" max="32767" attributes="0"/>
                                                                   <Group type="102" attributes="0">
                                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                                           <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                          <Component id="addcontactinput1" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
+                                                                          <Component id="addcontactinput" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
                                                                           <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
                                                                       </Group>
                                                                       <EmptySpace max="32767" attributes="0"/>
@@ -352,7 +356,7 @@
                                                                       </Group>
                                                                   </Group>
                                                                   <Component id="fullnameinput" alignment="0" max="32767" attributes="0"/>
-                                                                  <Component id="addcontactinput2" alignment="0" min="-2" pref="588" max="-2" attributes="0"/>
+                                                                  <Component id="addpresentadress" alignment="0" min="-2" pref="588" max="-2" attributes="0"/>
                                                               </Group>
                                                           </Group>
                                                       </Group>
@@ -385,17 +389,17 @@
                                                   </Group>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="addcontactinput1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                                      <Component id="addcontactinput" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                                       <Component id="addemailinput" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="addcontactinput2" min="-2" pref="28" max="-2" attributes="0"/>
+                                                  <Component id="addpresentadress" min="-2" pref="28" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="addcontactinput" min="-2" pref="28" max="-2" attributes="0"/>
+                                                  <Component id="addpermanentadress" min="-2" pref="28" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="addsecuritysubmit" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
@@ -435,7 +439,7 @@
                                             <Property name="text" type="java.lang.String" value="Contact No"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="addcontactinput">
+                                        <Component class="javax.swing.JTextField" name="addpermanentadress">
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel20">
                                           <Properties>
@@ -460,6 +464,9 @@
                                             </Property>
                                             <Property name="text" type="java.lang.String" value="Submit"/>
                                           </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addsecuritysubmitActionPerformed"/>
+                                          </Events>
                                         </Component>
                                         <Component class="javax.swing.JButton" name="addbackbutton">
                                           <Properties>
@@ -469,9 +476,9 @@
                                             <Property name="text" type="java.lang.String" value="Back"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="addcontactinput1">
+                                        <Component class="javax.swing.JTextField" name="addcontactinput">
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="addcontactinput2">
+                                        <Component class="javax.swing.JTextField" name="addpresentadress">
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel39">
                                           <Properties>
@@ -773,7 +780,7 @@
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTabbedPane2" alignment="0" pref="579" max="32767" attributes="0"/>
+                                      <Component id="jTabbedPane2" alignment="0" pref="577" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
@@ -801,20 +808,11 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
-                                                          <Component id="residentsubmit" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                                                          <Component id="residentback" min="-2" pref="79" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="citizenpanel" alignment="0" min="-2" pref="688" max="-2" attributes="0"/>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="citizenpanel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="102" attributes="0">
                                                           <EmptySpace max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
                                                               <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                                                               <Group type="102" alignment="0" attributes="0">
                                                                   <Component id="jLabel25" min="-2" pref="59" max="-2" attributes="0"/>
@@ -823,10 +821,10 @@
                                                               </Group>
                                                               <Group type="102" alignment="0" attributes="0">
                                                                   <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                                                                  <Component id="citizen" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                                  <Component id="minor" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
                                                               </Group>
                                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                                                   <Component id="residentid" alignment="0" pref="350" max="32767" attributes="0"/>
@@ -835,7 +833,14 @@
                                                           </Group>
                                                       </Group>
                                                   </Group>
-                                                  <EmptySpace pref="142" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="160" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="residentsubmit" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                                  <Component id="residentback" min="-2" pref="79" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
@@ -850,25 +855,27 @@
                                                   <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="residentid" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="citizen" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="minor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                                          <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="residentflatno" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="citizenpanel" min="-2" pref="233" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                                  <Component id="citizenpanel" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="residentsubmit" alignment="3" max="32767" attributes="0"/>
+                                                      <Component id="residentsubmit" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="residentback" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                                  <EmptySpace pref="49" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
@@ -883,6 +890,9 @@
                                           </Properties>
                                         </Component>
                                         <Component class="javax.swing.JTextField" name="residentfullnameinput">
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="residentfullnameinputActionPerformed"/>
+                                          </Events>
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel23">
                                           <Properties>
@@ -900,22 +910,6 @@
                                               <Font name="Tahoma" size="14" style="1"/>
                                             </Property>
                                             <Property name="text" type="java.lang.String" value="CITIZEN OR MINOR"/>
-                                          </Properties>
-                                        </Component>
-                                        <Component class="javax.swing.JRadioButton" name="citizen">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Tahoma" size="14" style="1"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" value="CITIZEN"/>
-                                          </Properties>
-                                        </Component>
-                                        <Component class="javax.swing.JRadioButton" name="minor">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Tahoma" size="14" style="1"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" value="MINOR"/>
                                           </Properties>
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel25">
@@ -956,7 +950,7 @@
                                                                   <Group type="102" alignment="0" attributes="0">
                                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                                           <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                                                                          <Component id="residentcontactno1" alignment="0" min="-2" pref="206" max="-2" attributes="0"/>
+                                                                          <Component id="addresidentcontactno" alignment="0" min="-2" pref="206" max="-2" attributes="0"/>
                                                                       </Group>
                                                                       <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
                                                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -964,17 +958,17 @@
                                                                           <Component id="residentemail" min="-2" pref="231" max="-2" attributes="0"/>
                                                                       </Group>
                                                                   </Group>
-                                                                  <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="residentjobadress" alignment="0" min="-2" pref="928" max="-2" attributes="0"/>
                                                                   <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                                                   <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
                                                               </Group>
-                                                              <EmptySpace max="32767" attributes="0"/>
+                                                              <EmptySpace pref="60" max="32767" attributes="0"/>
                                                           </Group>
                                                           <Group type="102" attributes="0">
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="residentprofession" min="-2" pref="350" max="-2" attributes="0"/>
-                                                                  <Component id="residentcontactno" min="-2" pref="618" max="-2" attributes="0"/>
+                                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                                  <Component id="residentpermanentadress" pref="618" max="32767" attributes="0"/>
+                                                                  <Component id="residentprofession" max="32767" attributes="0"/>
+                                                                  <Component id="jLabel63" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  <Component id="residentjobadressinput" alignment="0" max="32767" attributes="0"/>
                                                               </Group>
                                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                           </Group>
@@ -990,23 +984,23 @@
                                                           <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
                                                           <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="3" attributes="0">
+                                                          <Component id="addresidentcontactno" alignment="3" min="-2" max="-2" attributes="0"/>
                                                           <Component id="residentemail" alignment="3" max="32767" attributes="0"/>
-                                                          <Component id="residentcontactno1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="residentcontactno" min="-2" pref="27" max="-2" attributes="0"/>
+                                                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                                                      <Component id="residentpermanentadress" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="residentprofession" min="-2" pref="28" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                                      <Component id="jLabel30" min="-2" pref="30" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="residentjobadress" min="-2" pref="33" max="-2" attributes="0"/>
+                                                      <Component id="residentprofession" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="jLabel63" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="residentjobadressinput" min="-2" pref="20" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -1021,7 +1015,7 @@
                                                 <Property name="text" type="java.lang.String" value="Contact No"/>
                                               </Properties>
                                             </Component>
-                                            <Component class="javax.swing.JTextField" name="residentcontactno">
+                                            <Component class="javax.swing.JTextField" name="residentpermanentadress">
                                             </Component>
                                             <Component class="javax.swing.JLabel" name="jLabel27">
                                               <Properties>
@@ -1051,17 +1045,17 @@
                                             </Component>
                                             <Component class="javax.swing.JTextField" name="residentprofession">
                                             </Component>
-                                            <Component class="javax.swing.JLabel" name="jLabel30">
+                                            <Component class="javax.swing.JTextField" name="addresidentcontactno">
+                                            </Component>
+                                            <Component class="javax.swing.JLabel" name="jLabel63">
                                               <Properties>
                                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                                   <Font name="Tahoma" size="14" style="1"/>
                                                 </Property>
-                                                <Property name="text" type="java.lang.String" value="Job Adress"/>
+                                                <Property name="text" type="java.lang.String" value="Job Address"/>
                                               </Properties>
                                             </Component>
-                                            <Component class="javax.swing.JTextField" name="residentjobadress">
-                                            </Component>
-                                            <Component class="javax.swing.JTextField" name="residentcontactno1">
+                                            <Component class="javax.swing.JTextField" name="residentjobadressinput">
                                             </Component>
                                           </SubComponents>
                                         </Container>
@@ -1072,6 +1066,9 @@
                                             </Property>
                                             <Property name="text" type="java.lang.String" value="Submit"/>
                                           </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="residentsubmitActionPerformed"/>
+                                          </Events>
                                         </Component>
                                         <Component class="javax.swing.JButton" name="residentback">
                                           <Properties>
@@ -1080,6 +1077,28 @@
                                             </Property>
                                             <Property name="text" type="java.lang.String" value="Back"/>
                                           </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                                          <Properties>
+                                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                              <ComponentRef name="chooseCitizenship"/>
+                                            </Property>
+                                            <Property name="text" type="java.lang.String" value="Citizen"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                                          <Properties>
+                                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                              <ComponentRef name="chooseCitizenship"/>
+                                            </Property>
+                                            <Property name="text" type="java.lang.String" value="Minor"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+                                          </Events>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -1416,10 +1435,10 @@
                                                       </Group>
                                                       <Group type="102" attributes="0">
                                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                              <Component id="newmanagercontact1" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="newmanagernid" alignment="0" max="32767" attributes="0"/>
                                                               <Component id="jLabel38" alignment="0" min="-2" max="-2" attributes="0"/>
                                                               <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="newmanagercontact" alignment="0" pref="350" max="32767" attributes="0"/>
+                                                              <Component id="newmanagerpermanentadress" alignment="0" pref="350" max="32767" attributes="0"/>
                                                               <Component id="newmanagername" alignment="0" pref="350" max="32767" attributes="0"/>
                                                           </Group>
                                                           <EmptySpace max="32767" attributes="0"/>
@@ -1438,7 +1457,7 @@
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="newmanagercontact1" min="-2" pref="28" max="-2" attributes="0"/>
+                                                  <Component id="newmanagernid" min="-2" pref="28" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1450,7 +1469,7 @@
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="newmanagercontact" min="-2" pref="28" max="-2" attributes="0"/>
+                                                  <Component id="newmanagerpermanentadress" min="-2" pref="28" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="newmanagersubmit" alignment="3" max="32767" attributes="0"/>
@@ -1493,7 +1512,7 @@
                                             <Property name="text" type="java.lang.String" value="NID No"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="newmanagercontact">
+                                        <Component class="javax.swing.JTextField" name="newmanagerpermanentadress">
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel40">
                                           <Properties>
@@ -1522,7 +1541,7 @@
                                             <Property name="text" type="java.lang.String" value="Back"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="newmanagercontact1">
+                                        <Component class="javax.swing.JTextField" name="newmanagernid">
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="E">
                                           <Properties>
@@ -1787,7 +1806,7 @@
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTabbedPane4" alignment="0" pref="577" max="32767" attributes="0"/>
+                                      <Component id="jTabbedPane4" alignment="0" pref="593" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
@@ -2116,13 +2135,13 @@
                                                       <Component id="Save" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                                       <Component id="editservicepersonalback" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="37" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                                                       <Component id="editservicepersonalcontact2" min="-2" pref="0" max="-2" attributes="0"/>
-                                                      <EmptySpace pref="460" max="32767" attributes="0"/>
+                                                      <EmptySpace pref="476" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -2275,17 +2294,17 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="spotablepanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="spotablepanel" alignment="0" pref="858" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                  <Component id="spopanel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="spopanel" alignment="0" pref="858" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="spotablepanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="spotablepanel" alignment="0" pref="615" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                  <Component id="spopanel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="spopanel" alignment="0" pref="615" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
