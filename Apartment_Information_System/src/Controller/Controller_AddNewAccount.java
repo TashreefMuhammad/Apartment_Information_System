@@ -19,5 +19,13 @@ public class Controller_AddNewAccount {
         return givedata.returnval(name, nid, contactno, email,permanenetadress,role);
 
     }
+    public boolean checkdata(String name, String nid,String contactno, String presentaddress, String permanenetaddress,String designation,String flatno, String explainationofservice,String role) {
+        return givedata.returnval(name, nid, contactno, presentaddress,permanenetaddress,designation,flatno,explainationofservice,role);
+
+    }
     
+    public boolean checkdata(String namoforg, String reasonofvis,String nid, String name, String contact,String prof,String namofinst,String role) {
+        return givedata.returnval(namoforg, reasonofvis,nid,name,contact, prof,namofinst,role);
+
+    }
 }

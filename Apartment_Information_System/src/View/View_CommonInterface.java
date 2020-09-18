@@ -14,8 +14,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
      */
     Controller_LoginHandling checker = new Controller_LoginHandling();
     Controller_AddNewAccount add = new Controller_AddNewAccount();
-      int flag =0 ;
-      
+    int flag = 0;
+
     public View_CommonInterface() {
         initComponents();
         initializeSelf();
@@ -173,9 +173,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         servicepersonalsubmit = new javax.swing.JButton();
         servicepersonalback = new javax.swing.JButton();
-        servicepersonalcontact1 = new javax.swing.JTextField();
-        servicepersonalcontact2 = new javax.swing.JTextField();
-        servicepersonaldesignation1 = new javax.swing.JTextField();
+        servicepersonalpermanentaddress = new javax.swing.JTextField();
+        servicepersonalpresentaddress = new javax.swing.JTextField();
+        servicepersonalexplainationofservice = new javax.swing.JTextField();
         editservicepersonal = new javax.swing.JPanel();
         jScrollPane18 = new javax.swing.JScrollPane();
         servicepersonaltable = new javax.swing.JTable();
@@ -195,20 +195,22 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spolayeredpanel = new javax.swing.JLayeredPane();
         spopanel = new javax.swing.JPanel();
         sopLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        soe_nameoforg = new javax.swing.JTextField();
         spoLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        soe_reasonofvis = new javax.swing.JTextField();
         spoLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        soe_nid = new javax.swing.JTextField();
         spoLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        soe_name = new javax.swing.JTextField();
         spoLabel11 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        soe_contact = new javax.swing.JTextField();
         spoLabel12 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        soe_prof = new javax.swing.JTextField();
         spoLabel13 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        soe_namepfinst = new javax.swing.JTextField();
         spoacBut1 = new javax.swing.JButton();
+        count_people = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
         spotablepanel = new javax.swing.JPanel();
         spotablescrollpane = new javax.swing.JScrollPane();
         spotable = new javax.swing.JTable();
@@ -782,11 +784,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(residentid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addGroup(addresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
+                .addGroup(addresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jRadioButton1)
-                        .addComponent(jRadioButton2)))
+                        .addComponent(jRadioButton2))
+                    .addComponent(jLabel24))
                 .addGap(23, 23, 23)
                 .addGroup(addresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
@@ -794,7 +796,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(citizenpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(addresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(residentsubmit)
                     .addComponent(residentback))
                 .addContainerGap(49, Short.MAX_VALUE))
@@ -878,7 +880,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editresidentLayout.createSequentialGroup()
                         .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bidpanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 336, Short.MAX_VALUE)
+                            .addComponent(bidpanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editresidentLayout.createSequentialGroup()
                                 .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(bidorcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1226,6 +1228,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel48.setText("Full Name");
 
+        servicepersonalname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                servicepersonalnameActionPerformed(evt);
+            }
+        });
+
         jLabel49.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel49.setText("NID No");
 
@@ -1255,13 +1263,18 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
         servicepersonalsubmit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         servicepersonalsubmit.setText("Submit");
+        servicepersonalsubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                servicepersonalsubmitActionPerformed(evt);
+            }
+        });
 
         servicepersonalback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         servicepersonalback.setText("Back");
 
-        servicepersonaldesignation1.addActionListener(new java.awt.event.ActionListener() {
+        servicepersonalexplainationofservice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                servicepersonaldesignation1ActionPerformed(evt);
+                servicepersonalexplainationofserviceActionPerformed(evt);
             }
         });
 
@@ -1284,9 +1297,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(jLabel51, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel53, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(servicepersonaldesignation, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
-                            .addComponent(servicepersonalcontact2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(servicepersonalpresentaddress, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(servicepersonalname, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(servicepersonaldesignation1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(servicepersonalexplainationofservice, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(servicepersonalcontact, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(addservicepersonalLayout.createSequentialGroup()
@@ -1304,7 +1317,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                                     .addGroup(addservicepersonalLayout.createSequentialGroup()
                                         .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(servicepersonalapartmentno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                                            .addComponent(servicepersonalcontact1, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(servicepersonalpermanentaddress, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel52, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(servicepersonalnid, javax.swing.GroupLayout.Alignment.LEADING))
@@ -1331,8 +1344,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
                     .addComponent(jLabel52))
                 .addGap(18, 18, 18)
                 .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(servicepersonalcontact1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(servicepersonalcontact2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(servicepersonalpermanentaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(servicepersonalpresentaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel53)
@@ -1344,7 +1357,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(servicepersonaldesignation1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(servicepersonalexplainationofservice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(servicepersonalsubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1533,6 +1546,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spoLabel13.setText("Name of Work Institution");
 
         spoacBut1.setText("OK");
+        spoacBut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spoacBut1ActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel30.setText("Number Of People:");
 
         javax.swing.GroupLayout spopanelLayout = new javax.swing.GroupLayout(spopanel);
         spopanel.setLayout(spopanelLayout);
@@ -1546,9 +1567,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(sopLabel1)
                             .addComponent(spoLabel2)
                             .addComponent(spoLabel3)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1)))
+                            .addComponent(soe_nid, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                            .addComponent(soe_reasonofvis)
+                            .addComponent(soe_nameoforg))
+                        .addGap(135, 135, 135)
+                        .addGroup(spopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel30)
+                            .addComponent(count_people, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(spopanelLayout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addGroup(spopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1556,11 +1581,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(spoLabel11)
                             .addComponent(spoLabel12)
                             .addComponent(spoLabel13)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                            .addComponent(jTextField13)
-                            .addComponent(jTextField12)
-                            .addComponent(jTextField4))))
-                .addContainerGap(341, Short.MAX_VALUE))
+                            .addComponent(soe_namepfinst, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                            .addComponent(soe_prof)
+                            .addComponent(soe_contact)
+                            .addComponent(soe_name))))
+                .addContainerGap(62, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, spopanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1572,34 +1597,39 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(sopLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(soe_nameoforg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(spoLabel2)
                 .addGap(7, 7, 7)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(soe_reasonofvis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(spoLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(spoLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(spoLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(spoLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(spoLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGroup(spopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(spopanelLayout.createSequentialGroup()
+                        .addComponent(spoLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(spopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(soe_nid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(count_people, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addComponent(spoLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(soe_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(spoLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(soe_contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(spoLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(soe_prof, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(spoLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(soe_namepfinst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel30))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         spotablepanel.setPreferredSize(new java.awt.Dimension(840, 605));
@@ -2635,7 +2665,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(signoutBut, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(panellayers, javax.swing.GroupLayout.PREFERRED_SIZE, 660, Short.MAX_VALUE)
+            .addComponent(panellayers, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -2738,11 +2768,10 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     private void newmanagersubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newmanagersubmitActionPerformed
         // TODO add your handling code here:
-        
-        
-             boolean res = add.checkdata(newmanagername.getText(), newmanagernid.getText(),newmanagercontactno.getText(),
-              manageremailinput.getText(),newmanagerpermanentadress.getText(),"Manager" );
-        
+
+        boolean res = add.checkdata(newmanagername.getText(), newmanagernid.getText(), newmanagercontactno.getText(),
+                manageremailinput.getText(), newmanagerpermanentadress.getText(), "Manager");
+
     }//GEN-LAST:event_newmanagersubmitActionPerformed
 
     private void servicepersonaldesignationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonaldesignationActionPerformed
@@ -2765,9 +2794,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_contactnumberinputActionPerformed
 
-    private void servicepersonaldesignation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonaldesignation1ActionPerformed
+    private void servicepersonalexplainationofserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonalexplainationofserviceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_servicepersonaldesignation1ActionPerformed
+    }//GEN-LAST:event_servicepersonalexplainationofserviceActionPerformed
 
     private void changepassLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassLabelMouseClicked
         // TODO add your handling code here:
@@ -2792,39 +2821,55 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private void addsecuritysubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsecuritysubmitActionPerformed
         // TODO add your handling code here:
         boolean res = add.checkdata(fullnameinput.getText(), nidnoinput.getText(), addcontactinput.getText(),
-                addpermanentadress.getText(), addemailinput.getText(), addpresentadress.getText(),"SecurityGuard");
+                addpermanentadress.getText(), addemailinput.getText(), addpresentadress.getText(), "SecurityGuard");
     }//GEN-LAST:event_addsecuritysubmitActionPerformed
 
     private void residentsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentsubmitActionPerformed
-        
-        if(flag==1){
-             boolean res = add.checkdata(residentfullnameinput.getText(), residentid.getText(),1,
-                residentflatno.getSelectedItem().toString(),addresidentcontactno.getText(),residentemail.getText() ,residentpermanentadress.getText(), residentprofession.getText(),residentjobadressinput.getText(),"Resident");
-        } 
-        else if(flag==2) {
-        
-             boolean res = add.checkdata(residentfullnameinput.getText(), residentid.getText(),0,
-                residentflatno.getSelectedItem().toString(),null,null ,null, null,null,"Resident");
+
+        if (flag == 1) {
+            boolean res = add.checkdata(residentfullnameinput.getText(), residentid.getText(), 1,
+                    residentflatno.getSelectedItem().toString(), addresidentcontactno.getText(), residentemail.getText(), residentpermanentadress.getText(), residentprofession.getText(), residentjobadressinput.getText(), "Resident");
+        } else if (flag == 2) {
+
+            boolean res = add.checkdata(residentfullnameinput.getText(), residentid.getText(), 0,
+                    residentflatno.getSelectedItem().toString(), null, null, null, null, null, "Resident");
         }
-       
+
     }//GEN-LAST:event_residentsubmitActionPerformed
 
     private void residentfullnameinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentfullnameinputActionPerformed
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_residentfullnameinputActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
         citizenpanel.setVisible(true);
-        flag =1;
+        flag = 1;
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
         citizenpanel.setVisible(false);
-        flag =2;
+        flag = 2;
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void servicepersonalnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonalnameActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_servicepersonalnameActionPerformed
+
+    private void servicepersonalsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonalsubmitActionPerformed
+        // TODO add your handling code here:
+         boolean res = add.checkdata(servicepersonalname.getText(), servicepersonalnid.getText(), servicepersonalcontact.getText(),
+                servicepersonalpresentaddress.getText(), servicepersonalpermanentaddress.getText(), servicepersonaldesignation.getText(),servicepersonalapartmentno.getText(),servicepersonalexplainationofservice.getText(),"ServiceProvider");
+    }//GEN-LAST:event_servicepersonalsubmitActionPerformed
+
+    private void spoacBut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spoacBut1ActionPerformed
+        // TODO add your handling code here:
+          boolean res = add.checkdata(soe_nameoforg.getText(), soe_reasonofvis.getText(), soe_nid.getText(),
+                soe_name.getText(), soe_contact.getText(), soe_prof.getText(),soe_namepfinst.getText(),"OfficialPersonnel");
+    }//GEN-LAST:event_spoacBut1ActionPerformed
 
     private void initializeSelf() {
 
@@ -2948,6 +2993,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTextField contactnoinput;
     private javax.swing.JTextField contactnumberinput;
     private javax.swing.JLabel contactshowLabel;
+    private javax.swing.JTextField count_people;
     private javax.swing.JLabel dateandtimeLabel;
     private javax.swing.JLabel dateandtimeshowLabel;
     private javax.swing.JComboBox<String> deleteservice;
@@ -3014,6 +3060,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -3068,13 +3115,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JRadioButton left;
     private javax.swing.JPanel manager;
     private javax.swing.JTextField managereditemail;
@@ -3142,18 +3182,25 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTextField servicepersonalapartmentno;
     private javax.swing.JButton servicepersonalback;
     private javax.swing.JTextField servicepersonalcontact;
-    private javax.swing.JTextField servicepersonalcontact1;
-    private javax.swing.JTextField servicepersonalcontact2;
     private javax.swing.JTextField servicepersonaldesignation;
-    private javax.swing.JTextField servicepersonaldesignation1;
+    private javax.swing.JTextField servicepersonalexplainationofservice;
     private javax.swing.JTextField servicepersonalname;
     private javax.swing.JTextField servicepersonalnid;
+    private javax.swing.JTextField servicepersonalpermanentaddress;
+    private javax.swing.JTextField servicepersonalpresentaddress;
     private javax.swing.JButton servicepersonalsubmit;
     private javax.swing.JTable servicepersonaltable;
     private javax.swing.JLabel signinasLabel;
     private javax.swing.JLabel signindesLabel;
     private javax.swing.JLabel signinimageLabel;
     private javax.swing.JButton signoutBut;
+    private javax.swing.JTextField soe_contact;
+    private javax.swing.JTextField soe_name;
+    private javax.swing.JTextField soe_nameoforg;
+    private javax.swing.JTextField soe_namepfinst;
+    private javax.swing.JTextField soe_nid;
+    private javax.swing.JTextField soe_prof;
+    private javax.swing.JTextField soe_reasonofvis;
     private javax.swing.JLabel sopLabel1;
     private javax.swing.JLabel spoLabel11;
     private javax.swing.JLabel spoLabel12;

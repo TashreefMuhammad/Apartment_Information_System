@@ -856,12 +856,12 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="residentid" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                                           <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                           <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
+                                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -871,9 +871,9 @@
                                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                                   <Component id="citizenpanel" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="residentsubmit" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="residentback" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="residentback" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace pref="49" max="32767" attributes="0"/>
                                               </Group>
@@ -1849,9 +1849,9 @@
                                                               <Component id="jLabel51" alignment="0" min="-2" max="-2" attributes="0"/>
                                                               <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="0"/>
                                                               <Component id="servicepersonaldesignation" alignment="0" pref="349" max="32767" attributes="0"/>
-                                                              <Component id="servicepersonalcontact2" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="servicepersonalpresentaddress" alignment="0" max="32767" attributes="0"/>
                                                               <Component id="servicepersonalname" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="servicepersonaldesignation1" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="servicepersonalexplainationofservice" alignment="0" max="32767" attributes="0"/>
                                                               <Component id="servicepersonalcontact" alignment="0" max="32767" attributes="0"/>
                                                           </Group>
                                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1872,7 +1872,7 @@
                                                                       <Group type="102" alignment="0" attributes="0">
                                                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                                               <Component id="servicepersonalapartmentno" alignment="0" pref="350" max="32767" attributes="0"/>
-                                                                              <Component id="servicepersonalcontact1" alignment="0" max="32767" attributes="0"/>
+                                                                              <Component id="servicepersonalpermanentaddress" alignment="0" max="32767" attributes="0"/>
                                                                               <Component id="jLabel54" alignment="0" min="-2" max="-2" attributes="0"/>
                                                                               <Component id="jLabel52" alignment="0" min="-2" max="-2" attributes="0"/>
                                                                               <Component id="servicepersonalnid" alignment="0" max="32767" attributes="0"/>
@@ -1911,8 +1911,8 @@
                                                   </Group>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="servicepersonalcontact1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                                                      <Component id="servicepersonalcontact2" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                                      <Component id="servicepersonalpermanentaddress" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                                      <Component id="servicepersonalpresentaddress" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -1927,7 +1927,7 @@
                                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                                   <Component id="jLabel55" min="-2" pref="25" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="servicepersonaldesignation1" min="-2" pref="27" max="-2" attributes="0"/>
+                                                  <Component id="servicepersonalexplainationofservice" min="-2" pref="27" max="-2" attributes="0"/>
                                                   <EmptySpace max="32767" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="servicepersonalsubmit" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
@@ -1948,6 +1948,9 @@
                                           </Properties>
                                         </Component>
                                         <Component class="javax.swing.JTextField" name="servicepersonalname">
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="servicepersonalnameActionPerformed"/>
+                                          </Events>
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel49">
                                           <Properties>
@@ -2023,6 +2026,9 @@
                                             </Property>
                                             <Property name="text" type="java.lang.String" value="Submit"/>
                                           </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="servicepersonalsubmitActionPerformed"/>
+                                          </Events>
                                         </Component>
                                         <Component class="javax.swing.JButton" name="servicepersonalback">
                                           <Properties>
@@ -2032,13 +2038,13 @@
                                             <Property name="text" type="java.lang.String" value="Back"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="servicepersonalcontact1">
+                                        <Component class="javax.swing.JTextField" name="servicepersonalpermanentaddress">
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="servicepersonalcontact2">
+                                        <Component class="javax.swing.JTextField" name="servicepersonalpresentaddress">
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="servicepersonaldesignation1">
+                                        <Component class="javax.swing.JTextField" name="servicepersonalexplainationofservice">
                                           <Events>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="servicepersonaldesignation1ActionPerformed"/>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="servicepersonalexplainationofserviceActionPerformed"/>
                                           </Events>
                                         </Component>
                                       </SubComponents>
@@ -2328,9 +2334,14 @@
                                                   <Component id="sopLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="spoLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="spoLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jTextField3" alignment="0" pref="400" max="32767" attributes="0"/>
-                                                  <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="soe_nid" alignment="0" pref="400" max="32767" attributes="0"/>
+                                                  <Component id="soe_reasonofvis" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="soe_nameoforg" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="count_people" min="-2" pref="251" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -2340,14 +2351,14 @@
                                                   <Component id="spoLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="spoLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="spoLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jTextField14" alignment="0" pref="400" max="32767" attributes="0"/>
-                                                  <Component id="jTextField13" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jTextField12" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="soe_namepfinst" alignment="0" pref="400" max="32767" attributes="0"/>
+                                                  <Component id="soe_prof" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="soe_contact" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="soe_name" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="341" max="32767" attributes="0"/>
+                                      <EmptySpace pref="62" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -2362,34 +2373,42 @@
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                       <Component id="sopLabel1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="soe_nameoforg" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="spoLabel2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="soe_reasonofvis" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Component id="spoLabel3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                      <Component id="spoLabel4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Component id="spoLabel11" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="spoLabel12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField13" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="spoLabel13" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField14" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="spoacBut1" min="-2" pref="25" max="-2" attributes="0"/>
-                                      <EmptySpace pref="61" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="spoLabel3" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="soe_nid" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="count_people" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                              <Component id="spoLabel4" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="soe_name" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                              <Component id="spoLabel11" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="soe_contact" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                              <Component id="spoLabel12" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="soe_prof" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="spoLabel13" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="soe_namepfinst" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="spoacBut1" min="-2" pref="25" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="71" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2403,7 +2422,7 @@
                                 <Property name="text" type="java.lang.String" value="Name of Organization:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField1">
+                            <Component class="javax.swing.JTextField" name="soe_nameoforg">
                             </Component>
                             <Component class="javax.swing.JLabel" name="spoLabel2">
                               <Properties>
@@ -2413,7 +2432,7 @@
                                 <Property name="text" type="java.lang.String" value="Reason of Visit"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField2">
+                            <Component class="javax.swing.JTextField" name="soe_reasonofvis">
                             </Component>
                             <Component class="javax.swing.JLabel" name="spoLabel3">
                               <Properties>
@@ -2423,7 +2442,7 @@
                                 <Property name="text" type="java.lang.String" value="NID No. of One of the Officials:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField3">
+                            <Component class="javax.swing.JTextField" name="soe_nid">
                             </Component>
                             <Component class="javax.swing.JLabel" name="spoLabel4">
                               <Properties>
@@ -2433,7 +2452,7 @@
                                 <Property name="text" type="java.lang.String" value="Full Name:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField4">
+                            <Component class="javax.swing.JTextField" name="soe_name">
                             </Component>
                             <Component class="javax.swing.JLabel" name="spoLabel11">
                               <Properties>
@@ -2443,7 +2462,7 @@
                                 <Property name="text" type="java.lang.String" value="Contact No.:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField12">
+                            <Component class="javax.swing.JTextField" name="soe_contact">
                             </Component>
                             <Component class="javax.swing.JLabel" name="spoLabel12">
                               <Properties>
@@ -2453,7 +2472,7 @@
                                 <Property name="text" type="java.lang.String" value="Profession:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField13">
+                            <Component class="javax.swing.JTextField" name="soe_prof">
                             </Component>
                             <Component class="javax.swing.JLabel" name="spoLabel13">
                               <Properties>
@@ -2463,11 +2482,24 @@
                                 <Property name="text" type="java.lang.String" value="Name of Work Institution"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField14">
+                            <Component class="javax.swing.JTextField" name="soe_namepfinst">
                             </Component>
                             <Component class="javax.swing.JButton" name="spoacBut1">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="OK"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="spoacBut1ActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="count_people">
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel30">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="SansSerif" size="14" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Number Of People:"/>
                               </Properties>
                             </Component>
                           </SubComponents>

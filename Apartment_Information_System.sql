@@ -257,6 +257,7 @@ SELECT * FROM ServiceDuration
 SELECT * FROM GuestEntry
 SELECT * FROM Requests
 SELECT * FROM Transactions
+SELECT * FROM ServiceProvider
 
 --  Deleting Table with all Entries --
 
