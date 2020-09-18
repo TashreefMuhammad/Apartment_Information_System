@@ -260,7 +260,7 @@ SELECT * FROM Transactions
 SELECT * FROM ServiceProvider
 
 --  Deleting Table with all Entries --
-
+/*
 Drop table Guest 
 Drop table ServiceProvider
 Drop table Resident
@@ -273,4 +273,10 @@ Drop table ServiceProviderEntry
 Drop table ServiceDuration
 Drop table GuestEntry 
 Drop table Requests
-Drop table Transactions
+Drop table Transactions*/
+
+
+
+SELECT * FROM Manager Where Contact_No = '01718438309' AND Pass = HASHBYTES('MD5','01718438309')
+
+update Manager set Pass=HASHBYTES('MD5','01718438309') where Contact_No='01718438309'

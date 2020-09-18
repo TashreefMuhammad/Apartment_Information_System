@@ -53,7 +53,7 @@ public class Model_AddNewAccountData {
         return true;
     }
 
-    public boolean returnval(String name, String nid_bid, int citizenship, String flatno, String contactno, String email, String permanentaddress, String profession, String jobaddress, String role) {
+    public boolean returnval(String dtid,String tme,String name, String nid_bid, int citizenship, String flatno, String contactno, String email, String permanentaddress, String profession, String jobaddress, String role) {
         try {
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery("SELECT COUNT(*) FROM " + role);
@@ -83,6 +83,15 @@ public class Model_AddNewAccountData {
             stmt.setString(12, contactno);
 
             stmt.executeQuery();
+            
+            stmt = connection.prepareStatement("INSERT into Flat(DTID,DTIN,DTOUT,Flat_No,ResidentID)VALUES(?,?,?,?,?)");
+            
+            stmt.setString(1, dtid+"FL");
+            stmt.setString(2, tme);
+            stmt.setString(3, "NULL");
+            stmt.setString(4, flatno);
+            stmt.setString(5, sid);
+            
             //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
 
         } catch (SQLException e) {
@@ -127,7 +136,7 @@ public class Model_AddNewAccountData {
         return true;
     }
     
-     public boolean returnval(String name, String nid,String contactno, String presentaddress, String permanenetaddress,String designation,String flatno, String explainationofservice,String role) {
+     public boolean returnval(String dtid,String tme,String name, String nid,String contactno, String presentaddress, String permanenetaddress,String designation,String flatno, String explainationofservice,String role) {
         try {
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery("SELECT COUNT(*) FROM " + role);
@@ -153,7 +162,14 @@ public class Model_AddNewAccountData {
 
             stmt.executeQuery();
             //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
-
+            
+            stmt = connection.prepareStatement("INSERT into ServiceDuration(DTID,DTIN,Flat_No,SPID,DTOUT)VALUES(?,?,?,?,?)");
+            stmt.setString(1, dtid+"SD");
+            stmt.setString(2, tme);
+            stmt.setString(3, flatno);
+            stmt.setString(4, sid);
+            stmt.setString(5, "NULL");
+            
         } catch (SQLException e) {
             System.out.println(e);
         }
@@ -161,7 +177,7 @@ public class Model_AddNewAccountData {
         return true;
     }
      
-     public boolean returnval(String namoforg, String reasonofvis,String nid, String name, String contact,String prof,String namofinst,String role) {
+     public boolean returnval(String dtid,int mid,String namoforg, String reasonofvis,String nid,String count, String name, String contact,String prof,String namofinst,String role) {
         try {
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery("SELECT COUNT(*) FROM " + role);
@@ -172,13 +188,13 @@ public class Model_AddNewAccountData {
                 id = res.getInt(1);
             }
             id++;
-            sid = id + sid;
+            sid = dtid + sid;
             System.out.println(role);
             PreparedStatement stmt = connection.prepareStatement("INSERT INTO " + role + " (DTID,ManagerID,Organization_Name,Reason,CountPeople,NID,Name,Contact_No,Profession,WorkInstitute) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
 
             //  stmt.setString(1, role);
             stmt.setString(1, sid);
-            stmt.setString(2, mid);
+            stmt.setString(2, mid+"MID");
             stmt.setString(3, namoforg);
             stmt.setString(4, reasonofvis);
             stmt.setString(5, count);

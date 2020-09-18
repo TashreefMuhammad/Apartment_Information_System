@@ -5,6 +5,8 @@ import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import java.util.Date;
+import java.sql.Timestamp;
 import javax.swing.JOptionPane;
 
 public class View_CommonInterface extends javax.swing.JFrame {
@@ -14,10 +16,40 @@ public class View_CommonInterface extends javax.swing.JFrame {
      */
     Controller_LoginHandling checker = new Controller_LoginHandling();
     Controller_AddNewAccount add = new Controller_AddNewAccount();
+    Controller_EditAccount edit = new Controller_EditAccount();
     int flag = 0;
+    int sec_act_stat = 0;
+    int res_act_stat = 0;
+    int mana_act_stat = 0;
+    int id;
+    String tme, dtid;
 
     public View_CommonInterface() {
         initComponents();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                        Date date = new Date();
+
+                        long time = date.getTime();
+                        dtid = time + "";
+                        //System.out.println("Time in Milliseconds: " + time);
+
+                        Timestamp ts = new Timestamp(time);
+                        //System.out.println("Current Time Stamp: " + ts);
+                        tme = ts + "";
+                        tme = tme.substring(0, tme.length() - 4);
+                        dateandtimeshowLabel.setText(tme);
+                    } catch (InterruptedException ex) {
+                        System.out.println(ex);
+                    }
+
+                }
+            }
+        }).start();
         initializeSelf();
 
     }
@@ -32,6 +64,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private void initComponents() {
 
         chooseCitizenship = new javax.swing.ButtonGroup();
+        SecurityStatus = new javax.swing.ButtonGroup();
+        ResidentLiving = new javax.swing.ButtonGroup();
         background = new javax.swing.JPanel();
         panellayers = new javax.swing.JLayeredPane();
         managerpanel = new javax.swing.JPanel();
@@ -50,7 +84,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         addsecuritysubmit = new javax.swing.JButton();
-        addbackbutton = new javax.swing.JButton();
         addcontactinput = new javax.swing.JTextField();
         addpresentadress = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
@@ -59,13 +92,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         addsecuritytable = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
-        Nameinput = new javax.swing.JTextField();
+        contactno_input = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        contactnumberinput = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        Nidinput = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        ContactInput = new javax.swing.JTextField();
+        name_input = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         presentadressinput = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -74,7 +103,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
         active = new javax.swing.JRadioButton();
         inactive = new javax.swing.JRadioButton();
         Submit = new javax.swing.JButton();
-        addsecurityback = new javax.swing.JButton();
         jLabel45 = new javax.swing.JLabel();
         emailinput = new javax.swing.JTextField();
         resident = new javax.swing.JPanel();
@@ -99,19 +127,16 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel63 = new javax.swing.JLabel();
         residentjobadressinput = new javax.swing.JTextField();
         residentsubmit = new javax.swing.JButton();
-        residentback = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         editresident = new javax.swing.JPanel();
         bidorcontact = new javax.swing.JComboBox<>();
         bidorcontactinput = new javax.swing.JTextField();
         bidpanel = new javax.swing.JPanel();
-        nidno = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         emailno = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        profession = new javax.swing.JTextField();
+        job_address = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         staying = new javax.swing.JRadioButton();
@@ -121,6 +146,10 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         residenttable = new javax.swing.JTable();
         profession1 = new javax.swing.JTextField();
+        nidno = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        namein = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         manager = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         addmanager = new javax.swing.JPanel();
@@ -132,7 +161,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
         newmanagerpermanentadress = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         newmanagersubmit = new javax.swing.JButton();
-        newmanagerback = new javax.swing.JButton();
         newmanagernid = new javax.swing.JTextField();
         E = new javax.swing.JLabel();
         manageremailinput = new javax.swing.JTextField();
@@ -142,19 +170,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         managernumber = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
-        editmanagername = new javax.swing.JTextField();
-        jLabel43 = new javax.swing.JLabel();
-        editmanagernid = new javax.swing.JTextField();
-        jLabel44 = new javax.swing.JLabel();
-        editmanagercontact = new javax.swing.JTextField();
+        managername = new javax.swing.JTextField();
+        manager_address = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         statuscheck = new javax.swing.JCheckBox();
         editmanagersave = new javax.swing.JButton();
-        editmanagerback = new javax.swing.JButton();
-        editmanagercontact1 = new javax.swing.JTextField();
         jLabel62 = new javax.swing.JLabel();
-        managereditemail = new javax.swing.JTextField();
+        manageremail = new javax.swing.JTextField();
         servicepersonal = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         addservicepersonal = new javax.swing.JPanel();
@@ -172,7 +195,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
         servicepersonalapartmentno = new javax.swing.JTextField();
         jLabel55 = new javax.swing.JLabel();
         servicepersonalsubmit = new javax.swing.JButton();
-        servicepersonalback = new javax.swing.JButton();
         servicepersonalpermanentaddress = new javax.swing.JTextField();
         servicepersonalpresentaddress = new javax.swing.JTextField();
         servicepersonalexplainationofservice = new javax.swing.JTextField();
@@ -180,18 +202,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jScrollPane18 = new javax.swing.JScrollPane();
         servicepersonaltable = new javax.swing.JTable();
         jLabel56 = new javax.swing.JLabel();
-        editservicepersonalcontact = new javax.swing.JTextField();
+        SP_Designation = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
-        recivingservice = new javax.swing.JComboBox<>();
         jLabel60 = new javax.swing.JLabel();
         deleteservice = new javax.swing.JComboBox<>();
         Save = new javax.swing.JButton();
-        editservicepersonalback = new javax.swing.JButton();
-        editservicepersonalcontact1 = new javax.swing.JTextField();
+        editSPcontact = new javax.swing.JTextField();
         editservicepersonalcontact2 = new javax.swing.JTextField();
-        editservicepersonalcontact3 = new javax.swing.JTextField();
+        editSP_Address = new javax.swing.JTextField();
         spolayeredpanel = new javax.swing.JLayeredPane();
         spopanel = new javax.swing.JPanel();
         sopLabel1 = new javax.swing.JLabel();
@@ -238,11 +257,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         amountinput = new javax.swing.JTextField();
         submitbutton = new javax.swing.JButton();
+        transictionback = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         reportedtransiction = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         reeportedtransictiontable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        transictionback = new javax.swing.JButton();
         requestpanel = new javax.swing.JPanel();
         rqstscrollpane = new javax.swing.JScrollPane();
         requesttable = new javax.swing.JTable();
@@ -366,9 +387,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         });
 
-        addbackbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        addbackbutton.setText("Back");
-
         jLabel39.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel39.setText("Email");
 
@@ -405,11 +423,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
                                 .addComponent(fullnameinput, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(addpresentadress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(addsecurityLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(addsecuritysubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(addbackbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(286, 286, 286)
+                        .addComponent(addsecuritysubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         addsecurityLayout.setVerticalGroup(
             addsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -438,11 +454,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel21)
                 .addGap(18, 18, 18)
                 .addComponent(addpermanentadress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addGroup(addsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addsecuritysubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addbackbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(addsecuritysubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         jTabbedPane1.addTab("Add Account", addsecurity);
@@ -468,20 +482,20 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Name");
 
-        contactnumberinput.addActionListener(new java.awt.event.ActionListener() {
+        name_input.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactnumberinputActionPerformed(evt);
+                name_inputActionPerformed(evt);
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setText("NID");
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel13.setText("Contact");
-
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("Present Address");
+
+        presentadressinput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                presentadressinputActionPerformed(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Permanent Adress");
@@ -495,24 +509,31 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Status");
 
+        SecurityStatus.add(active);
         active.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         active.setText("Active");
+        active.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activeActionPerformed(evt);
+            }
+        });
 
+        SecurityStatus.add(inactive);
         inactive.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         inactive.setText("Inactive");
+        inactive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inactiveActionPerformed(evt);
+            }
+        });
 
         Submit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Submit.setText("Submit");
         Submit.setMaximumSize(new java.awt.Dimension(80, 25));
         Submit.setMinimumSize(new java.awt.Dimension(80, 25));
-
-        addsecurityback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        addsecurityback.setText("Back");
-        addsecurityback.setMaximumSize(new java.awt.Dimension(80, 25));
-        addsecurityback.setMinimumSize(new java.awt.Dimension(80, 25));
-        addsecurityback.addActionListener(new java.awt.event.ActionListener() {
+        Submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addsecuritybackActionPerformed(evt);
+                SubmitActionPerformed(evt);
             }
         });
 
@@ -523,35 +544,49 @@ public class View_CommonInterface extends javax.swing.JFrame {
         editsecurity.setLayout(editsecurityLayout);
         editsecurityLayout.setHorizontalGroup(
             editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editsecurityLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel11)
+            .addGroup(editsecurityLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel45)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel14)
-                    .addComponent(presentadressinput)
-                    .addComponent(emailinput)
-                    .addComponent(ContactInput)
-                    .addComponent(Nidinput)
-                    .addComponent(contactnumberinput)
-                    .addComponent(Nameinput, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Permanentadressinput)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel16)
                     .addGroup(editsecurityLayout.createSequentialGroup()
                         .addComponent(active)
                         .addGap(50, 50, 50)
-                        .addComponent(inactive))
-                    .addComponent(jLabel16)
+                        .addComponent(inactive)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(editsecurityLayout.createSequentialGroup()
+                .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(editsecurityLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addsecurityback, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(71, 71, 71)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(editsecurityLayout.createSequentialGroup()
+                                .addComponent(contactno_input, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(editsecurityLayout.createSequentialGroup()
+                                .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(emailinput, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(name_input, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Permanentadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                    .addGroup(editsecurityLayout.createSequentialGroup()
+                        .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(editsecurityLayout.createSequentialGroup()
+                                .addGap(171, 171, 171)
+                                .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(editsecurityLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel45))
+                            .addGroup(editsecurityLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel14))
+                            .addGroup(editsecurityLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(presentadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(editsecurityLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel15)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         editsecurityLayout.setVerticalGroup(
@@ -560,46 +595,37 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(editsecurityLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(editsecurityLayout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Nameinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(contactno_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(contactnumberinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Nidinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ContactInput, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(name_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel45)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(emailinput, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(presentadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Permanentadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(emailinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(presentadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Permanentadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(active)
                             .addComponent(inactive))
-                        .addGap(29, 29, 29)
-                        .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addsecurityback, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 26, Short.MAX_VALUE))
-                    .addComponent(jScrollPane4))
-                .addContainerGap())
+                        .addGap(68, 68, 68)
+                        .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.addTab("Edit Account", editsecurity);
@@ -614,7 +640,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         securityLayout.setVerticalGroup(
             securityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("Security", security);
@@ -642,6 +668,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel25.setText("Flat No");
 
         residentflatno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A1", "A2", "B1", "B2", "C1", "C2" }));
+        residentflatno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                residentflatnoActionPerformed(evt);
+            }
+        });
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel26.setText("Contact No");
@@ -697,19 +728,19 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGroup(citizenpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addresidentcontactno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(residentemail))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel28)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(residentpermanentadress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(residentprofession, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jLabel63)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(residentjobadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(residentjobadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         residentsubmit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -719,9 +750,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 residentsubmitActionPerformed(evt);
             }
         });
-
-        residentback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        residentback.setText("Back");
 
         chooseCitizenship.add(jRadioButton1);
         jRadioButton1.setText("Citizen");
@@ -764,13 +792,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addGroup(addresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(residentid, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                                 .addComponent(residentfullnameinput, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addresidentLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(residentsubmit)
-                .addGap(56, 56, 56)
-                .addComponent(residentback, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114))
+                .addGap(131, 131, 131))
         );
         addresidentLayout.setVerticalGroup(
             addresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -795,11 +821,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
                     .addComponent(residentflatno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(citizenpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(addresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(residentsubmit)
-                    .addComponent(residentback))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(residentsubmit)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Add Account", addresident);
@@ -809,30 +833,25 @@ public class View_CommonInterface extends javax.swing.JFrame {
         bidorcontact.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bidorcontact.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Contact", "BID" }));
 
-        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel31.setText("NID");
-
         javax.swing.GroupLayout bidpanelLayout = new javax.swing.GroupLayout(bidpanel);
         bidpanel.setLayout(bidpanelLayout);
         bidpanelLayout.setHorizontalGroup(
             bidpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bidpanelLayout.createSequentialGroup()
-                .addGroup(bidpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nidno, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         bidpanelLayout.setVerticalGroup(
             bidpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bidpanelLayout.createSequentialGroup()
-                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(nidno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+            .addGap(0, 80, Short.MAX_VALUE)
         );
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel32.setText("Email");
+
+        emailno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailnoActionPerformed(evt);
+            }
+        });
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel33.setText("Profession");
@@ -843,14 +862,31 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel35.setText("Status");
 
+        ResidentLiving.add(staying);
         staying.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         staying.setText("Staying");
+        staying.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stayingActionPerformed(evt);
+            }
+        });
 
+        ResidentLiving.add(left);
         left.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         left.setText("Left");
+        left.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leftActionPerformed(evt);
+            }
+        });
 
         saveinfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         saveinfo.setText("Save");
+        saveinfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveinfoActionPerformed(evt);
+            }
+        });
 
         residenteditback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         residenteditback.setText("Back");
@@ -868,6 +904,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
         ));
         jScrollPane7.setViewportView(residenttable);
 
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel31.setText("NID");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setText("Name");
+
         javax.swing.GroupLayout editresidentLayout = new javax.swing.GroupLayout(editresident);
         editresident.setLayout(editresidentLayout);
         editresidentLayout.setHorizontalGroup(
@@ -875,12 +917,19 @@ public class View_CommonInterface extends javax.swing.JFrame {
             .addGroup(editresidentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(editresidentLayout.createSequentialGroup()
-                        .addComponent(jLabel35)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editresidentLayout.createSequentialGroup()
                         .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bidpanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editresidentLayout.createSequentialGroup()
+                                .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(editresidentLayout.createSequentialGroup()
+                                        .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel12))
+                                        .addGap(306, 306, 306))
+                                    .addGroup(editresidentLayout.createSequentialGroup()
+                                        .addComponent(namein)
+                                        .addGap(6, 6, 6)))
+                                .addComponent(bidpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editresidentLayout.createSequentialGroup()
                                 .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(bidorcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -890,17 +939,22 @@ public class View_CommonInterface extends javax.swing.JFrame {
                                     .addGroup(editresidentLayout.createSequentialGroup()
                                         .addComponent(staying)
                                         .addGap(50, 50, 50)
-                                        .addComponent(left))
-                                    .addGroup(editresidentLayout.createSequentialGroup()
-                                        .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(residenteditback, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 112, Short.MAX_VALUE))
+                                        .addComponent(left)))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(bidorcontactinput, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(emailno, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(profession1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(profession, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(81, 81, 81)))
+                            .addComponent(job_address, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(editresidentLayout.createSequentialGroup()
+                                .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(160, 160, 160)
+                                .addComponent(residenteditback, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(81, 81, 81))
+                    .addGroup(editresidentLayout.createSequentialGroup()
+                        .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel35)
+                            .addComponent(nidno, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -915,20 +969,29 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(bidorcontactinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(bidpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(bidpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(editresidentLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(namein, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(9, 9, 9)
+                        .addComponent(nidno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(emailno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(profession1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(profession1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
                         .addComponent(jLabel34)
-                        .addGap(18, 18, 18)
-                        .addComponent(profession, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(job_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
                         .addComponent(jLabel35)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -938,7 +1001,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(residenteditback))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Edit Account", editresident);
@@ -951,7 +1014,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         residentLayout.setVerticalGroup(
             residentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("Resident", resident);
@@ -986,9 +1049,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         });
 
-        newmanagerback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        newmanagerback.setText("Back");
-
         E.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         E.setText("Email");
 
@@ -997,63 +1057,55 @@ public class View_CommonInterface extends javax.swing.JFrame {
         addmanagerLayout.setHorizontalGroup(
             addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addmanagerLayout.createSequentialGroup()
-                .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addmanagerLayout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(newmanagersubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(147, 147, 147)
-                        .addComponent(newmanagerback, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(addmanagerLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(newmanagercontactno, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(272, Short.MAX_VALUE))
-            .addGroup(addmanagerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addmanagerLayout.createSequentialGroup()
-                        .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel37)
-                            .addComponent(E)
-                            .addComponent(manageremailinput, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(addmanagerLayout.createSequentialGroup()
-                        .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(newmanagernid, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel38, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(newmanagerpermanentadress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                            .addComponent(newmanagername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(newmanagersubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newmanagerpermanentadress, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageremailinput, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newmanagercontactno, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(addmanagerLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel38)
+                                    .addComponent(newmanagernid, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel36)
+                                .addComponent(newmanagername, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(addmanagerLayout.createSequentialGroup()
+                            .addGap(23, 23, 23)
+                            .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel40)
+                                .addComponent(jLabel37)
+                                .addComponent(E)))))
+                .addContainerGap(416, Short.MAX_VALUE))
         );
         addmanagerLayout.setVerticalGroup(
             addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addmanagerLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel36)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(newmanagername, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel38)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(newmanagernid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel37)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(newmanagercontactno, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(E)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(manageremailinput, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel40)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(newmanagerpermanentadress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(newmanagersubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(newmanagerback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(151, 151, 151))
+                .addGap(90, 90, 90)
+                .addComponent(newmanagersubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(142, 142, 142))
         );
 
         jTabbedPane3.addTab("Add Account", addmanager);
@@ -1080,18 +1132,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel42.setText("Name");
 
-        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel43.setText("NID");
-
-        editmanagernid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editmanagernidActionPerformed(evt);
-            }
-        });
-
-        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel44.setText("Contact");
-
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel46.setText("Permanent Adress");
 
@@ -1114,20 +1154,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         });
 
-        editmanagerback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        editmanagerback.setText("Back");
-        editmanagerback.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editmanagerbackActionPerformed(evt);
-            }
-        });
-
         jLabel62.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel62.setText("Email");
 
-        managereditemail.addActionListener(new java.awt.event.ActionListener() {
+        manageremail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                managereditemailActionPerformed(evt);
+                manageremailActionPerformed(evt);
             }
         });
 
@@ -1136,27 +1168,24 @@ public class View_CommonInterface extends javax.swing.JFrame {
         editmanagerLayout.setHorizontalGroup(
             editmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editmanagerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(editmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel41)
-                    .addComponent(jLabel42)
-                    .addComponent(jLabel43)
-                    .addComponent(jLabel44)
-                    .addComponent(jLabel46)
-                    .addComponent(statuscheck)
-                    .addComponent(editmanagercontact, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                    .addComponent(editmanagernid)
-                    .addComponent(editmanagername)
-                    .addComponent(managernumber)
-                    .addComponent(editmanagercontact1)
+                .addGroup(editmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(editmanagerLayout.createSequentialGroup()
-                        .addComponent(editmanagersave, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(editmanagerback, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel47)
-                    .addComponent(jLabel62)
-                    .addComponent(managereditemail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addGroup(editmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel41)
+                            .addComponent(jLabel42)
+                            .addComponent(jLabel46)
+                            .addComponent(statuscheck)
+                            .addComponent(manager_address, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                            .addComponent(managername)
+                            .addComponent(managernumber)
+                            .addComponent(jLabel47)
+                            .addComponent(jLabel62)
+                            .addComponent(manageremail)))
+                    .addGroup(editmanagerLayout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(editmanagersave, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1173,35 +1202,28 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addComponent(jLabel41)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(managernumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel42)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(editmanagername, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel43)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(editmanagernid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel44)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(editmanagercontact1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel62)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(managereditemail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel46)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(editmanagercontact, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(statuscheck)
                         .addGap(18, 18, 18)
-                        .addGroup(editmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(editmanagersave, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editmanagerback, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(85, 85, 85))))
+                        .addComponent(jLabel42)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(managername, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel62)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(manageremail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel46)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(manager_address, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(editmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(editmanagerLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(statuscheck))
+                            .addGroup(editmanagerLayout.createSequentialGroup()
+                                .addGap(146, 146, 146)
+                                .addComponent(editmanagersave, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(67, 67, 67))))
         );
 
         jTabbedPane3.addTab("Edit Account", editmanager);
@@ -1258,19 +1280,23 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel54.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel54.setText("Apartment No. Reciving Service");
 
+        servicepersonalapartmentno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                servicepersonalapartmentnoActionPerformed(evt);
+            }
+        });
+
         jLabel55.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel55.setText("Explaination Of Service");
 
         servicepersonalsubmit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         servicepersonalsubmit.setText("Submit");
+        servicepersonalsubmit.setPreferredSize(new java.awt.Dimension(77, 25));
         servicepersonalsubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 servicepersonalsubmitActionPerformed(evt);
             }
         });
-
-        servicepersonalback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        servicepersonalback.setText("Back");
 
         servicepersonalexplainationofservice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1301,27 +1327,23 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(servicepersonalname, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(servicepersonalexplainationofservice, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(servicepersonalcontact, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                         .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(addservicepersonalLayout.createSequentialGroup()
-                                .addGap(148, 148, 148)
-                                .addComponent(servicepersonalsubmit)
-                                .addGap(46, 46, 46)
-                                .addComponent(servicepersonalback, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(97, Short.MAX_VALUE))
+                                .addComponent(jLabel49)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(addservicepersonalLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(addservicepersonalLayout.createSequentialGroup()
-                                        .addComponent(jLabel49)
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(addservicepersonalLayout.createSequentialGroup()
-                                        .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(servicepersonalapartmentno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                                            .addComponent(servicepersonalpermanentaddress, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel52, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(servicepersonalnid, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addGap(0, 0, Short.MAX_VALUE))))))))
+                                .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(servicepersonalapartmentno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                                    .addComponent(servicepersonalpermanentaddress, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel52, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(servicepersonalnid, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(0, 64, Short.MAX_VALUE))))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addservicepersonalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(servicepersonalsubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
         );
         addservicepersonalLayout.setVerticalGroup(
             addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1353,16 +1375,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(servicepersonaldesignation, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(servicepersonalapartmentno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(servicepersonalapartmentno, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(servicepersonalexplainationofservice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(servicepersonalsubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(servicepersonalback, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(servicepersonalsubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Add Account", addservicepersonal);
@@ -1391,11 +1411,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel58.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel58.setText("Designation");
 
-        jLabel59.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel59.setText("Add Apartment Reciving Service");
-
-        recivingservice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A1", "A2", "B1", "B2", "C1", "C2" }));
-
         jLabel60.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel60.setText("Delete Apartment Reciving Service");
 
@@ -1408,9 +1423,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
         Save.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Save.setText("Save");
-
-        editservicepersonalback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        editservicepersonalback.setText("Back");
+        Save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout editservicepersonalLayout = new javax.swing.GroupLayout(editservicepersonal);
         editservicepersonal.setLayout(editservicepersonalLayout);
@@ -1420,29 +1437,25 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGroup(editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(editservicepersonalLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel56)
                             .addComponent(jLabel57)
                             .addComponent(jLabel58)
-                            .addComponent(jLabel59)
-                            .addComponent(recivingservice, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel60)
-                            .addComponent(deleteservice, 0, 284, Short.MAX_VALUE)))
-                    .addGroup(editservicepersonalLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(Save, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
-                        .addComponent(editservicepersonalback, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(deleteservice, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(editservicepersonalLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(editservicepersonalcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(editSPcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(editservicepersonalLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(Save, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(editservicepersonalLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(editservicepersonalcontact3, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(editSP_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(editservicepersonalLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(editservicepersonalcontact1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addComponent(SP_Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1453,38 +1466,32 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         editservicepersonalLayout.setVerticalGroup(
             editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane18)
+            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
             .addGroup(editservicepersonalLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel56)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(editservicepersonalcontact1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editSPcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel57)
-                .addGap(18, 18, 18)
-                .addComponent(editservicepersonalcontact3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editSP_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel58)
-                .addGap(18, 18, 18)
-                .addComponent(editservicepersonalcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jLabel59)
-                .addGap(18, 18, 18)
-                .addComponent(recivingservice, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SP_Designation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
                 .addComponent(jLabel60)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deleteservice, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addGroup(editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Save, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editservicepersonalback, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Save, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
             .addGroup(editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(editservicepersonalLayout.createSequentialGroup()
                     .addGap(89, 89, 89)
                     .addComponent(editservicepersonalcontact2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(476, Short.MAX_VALUE)))
+                    .addContainerGap(516, Short.MAX_VALUE)))
         );
 
         jTabbedPane4.addTab("Edit Account", editservicepersonal);
@@ -1497,7 +1504,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         servicepersonalLayout.setVerticalGroup(
             servicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("Service Personnel", servicepersonal);
@@ -1552,6 +1559,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         });
 
+        count_people.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                count_peopleActionPerformed(evt);
+            }
+        });
+
         jLabel30.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel30.setText("Number Of People:");
 
@@ -1589,7 +1602,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, spopanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(172, 172, 172))
+                .addGap(116, 116, 116))
         );
         spopanelLayout.setVerticalGroup(
             spopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1625,11 +1638,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(spoLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(soe_namepfinst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(soe_namepfinst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel30))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         spotablepanel.setPreferredSize(new java.awt.Dimension(840, 605));
@@ -1663,7 +1676,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             spotablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(spotablepanelLayout.createSequentialGroup()
                 .addComponent(spotablescrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(spotablebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -1675,15 +1688,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spolayeredpanel.setLayout(spolayeredpanelLayout);
         spolayeredpanelLayout.setHorizontalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE))
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE))
         );
 
         managertabbedpane.addTab("  Specialized Official Entry  ", spolayeredpanel);
@@ -1720,9 +1733,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(flatcombobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(informationbox, 0, 302, Short.MAX_VALUE))
-                .addContainerGap(451, Short.MAX_VALUE))
+                .addContainerGap(438, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rescommainLayout.createSequentialGroup()
-                .addContainerGap(502, Short.MAX_VALUE)
+                .addContainerGap(489, Short.MAX_VALUE)
                 .addComponent(okbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(197, 197, 197))
         );
@@ -1756,6 +1769,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Name");
 
+        personnameinput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                personnameinputActionPerformed(evt);
+            }
+        });
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Contact No");
 
@@ -1771,46 +1790,57 @@ public class View_CommonInterface extends javax.swing.JFrame {
         submitbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         submitbutton.setText("Submit");
 
+        transictionback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        transictionback.setText("Back");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable2);
+
         javax.swing.GroupLayout newtransictionLayout = new javax.swing.GroupLayout(newtransiction);
         newtransiction.setLayout(newtransictionLayout);
         newtransictionLayout.setHorizontalGroup(
             newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newtransictionLayout.createSequentialGroup()
                 .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newtransictionLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(newtransictionLayout.createSequentialGroup()
-                        .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(34, 34, 34)
+                        .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(newtransictionLayout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(organizationnameinput)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(organizationtypeinput, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)))
-                            .addGroup(newtransictionLayout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(newtransictionLayout.createSequentialGroup()
-                                .addGap(310, 310, 310)
-                                .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(personnameinput, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(contactnoinput, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(newtransictionLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(amountinput, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 44, Short.MAX_VALUE)))
-                .addContainerGap(193, Short.MAX_VALUE))
+                                .addComponent(amountinput))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(organizationnameinput)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(organizationtypeinput, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                            .addComponent(personnameinput)
+                            .addComponent(contactnoinput))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE))
+                    .addGroup(newtransictionLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                        .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 3, Short.MAX_VALUE))
         );
         newtransictionLayout.setVerticalGroup(
             newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(newtransictionLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newtransictionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -1819,26 +1849,26 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(organizationtypeinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel6)
-                .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(newtransictionLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(personnameinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(contactnoinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9))
-                    .addGroup(newtransictionLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(amountinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(4, 4, 4)
-                .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(personnameinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contactnoinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(amountinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
 
         transictiontabbedpane.addTab("tab2", newtransiction);
@@ -1860,7 +1890,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         reportedtransiction.setLayout(reportedtransictionLayout);
         reportedtransictionLayout.setHorizontalGroup(
             reportedtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 853, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
         );
         reportedtransictionLayout.setVerticalGroup(
             reportedtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1873,22 +1903,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(240, 0, 0));
         jLabel3.setText("Amount In Store Flat (A1) : 20000/- ");
 
-        transictionback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        transictionback.setText("Back");
-
         javax.swing.GroupLayout transictionLayout = new javax.swing.GroupLayout(transiction);
         transiction.setLayout(transictionLayout);
         transictionLayout.setHorizontalGroup(
             transictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(transictiontabbedpane)
             .addGroup(transictionLayout.createSequentialGroup()
-                .addGroup(transictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(transictionLayout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(jLabel3))
-                    .addGroup(transictionLayout.createSequentialGroup()
-                        .addGap(346, 346, 346)
-                        .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(186, 186, 186)
+                .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         transictionLayout.setVerticalGroup(
@@ -1898,9 +1920,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(transictiontabbedpane, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(transictionback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         requestpanel.setPreferredSize(new java.awt.Dimension(840, 605));
@@ -1926,7 +1946,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         requestpanel.setLayout(requestpanelLayout);
         requestpanelLayout.setHorizontalGroup(
             requestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rqstscrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+            .addComponent(rqstscrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
             .addGroup(requestpanelLayout.createSequentialGroup()
                 .addGap(353, 353, 353)
                 .addComponent(requestback, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1938,7 +1958,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(rqstscrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(requestback)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(rescommain, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1949,30 +1969,30 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rescompanelLayout = new javax.swing.GroupLayout(rescompanel);
         rescompanel.setLayout(rescompanelLayout);
         rescompanelLayout.setHorizontalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         rescompanelLayout.setVerticalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
         );
 
         managertabbedpane.addTab("  Resident Communication  ", rescompanel);
@@ -2746,21 +2766,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_contactnoinputActionPerformed
 
-    private void editmanagernidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editmanagernidActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editmanagernidActionPerformed
-
     private void statuscheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statuscheckActionPerformed
-        // TODO add your handling code here:
+        mana_act_stat = 1;
     }//GEN-LAST:event_statuscheckActionPerformed
 
     private void editmanagersaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editmanagersaveActionPerformed
-        // TODO add your handling code here:
+        boolean editmana = edit.editinfo(managernumber.getText(),managername.getText(),manageremail.getText(),manager_address.getText(),mana_act_stat);
     }//GEN-LAST:event_editmanagersaveActionPerformed
-
-    private void editmanagerbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editmanagerbackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editmanagerbackActionPerformed
 
     private void newmanagercontactnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newmanagercontactnoActionPerformed
         // TODO add your handling code here:
@@ -2782,18 +2794,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteserviceActionPerformed
 
-    private void addsecuritybackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsecuritybackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsecuritybackActionPerformed
-
-    private void PermanentadressinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PermanentadressinputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PermanentadressinputActionPerformed
-
-    private void contactnumberinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactnumberinputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contactnumberinputActionPerformed
-
     private void servicepersonalexplainationofserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonalexplainationofserviceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_servicepersonalexplainationofserviceActionPerformed
@@ -2814,9 +2814,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_addemailinputActionPerformed
 
-    private void managereditemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managereditemailActionPerformed
+    private void manageremailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageremailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_managereditemailActionPerformed
+    }//GEN-LAST:event_manageremailActionPerformed
 
     private void addsecuritysubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsecuritysubmitActionPerformed
         // TODO add your handling code here:
@@ -2827,11 +2827,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private void residentsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentsubmitActionPerformed
 
         if (flag == 1) {
-            boolean res = add.checkdata(residentfullnameinput.getText(), residentid.getText(), 1,
+            boolean res = add.checkdata(dtid, tme, residentfullnameinput.getText(), residentid.getText(), 1,
                     residentflatno.getSelectedItem().toString(), addresidentcontactno.getText(), residentemail.getText(), residentpermanentadress.getText(), residentprofession.getText(), residentjobadressinput.getText(), "Resident");
         } else if (flag == 2) {
 
-            boolean res = add.checkdata(residentfullnameinput.getText(), residentid.getText(), 0,
+            boolean res = add.checkdata(dtid, tme, residentfullnameinput.getText(), residentid.getText(), 0,
                     residentflatno.getSelectedItem().toString(), null, null, null, null, null, "Resident");
         }
 
@@ -2861,15 +2861,77 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     private void servicepersonalsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonalsubmitActionPerformed
         // TODO add your handling code here:
-         boolean res = add.checkdata(servicepersonalname.getText(), servicepersonalnid.getText(), servicepersonalcontact.getText(),
-                servicepersonalpresentaddress.getText(), servicepersonalpermanentaddress.getText(), servicepersonaldesignation.getText(),servicepersonalapartmentno.getText(),servicepersonalexplainationofservice.getText(),"ServiceProvider");
+        boolean res = add.checkdata(dtid, tme, servicepersonalname.getText(), servicepersonalnid.getText(), servicepersonalcontact.getText(),
+                servicepersonalpresentaddress.getText(), servicepersonalpermanentaddress.getText(), servicepersonaldesignation.getText(), servicepersonalapartmentno.getText(), servicepersonalexplainationofservice.getText(), "ServiceProvider");
     }//GEN-LAST:event_servicepersonalsubmitActionPerformed
 
     private void spoacBut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spoacBut1ActionPerformed
         // TODO add your handling code here:
-          boolean res = add.checkdata(soe_nameoforg.getText(), soe_reasonofvis.getText(), soe_nid.getText(),
-                soe_name.getText(), soe_contact.getText(), soe_prof.getText(),soe_namepfinst.getText(),"OfficialPersonnel");
+        boolean res = add.checkdata(dtid, id, soe_nameoforg.getText(), soe_reasonofvis.getText(), soe_nid.getText(), count_people.getText(),
+                soe_name.getText(), soe_contact.getText(), soe_prof.getText(), soe_namepfinst.getText(), "OfficialPersonnel");
     }//GEN-LAST:event_spoacBut1ActionPerformed
+
+    private void count_peopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_count_peopleActionPerformed
+
+    }//GEN-LAST:event_count_peopleActionPerformed
+
+    private void PermanentadressinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PermanentadressinputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PermanentadressinputActionPerformed
+
+    private void name_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_inputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name_inputActionPerformed
+
+    private void personnameinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personnameinputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_personnameinputActionPerformed
+
+    private void servicepersonalapartmentnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonalapartmentnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_servicepersonalapartmentnoActionPerformed
+
+    private void presentadressinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_presentadressinputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_presentadressinputActionPerformed
+
+    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
+
+        boolean editSec = edit.editinfo(contactno_input.getText(), name_input.getText(), emailinput.getText(), presentadressinput.getText(), Permanentadressinput.getText(), sec_act_stat);
+
+    }//GEN-LAST:event_SubmitActionPerformed
+
+    private void activeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activeActionPerformed
+        sec_act_stat = 1;
+    }//GEN-LAST:event_activeActionPerformed
+
+    private void inactiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inactiveActionPerformed
+        sec_act_stat = 0;
+    }//GEN-LAST:event_inactiveActionPerformed
+
+    private void stayingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stayingActionPerformed
+        res_act_stat = 1;
+    }//GEN-LAST:event_stayingActionPerformed
+
+    private void leftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftActionPerformed
+        res_act_stat=0;
+    }//GEN-LAST:event_leftActionPerformed
+
+    private void saveinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveinfoActionPerformed
+        boolean editres = edit.editinfo(bidorcontactinput.getText(),namein.getText(),nidno.getText(),emailno.getText(),profession1.getText(),job_address.getText(),res_act_stat);
+    }//GEN-LAST:event_saveinfoActionPerformed
+
+    private void emailnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailnoActionPerformed
+
+    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
+        boolean editSp = edit.editinfo(editSPcontact.getText(),editSP_Address.getText(),SP_Designation.getText(),deleteservice.getSelectedItem().toString());
+    }//GEN-LAST:event_SaveActionPerformed
+
+    private void residentflatnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentflatnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_residentflatnoActionPerformed
 
     private void initializeSelf() {
 
@@ -2878,7 +2940,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
         choosePanel(View_LoginPage.getChoice());
     }
 
-    public void labelValues(String name, String contact, String email, String apartment) {
+    public void labelValues(int id, String name, String contact, String email, String apartment) {
+        this.id = id;
         nameshowLabel.setText(name);
         contactshowLabel.setText(contact);
         emailshowLabel.setText(email);
@@ -2949,18 +3012,17 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ContactInput;
     private javax.swing.JLabel E;
     private javax.swing.JTable Managertable;
-    private javax.swing.JTextField Nameinput;
-    private javax.swing.JTextField Nidinput;
     private javax.swing.JTextField Permanentadressinput;
+    private javax.swing.ButtonGroup ResidentLiving;
+    private javax.swing.JTextField SP_Designation;
     private javax.swing.JButton Save;
+    private javax.swing.ButtonGroup SecurityStatus;
     private javax.swing.JButton Submit;
     private javax.swing.JPanel acmanagepanel;
     private javax.swing.JTabbedPane acountmngtabpane;
     private javax.swing.JRadioButton active;
-    private javax.swing.JButton addbackbutton;
     private javax.swing.JTextField addcontactinput;
     private javax.swing.JTextField addemailinput;
     private javax.swing.JButton addfundBut;
@@ -2974,7 +3036,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JPanel addresident;
     private javax.swing.JTextField addresidentcontactno;
     private javax.swing.JPanel addsecurity;
-    private javax.swing.JButton addsecurityback;
     private javax.swing.JButton addsecuritysubmit;
     private javax.swing.JTable addsecuritytable;
     private javax.swing.JPanel addservicepersonal;
@@ -2990,28 +3051,21 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.ButtonGroup chooseCitizenship;
     private javax.swing.JPanel citizenpanel;
     private javax.swing.JLabel contactLabel;
+    private javax.swing.JTextField contactno_input;
     private javax.swing.JTextField contactnoinput;
-    private javax.swing.JTextField contactnumberinput;
     private javax.swing.JLabel contactshowLabel;
     private javax.swing.JTextField count_people;
     private javax.swing.JLabel dateandtimeLabel;
     private javax.swing.JLabel dateandtimeshowLabel;
     private javax.swing.JComboBox<String> deleteservice;
+    private javax.swing.JTextField editSP_Address;
+    private javax.swing.JTextField editSPcontact;
     private javax.swing.JPanel editmanager;
-    private javax.swing.JButton editmanagerback;
-    private javax.swing.JTextField editmanagercontact;
-    private javax.swing.JTextField editmanagercontact1;
-    private javax.swing.JTextField editmanagername;
-    private javax.swing.JTextField editmanagernid;
     private javax.swing.JButton editmanagersave;
     private javax.swing.JPanel editresident;
     private javax.swing.JPanel editsecurity;
     private javax.swing.JPanel editservicepersonal;
-    private javax.swing.JButton editservicepersonalback;
-    private javax.swing.JTextField editservicepersonalcontact;
-    private javax.swing.JTextField editservicepersonalcontact1;
     private javax.swing.JTextField editservicepersonalcontact2;
-    private javax.swing.JTextField editservicepersonalcontact3;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailinput;
     private javax.swing.JTextField emailno;
@@ -3041,7 +3095,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -3074,8 +3127,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -3091,7 +3142,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
@@ -3103,6 +3153,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane2;
@@ -3115,16 +3166,21 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTextField job_address;
     private javax.swing.JRadioButton left;
     private javax.swing.JPanel manager;
-    private javax.swing.JTextField managereditemail;
+    private javax.swing.JTextField manager_address;
+    private javax.swing.JTextField manageremail;
     private javax.swing.JTextField manageremailinput;
+    private javax.swing.JTextField managername;
     private javax.swing.JTextField managernumber;
     private javax.swing.JPanel managerpanel;
     private javax.swing.JTabbedPane managertabbedpane;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JTextField name_input;
+    private javax.swing.JTextField namein;
     private javax.swing.JLabel nameshowLabel;
-    private javax.swing.JButton newmanagerback;
     private javax.swing.JTextField newmanagercontactno;
     private javax.swing.JTextField newmanagername;
     private javax.swing.JTextField newmanagernid;
@@ -3145,9 +3201,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> paymenttypecomboBox;
     private javax.swing.JTextField personnameinput;
     private javax.swing.JTextField presentadressinput;
-    private javax.swing.JTextField profession;
     private javax.swing.JTextField profession1;
-    private javax.swing.JComboBox<String> recivingservice;
     private javax.swing.JTable reeportedtransictiontable;
     private javax.swing.JPanel reportedtransiction;
     private javax.swing.JTextField reqField;
@@ -3160,7 +3214,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JPanel rescommain;
     private javax.swing.JPanel rescompanel;
     private javax.swing.JPanel resident;
-    private javax.swing.JButton residentback;
     private javax.swing.JButton residenteditback;
     private javax.swing.JTextField residentemail;
     private javax.swing.JComboBox<String> residentflatno;
@@ -3180,7 +3233,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTabbedPane securitytab;
     private javax.swing.JPanel servicepersonal;
     private javax.swing.JTextField servicepersonalapartmentno;
-    private javax.swing.JButton servicepersonalback;
     private javax.swing.JTextField servicepersonalcontact;
     private javax.swing.JTextField servicepersonaldesignation;
     private javax.swing.JTextField servicepersonalexplainationofservice;

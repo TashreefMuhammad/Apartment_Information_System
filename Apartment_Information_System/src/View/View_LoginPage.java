@@ -346,7 +346,7 @@ public class View_LoginPage extends javax.swing.JFrame {
         Controller_LoggerInfo result = checker.verifyLogin(choose, ContactNoField.getText(), PasswordField.getText());
         if (result.stat == 1) {
             View_CommonInterface tmp = new View_CommonInterface();
-            tmp.labelValues(result.name, result.contact, result.email, result.apartment);
+            tmp.labelValues(result.id,result.name, result.contact, result.email, result.apartment);
             tmp.setVisible(true);
             this.dispose();
         } 
