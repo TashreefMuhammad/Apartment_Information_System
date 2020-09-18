@@ -8,6 +8,6 @@ public class Controller_StartProgram {
         Model_ConnectMSSQL connect = new Model_ConnectMSSQL();
         connect.connectDB();
         
-        LoginPage.main(null);
+        View_LoginPage.main(null);
     }
 }

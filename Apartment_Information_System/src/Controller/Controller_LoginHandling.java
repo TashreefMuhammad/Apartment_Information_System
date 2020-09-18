@@ -4,7 +4,6 @@ import Model.*;
 import View.*;
 import java.util.Properties;
 import java.net.PasswordAuthentication;
-//import javax.mail.Authenticator;
 import java.net.Authenticator;
 import javax.mail.Message;
 import javax.mail.Session;
@@ -14,10 +13,15 @@ import javax.mail.internet.MimeMessage;
 
 public class Controller_LoginHandling {
     Model_LoginSys checker = new Model_LoginSys();
-    public boolean verifyLogin(String choice, String contact, String pass){
-        return checker.verifyInfo(choice, contact, pass);
+    public Controller_LoggerInfo verifyLogin(String choice, String contact, String pass){
+        Controller_LoggerInfo values = checker.verifyInfo(choice, contact, pass);
+        values.evaluate();
+        return values;
     }
     
+    public boolean resetPass(String email, String choice, String pass){
+        return checker.chngPass(email, choice, pass);
+    }
     public boolean resetPass(String email){
         String refString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvxyz";
         StringBuilder sb = new StringBuilder(10);
