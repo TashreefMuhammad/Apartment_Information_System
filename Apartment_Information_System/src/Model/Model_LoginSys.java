@@ -17,13 +17,13 @@ public class Model_LoginSys {
                 if (resultSet.next()) {
                     return new Controller_LoggerInfo(resultSet.getString("Name"), resultSet.getString("Contact_No"), resultSet.getString("Email"), resultSet.getString("Flat_No"), resultSet.getInt("Current_Living"));
                 } else {
-                    return new Controller_LoggerInfo(null, null, null, null, 0);
+                    return new Controller_LoggerInfo("-1", null, null, null, 0);
                 }
             } else if (choice.equals("SecurityGuard") || choice.equals("Manager")) {
                 if (resultSet.next()) {
                     return new Controller_LoggerInfo(resultSet.getString("Name"), resultSet.getString("Contact_No"), resultSet.getString("Email"), null, resultSet.getInt("Stat"));
                 } else {
-                    return new Controller_LoggerInfo(null, null, null, null, 0);
+                    return new Controller_LoggerInfo("-1", null, null, null, 0);
                 }
             }
         } catch (SQLException e) {

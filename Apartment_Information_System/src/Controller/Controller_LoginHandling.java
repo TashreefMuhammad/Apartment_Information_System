@@ -15,6 +15,7 @@ public class Controller_LoginHandling {
     Model_LoginSys checker = new Model_LoginSys();
     public Controller_LoggerInfo verifyLogin(String choice, String contact, String pass){
         Controller_LoggerInfo values = checker.verifyInfo(choice, contact, pass);
+        
         values.evaluate();
         return values;
     }

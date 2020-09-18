@@ -15,7 +15,7 @@ public class Controller_LoggerInfo {
     }
     
     public void evaluate(){
-        if(stat == 0 && name.length() > 0)
+        if(stat == 0 && !name.equals("-1"))
             stat = 2;
         else if(stat == 0)
             stat = 3;
