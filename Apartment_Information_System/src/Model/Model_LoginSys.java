@@ -2,6 +2,7 @@ package Model;
 
 import Controller.*;
 import static Model.Model_ConnectMSSQL.connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -48,8 +49,11 @@ public class Model_LoginSys {
 
     public boolean chngPass(String email, String choice, String pass) {
         try {
-            Statement statement = connection.createStatement();
-            statement.executeQuery("UPDATE " + choice + " set Pass = HASHBYTES('MD5','" + pass + "') where Email = '" + email + "'");
+            PreparedStatement statement = connection.prepareStatement("UPDATE " + choice + " set Pass = HASHBYTES('MD5','" + pass + "') where Email = '" + email + "'");
+            statement.execute();
+            
+            connection.close();
+            Model_ConnectMSSQL.connectDB();
         } catch (SQLException e) {
             System.out.println(e);
             return false;

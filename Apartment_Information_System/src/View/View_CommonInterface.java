@@ -7,7 +7,9 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import java.util.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class View_CommonInterface extends javax.swing.JFrame {
 
@@ -17,8 +19,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
     Controller_LoginHandling checker = new Controller_LoginHandling();
     Controller_AddNewAccount add = new Controller_AddNewAccount();
     Controller_EditAccount edit = new Controller_EditAccount();
+    Controller_SearchTable sec_val = new Controller_SearchTable();
+    
+    //variables for securityedit table
+    ArrayList<Controller_SecurityInfo> info;
+    String contact, name, email, pres, perm;
+    int sec_act_stat = 2;
+    
+    int selected, id_to_edit;
     int flag = 0;
-    int sec_act_stat = 0;
     int res_act_stat = 0;
     int mana_act_stat = 0;
     int id;
@@ -474,10 +483,24 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        addsecuritytable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addsecuritytableMousePressed(evt);
+            }
+        });
         jScrollPane4.setViewportView(addsecuritytable);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Contact No");
+
+        contactno_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                contactno_inputKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contactno_inputKeyTyped(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Name");
@@ -485,6 +508,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         name_input.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_inputActionPerformed(evt);
+            }
+        });
+        name_input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                name_inputKeyReleased(evt);
             }
         });
 
@@ -496,6 +524,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 presentadressinputActionPerformed(evt);
             }
         });
+        presentadressinput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                presentadressinputKeyReleased(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Permanent Adress");
@@ -505,6 +538,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 PermanentadressinputActionPerformed(evt);
             }
         });
+        Permanentadressinput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                PermanentadressinputKeyReleased(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Status");
@@ -512,6 +550,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         SecurityStatus.add(active);
         active.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         active.setText("Active");
+        active.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                activeMouseReleased(evt);
+            }
+        });
         active.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activeActionPerformed(evt);
@@ -521,6 +564,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         SecurityStatus.add(inactive);
         inactive.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         inactive.setText("Inactive");
+        inactive.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                inactiveMouseReleased(evt);
+            }
+        });
         inactive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inactiveActionPerformed(evt);
@@ -539,6 +587,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel45.setText("Email");
+
+        emailinput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                emailinputKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout editsecurityLayout = new javax.swing.GroupLayout(editsecurity);
         editsecurity.setLayout(editsecurityLayout);
@@ -560,33 +614,26 @@ public class View_CommonInterface extends javax.swing.JFrame {
                     .addGroup(editsecurityLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(editsecurityLayout.createSequentialGroup()
-                                .addComponent(contactno_input, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(editsecurityLayout.createSequentialGroup()
-                                .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(emailinput, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(name_input, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Permanentadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                            .addComponent(contactno_input, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailinput, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name_input, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Permanentadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(editsecurityLayout.createSequentialGroup()
-                        .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(editsecurityLayout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(editsecurityLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel45))
-                            .addGroup(editsecurityLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel14))
-                            .addGroup(editsecurityLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(presentadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(editsecurityLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel15)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(171, 171, 171)
+                        .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(editsecurityLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel45))
+                    .addGroup(editsecurityLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel14))
+                    .addGroup(editsecurityLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(presentadressinput, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(editsecurityLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel15)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         editsecurityLayout.setVerticalGroup(
@@ -1001,7 +1048,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(residenteditback))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Edit Account", editresident);
@@ -1063,15 +1110,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
                     .addComponent(manageremailinput, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newmanagercontactno, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(addmanagerLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
+                        .addGroup(addmanagerLayout.createSequentialGroup()
+                            .addGap(24, 24, 24)
+                            .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel38)
-                                    .addComponent(newmanagernid, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel36)
-                                .addComponent(newmanagername, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(newmanagernid, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel36)
+                                    .addComponent(newmanagername, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(addmanagerLayout.createSequentialGroup()
                             .addGap(23, 23, 23)
                             .addGroup(addmanagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1455,7 +1502,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                     .addGroup(editservicepersonalLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(SP_Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1466,7 +1513,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         editservicepersonalLayout.setVerticalGroup(
             editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
+            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
             .addGroup(editservicepersonalLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel56)
@@ -1491,7 +1538,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGroup(editservicepersonalLayout.createSequentialGroup()
                     .addGap(89, 89, 89)
                     .addComponent(editservicepersonalcontact2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(516, Short.MAX_VALUE)))
+                    .addContainerGap(481, Short.MAX_VALUE)))
         );
 
         jTabbedPane4.addTab("Edit Account", editservicepersonal);
@@ -1688,9 +1735,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spolayeredpanel.setLayout(spolayeredpanelLayout);
         spolayeredpanelLayout.setHorizontalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1828,7 +1875,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(organizationtypeinput, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                             .addComponent(personnameinput)
                             .addComponent(contactnoinput))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(newtransictionLayout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1836,7 +1883,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(66, 66, 66)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         newtransictionLayout.setVerticalGroup(
             newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1969,30 +2016,30 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rescompanelLayout = new javax.swing.GroupLayout(rescompanel);
         rescompanel.setLayout(rescompanelLayout);
         rescompanelLayout.setHorizontalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
         );
         rescompanelLayout.setVerticalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
         );
 
         managertabbedpane.addTab("  Resident Communication  ", rescompanel);
@@ -2771,7 +2818,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_statuscheckActionPerformed
 
     private void editmanagersaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editmanagersaveActionPerformed
-        boolean editmana = edit.editinfo(managernumber.getText(),managername.getText(),manageremail.getText(),manager_address.getText(),mana_act_stat);
+        boolean editmana = edit.editinfo(managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), mana_act_stat);
     }//GEN-LAST:event_editmanagersaveActionPerformed
 
     private void newmanagercontactnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newmanagercontactnoActionPerformed
@@ -2914,11 +2961,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_stayingActionPerformed
 
     private void leftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftActionPerformed
-        res_act_stat=0;
+        res_act_stat = 0;
     }//GEN-LAST:event_leftActionPerformed
 
     private void saveinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveinfoActionPerformed
-        boolean editres = edit.editinfo(bidorcontactinput.getText(),namein.getText(),nidno.getText(),emailno.getText(),profession1.getText(),job_address.getText(),res_act_stat);
+        boolean editres = edit.editinfo(bidorcontactinput.getText(), namein.getText(), nidno.getText(), emailno.getText(), profession1.getText(), job_address.getText(), res_act_stat);
     }//GEN-LAST:event_saveinfoActionPerformed
 
     private void emailnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailnoActionPerformed
@@ -2926,18 +2973,167 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_emailnoActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        boolean editSp = edit.editinfo(editSPcontact.getText(),editSP_Address.getText(),SP_Designation.getText(),deleteservice.getSelectedItem().toString());
+        boolean editSp = edit.editinfo(editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText(), deleteservice.getSelectedItem().toString());
     }//GEN-LAST:event_SaveActionPerformed
 
     private void residentflatnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentflatnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_residentflatnoActionPerformed
 
+    private void contactno_inputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactno_inputKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactno_inputKeyTyped
+
+    private void contactno_inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactno_inputKeyReleased
+        // TODO add your handling code here:
+        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
+        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
+        sec_edit.setRowCount(0);
+        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Object[] row = new Object[4];
+        for(int i = 0; i < info.size(); ++i){
+            row[0] = info.get(i).getContact();
+            row[1] = info.get(i).getName();
+            row[2] = info.get(i).getEmail();
+            row[3] = info.get(i).getStat();
+            sec_edit.addRow(row);
+        }
+        addsecuritytable.setModel(sec_edit);
+    }//GEN-LAST:event_contactno_inputKeyReleased
+
+    private void name_inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_name_inputKeyReleased
+        // TODO add your handling code here:
+        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
+        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
+        sec_edit.setRowCount(0);
+        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Object[] row = new Object[4];
+        for(int i = 0; i < info.size(); ++i){
+            row[0] = info.get(i).getContact();
+            row[1] = info.get(i).getName();
+            row[2] = info.get(i).getEmail();
+            row[3] = info.get(i).getStat();
+            sec_edit.addRow(row);
+        }
+        addsecuritytable.setModel(sec_edit);
+    }//GEN-LAST:event_name_inputKeyReleased
+
+    private void emailinputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailinputKeyReleased
+        // TODO add your handling code here:
+        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
+        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
+        sec_edit.setRowCount(0);
+        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Object[] row = new Object[4];
+        for(int i = 0; i < info.size(); ++i){
+            row[0] = info.get(i).getContact();
+            row[1] = info.get(i).getName();
+            row[2] = info.get(i).getEmail();
+            row[3] = info.get(i).getStat();
+            sec_edit.addRow(row);
+        }
+        addsecuritytable.setModel(sec_edit);
+    }//GEN-LAST:event_emailinputKeyReleased
+
+    private void presentadressinputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_presentadressinputKeyReleased
+        // TODO add your handling code here:
+        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
+        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
+        sec_edit.setRowCount(0);
+        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Object[] row = new Object[4];
+        for(int i = 0; i < info.size(); ++i){
+            row[0] = info.get(i).getContact();
+            row[1] = info.get(i).getName();
+            row[2] = info.get(i).getEmail();
+            row[3] = info.get(i).getStat();
+            sec_edit.addRow(row);
+        }
+        addsecuritytable.setModel(sec_edit);
+    }//GEN-LAST:event_presentadressinputKeyReleased
+
+    private void PermanentadressinputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PermanentadressinputKeyReleased
+        // TODO add your handling code here:
+        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
+        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
+        sec_edit.setRowCount(0);
+        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Object[] row = new Object[4];
+        for(int i = 0; i < info.size(); ++i){
+            row[0] = info.get(i).getContact();
+            row[1] = info.get(i).getName();
+            row[2] = info.get(i).getEmail();
+            row[3] = info.get(i).getStat();
+            sec_edit.addRow(row);
+        }
+        addsecuritytable.setModel(sec_edit);
+    }//GEN-LAST:event_PermanentadressinputKeyReleased
+
+    private void activeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activeMouseReleased
+        // TODO add your handling code here:
+        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
+        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
+        sec_edit.setRowCount(0);
+        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Object[] row = new Object[4];
+        for(int i = 0; i < info.size(); ++i){
+            row[0] = info.get(i).getContact();
+            row[1] = info.get(i).getName();
+            row[2] = info.get(i).getEmail();
+            row[3] = info.get(i).getStat();
+            sec_edit.addRow(row);
+        }
+        addsecuritytable.setModel(sec_edit);
+    }//GEN-LAST:event_activeMouseReleased
+
+    private void inactiveMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inactiveMouseReleased
+        // TODO add your handling code here:
+        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
+        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
+        sec_edit.setRowCount(0);
+        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Object[] row = new Object[4];
+        for(int i = 0; i < info.size(); ++i){
+            row[0] = info.get(i).getContact();
+            row[1] = info.get(i).getName();
+            row[2] = info.get(i).getEmail();
+            row[3] = info.get(i).getStat();
+            sec_edit.addRow(row);
+        }
+        addsecuritytable.setModel(sec_edit);
+    }//GEN-LAST:event_inactiveMouseReleased
+
+    private void addsecuritytableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsecuritytableMousePressed
+        // TODO add your handling code here:
+        selected = addsecuritytable.getSelectedRow();
+        id_to_edit = info.get(selected).getID();
+        contactno_input.setText(addsecuritytable.getModel().getValueAt(selected, 0).toString());
+        name_input.setText(addsecuritytable.getModel().getValueAt(selected, 1).toString());
+        emailinput.setText(addsecuritytable.getModel().getValueAt(selected, 2).toString());
+        presentadressinput.setText(info.get(selected).getPresnt());
+        Permanentadressinput.setText(info.get(selected).getPerma());
+        //Contact = getString(addsecuritytable.getModel().getValueAt(selected, 2).toString());
+    }//GEN-LAST:event_addsecuritytableMousePressed
+
     private void initializeSelf() {
 
         signinimageLabel.setIcon(Resizing.resizeIcon("images/bla.jpg", signinimageLabel));
 
         choosePanel(View_LoginPage.getChoice());
+
+        // Table for editing security information by manager
+        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
+        sec_edit.setRowCount(0);
+        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        addsecuritytable.setModel(sec_edit);
     }
 
     public void labelValues(int id, String name, String contact, String email, String apartment) {
