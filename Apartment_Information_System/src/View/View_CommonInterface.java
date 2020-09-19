@@ -20,45 +20,30 @@ public class View_CommonInterface extends javax.swing.JFrame {
     Controller_AddNewAccount add = new Controller_AddNewAccount();
     Controller_EditAccount edit = new Controller_EditAccount();
     Controller_SearchTable sec_val = new Controller_SearchTable();
-    
+
+    int selected, id_to_edit;
     //variables for securityedit table
     ArrayList<Controller_SecurityInfo> info;
-    String contact, name, email, pres, perm;
+    //String contact, name, email, pres, perm;
     int sec_act_stat = 2;
+    //variables for Resident Edit table
+    int res_act_stat = 2;
+    ArrayList<Controller_ResidentInfo> res_info;
+    int citi_Min = 1;
     
-    int selected, id_to_edit;
+    //variables for Manager edit table
+    int man_act_stat =2;
+    ArrayList<Controller_ManagerInfo> man_info;
+
     int flag = 0;
-    int res_act_stat = 0;
+
     int mana_act_stat = 0;
     int id;
     String tme, dtid;
 
     public View_CommonInterface() {
         initComponents();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    try {
-                        Thread.sleep(1000);
-                        Date date = new Date();
-
-                        long time = date.getTime();
-                        dtid = time + "";
-                        //System.out.println("Time in Milliseconds: " + time);
-
-                        Timestamp ts = new Timestamp(time);
-                        //System.out.println("Current Time Stamp: " + ts);
-                        tme = ts + "";
-                        tme = tme.substring(0, tme.length() - 4);
-                        dateandtimeshowLabel.setText(tme);
-                    } catch (InterruptedException ex) {
-                        System.out.println(ex);
-                    }
-
-                }
-            }
-        }).start();
+        
         initializeSelf();
 
     }
@@ -139,26 +124,26 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         editresident = new javax.swing.JPanel();
-        bidorcontact = new javax.swing.JComboBox<>();
-        bidorcontactinput = new javax.swing.JTextField();
+        citiormin = new javax.swing.JComboBox<>();
+        res_contact = new javax.swing.JTextField();
         bidpanel = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
-        emailno = new javax.swing.JTextField();
+        res_email = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        job_address = new javax.swing.JTextField();
+        res_job_address = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         staying = new javax.swing.JRadioButton();
         left = new javax.swing.JRadioButton();
         saveinfo = new javax.swing.JButton();
-        residenteditback = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         residenttable = new javax.swing.JTable();
-        profession1 = new javax.swing.JTextField();
-        nidno = new javax.swing.JTextField();
+        res_profession = new javax.swing.JTextField();
+        res_nid = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        namein = new javax.swing.JTextField();
+        res_name = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         manager = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         addmanager = new javax.swing.JPanel();
@@ -839,7 +824,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addGroup(addresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(residentid, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                                 .addComponent(residentfullnameinput, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addresidentLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(residentsubmit)
@@ -870,15 +855,26 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(citizenpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(residentsubmit)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Add Account", addresident);
 
         editresident.setPreferredSize(new java.awt.Dimension(820, 610));
 
-        bidorcontact.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bidorcontact.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Contact", "BID" }));
+        citiormin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        citiormin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Citizen", "Minor" }));
+        citiormin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                citiorminMouseEntered(evt);
+            }
+        });
+
+        res_contact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                res_contactKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout bidpanelLayout = new javax.swing.GroupLayout(bidpanel);
         bidpanel.setLayout(bidpanelLayout);
@@ -894,17 +890,28 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel32.setText("Email");
 
-        emailno.addActionListener(new java.awt.event.ActionListener() {
+        res_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailnoActionPerformed(evt);
+                res_emailActionPerformed(evt);
+            }
+        });
+        res_email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                res_emailKeyReleased(evt);
             }
         });
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel33.setText("Profession");
 
+        res_job_address.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                res_job_addressKeyReleased(evt);
+            }
+        });
+
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel34.setText("Job Adress");
+        jLabel34.setText("Job Address");
 
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel35.setText("Status");
@@ -912,6 +919,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         ResidentLiving.add(staying);
         staying.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         staying.setText("Staying");
+        staying.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                stayingMouseReleased(evt);
+            }
+        });
         staying.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stayingActionPerformed(evt);
@@ -921,6 +933,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         ResidentLiving.add(left);
         left.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         left.setText("Left");
+        left.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                leftMouseReleased(evt);
+            }
+        });
         left.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 leftActionPerformed(evt);
@@ -935,9 +952,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         });
 
-        residenteditback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        residenteditback.setText("Back");
-
         residenttable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -949,13 +963,39 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        residenttable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                residenttableMouseReleased(evt);
+            }
+        });
         jScrollPane7.setViewportView(residenttable);
+
+        res_profession.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                res_professionKeyReleased(evt);
+            }
+        });
+
+        res_nid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                res_nidActionPerformed(evt);
+            }
+        });
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel31.setText("NID");
 
+        res_name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                res_nameKeyReleased(evt);
+            }
+        });
+
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Name");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setText("Contact");
 
         javax.swing.GroupLayout editresidentLayout = new javax.swing.GroupLayout(editresident);
         editresident.setLayout(editresidentLayout);
@@ -964,91 +1004,85 @@ public class View_CommonInterface extends javax.swing.JFrame {
             .addGroup(editresidentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editresidentLayout.createSequentialGroup()
-                        .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editresidentLayout.createSequentialGroup()
-                                .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(editresidentLayout.createSequentialGroup()
-                                        .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel12))
-                                        .addGap(306, 306, 306))
-                                    .addGroup(editresidentLayout.createSequentialGroup()
-                                        .addComponent(namein)
-                                        .addGap(6, 6, 6)))
-                                .addComponent(bidpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editresidentLayout.createSequentialGroup()
-                                .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bidorcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel32)
-                                    .addComponent(jLabel33)
-                                    .addComponent(jLabel34)
-                                    .addGroup(editresidentLayout.createSequentialGroup()
-                                        .addComponent(staying)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(left)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(bidorcontactinput, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(emailno, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(profession1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(job_address, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(editresidentLayout.createSequentialGroup()
-                                .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(160, 160, 160)
-                                .addComponent(residenteditback, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(81, 81, 81))
                     .addGroup(editresidentLayout.createSequentialGroup()
                         .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(res_name, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(res_contact, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel12)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bidpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(editresidentLayout.createSequentialGroup()
+                        .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(res_job_address, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                                .addComponent(res_profession, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(res_email, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(citiormin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(res_nid, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(jLabel35)
-                            .addComponent(nidno, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(editresidentLayout.createSequentialGroup()
+                                .addComponent(staying)
+                                .addGap(50, 50, 50)
+                                .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(editresidentLayout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(left)))
+                            .addComponent(jLabel13))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(32, 32, 32))
         );
         editresidentLayout.setVerticalGroup(
             editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editresidentLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(citiormin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(editresidentLayout.createSequentialGroup()
-                        .addComponent(bidorcontact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bidorcontactinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(bidpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(editresidentLayout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(namein, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(9, 9, 9)
-                        .addComponent(nidno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel32)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editresidentLayout.createSequentialGroup()
+                        .addComponent(res_contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(profession1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(job_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel35)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(left)
-                            .addComponent(staying))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(residenteditback))))
+                        .addComponent(res_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bidpanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(res_nid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(res_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(res_profession, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(res_job_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(left)
+                    .addComponent(staying))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editresidentLayout.createSequentialGroup()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Edit Account", editresident);
@@ -1057,11 +1091,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
         resident.setLayout(residentLayout);
         residentLayout.setHorizontalGroup(
             residentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addGroup(residentLayout.createSequentialGroup()
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         residentLayout.setVerticalGroup(
             residentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("Resident", resident);
@@ -1160,6 +1196,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
         editmanager.setPreferredSize(new java.awt.Dimension(840, 605));
         editmanager.setRequestFocusEnabled(false);
 
+        jScrollPane12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jScrollPane12MouseReleased(evt);
+            }
+        });
+
         Managertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1171,13 +1213,36 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Managertable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                ManagertableMouseReleased(evt);
+            }
+        });
         jScrollPane12.setViewportView(Managertable);
 
         jLabel41.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel41.setText("Contact No");
 
+        managernumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                managernumberKeyReleased(evt);
+            }
+        });
+
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel42.setText("Name");
+
+        managername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                managernameKeyReleased(evt);
+            }
+        });
+
+        manager_address.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                manager_addressKeyReleased(evt);
+            }
+        });
 
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel46.setText("Permanent Adress");
@@ -1207,6 +1272,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         manageremail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageremailActionPerformed(evt);
+            }
+        });
+        manageremail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                manageremailKeyReleased(evt);
             }
         });
 
@@ -1560,16 +1630,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
         acmanagepanel.setLayout(acmanagepanelLayout);
         acmanagepanelLayout.setHorizontalGroup(
             acmanagepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, acmanagepanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(acmanagepanelLayout.createSequentialGroup()
                 .addComponent(acountmngtabpane, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8))
+                .addGap(0, 34, Short.MAX_VALUE))
         );
         acmanagepanelLayout.setVerticalGroup(
             acmanagepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(acmanagepanelLayout.createSequentialGroup()
-                .addComponent(acountmngtabpane, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(acountmngtabpane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         managertabbedpane.addTab("Account Management", acmanagepanel);
@@ -1645,7 +1714,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(soe_prof)
                             .addComponent(soe_contact)
                             .addComponent(soe_name))))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, spopanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1687,7 +1756,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(soe_namepfinst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel30))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1713,7 +1782,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spotablepanel.setLayout(spotablepanelLayout);
         spotablepanelLayout.setHorizontalGroup(
             spotablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablescrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
+            .addComponent(spotablescrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, spotablepanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(spotablebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1723,7 +1792,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             spotablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(spotablepanelLayout.createSequentialGroup()
                 .addComponent(spotablescrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(spotablebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -1741,9 +1810,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
         );
 
         managertabbedpane.addTab("  Specialized Official Entry  ", spolayeredpanel);
@@ -1879,7 +1948,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                     .addGroup(newtransictionLayout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                         .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(66, 66, 66)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1937,7 +2006,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         reportedtransiction.setLayout(reportedtransictionLayout);
         reportedtransictionLayout.setHorizontalGroup(
             reportedtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
         );
         reportedtransictionLayout.setVerticalGroup(
             reportedtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1993,7 +2062,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         requestpanel.setLayout(requestpanelLayout);
         requestpanelLayout.setHorizontalGroup(
             requestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rqstscrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
+            .addComponent(rqstscrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
             .addGroup(requestpanelLayout.createSequentialGroup()
                 .addGap(353, 353, 353)
                 .addComponent(requestback, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2005,7 +2074,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(rqstscrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(requestback)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(rescommain, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -2024,11 +2093,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rescompanelLayout = new javax.swing.GroupLayout(rescompanel);
@@ -2039,7 +2108,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         rescompanelLayout.setVerticalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
         );
 
         managertabbedpane.addTab("  Resident Communication  ", rescompanel);
@@ -2048,19 +2117,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
         managerpanel.setLayout(managerpanelLayout);
         managerpanelLayout.setHorizontalGroup(
             managerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(managerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(managerpanelLayout.createSequentialGroup()
-                    .addComponent(managertabbedpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(managerpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(managertabbedpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         managerpanelLayout.setVerticalGroup(
             managerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(managerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(managerpanelLayout.createSequentialGroup()
-                    .addComponent(managertabbedpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addComponent(managertabbedpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         residentpanel.setPreferredSize(new java.awt.Dimension(840, 610));
@@ -2813,12 +2877,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_contactnoinputActionPerformed
 
-    private void statuscheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statuscheckActionPerformed
-        mana_act_stat = 1;
-    }//GEN-LAST:event_statuscheckActionPerformed
-
     private void editmanagersaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editmanagersaveActionPerformed
-        boolean editmana = edit.editinfo(managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), mana_act_stat);
+        if(statuscheck.isSelected()){
+            mana_act_stat=1;
+        }else{mana_act_stat=0;}
+        
+        boolean editmana = edit.editinfo(id_to_edit,managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), mana_act_stat);
     }//GEN-LAST:event_editmanagersaveActionPerformed
 
     private void newmanagercontactnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newmanagercontactnoActionPerformed
@@ -2944,7 +3008,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
 
-        boolean editSec = edit.editinfo(contactno_input.getText(), name_input.getText(), emailinput.getText(), presentadressinput.getText(), Permanentadressinput.getText(), sec_act_stat);
+        boolean editSec = edit.editinfo(id_to_edit, contactno_input.getText(), name_input.getText(), emailinput.getText(), presentadressinput.getText(), Permanentadressinput.getText(), sec_act_stat);
 
     }//GEN-LAST:event_SubmitActionPerformed
 
@@ -2965,12 +3029,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_leftActionPerformed
 
     private void saveinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveinfoActionPerformed
-        boolean editres = edit.editinfo(bidorcontactinput.getText(), namein.getText(), nidno.getText(), emailno.getText(), profession1.getText(), job_address.getText(), res_act_stat);
+        boolean editres = edit.editinfo(id_to_edit,res_contact.getText(), res_name.getText(), res_nid.getText(), res_email.getText(), res_profession.getText(), res_job_address.getText(), res_act_stat);
     }//GEN-LAST:event_saveinfoActionPerformed
 
-    private void emailnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailnoActionPerformed
+    private void res_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_res_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailnoActionPerformed
+    }//GEN-LAST:event_res_emailActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         boolean editSp = edit.editinfo(editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText(), deleteservice.getSelectedItem().toString());
@@ -2986,128 +3050,37 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     private void contactno_inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactno_inputKeyReleased
         // TODO add your handling code here:
-        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
-        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
-        sec_edit.setRowCount(0);
-        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
-
-        Object[] row = new Object[4];
-        for(int i = 0; i < info.size(); ++i){
-            row[0] = info.get(i).getContact();
-            row[1] = info.get(i).getName();
-            row[2] = info.get(i).getEmail();
-            row[3] = info.get(i).getStat();
-            sec_edit.addRow(row);
-        }
-        addsecuritytable.setModel(sec_edit);
+        press_to_GetSecInfo();
     }//GEN-LAST:event_contactno_inputKeyReleased
 
     private void name_inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_name_inputKeyReleased
         // TODO add your handling code here:
-        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
-        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
-        sec_edit.setRowCount(0);
-        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
-
-        Object[] row = new Object[4];
-        for(int i = 0; i < info.size(); ++i){
-            row[0] = info.get(i).getContact();
-            row[1] = info.get(i).getName();
-            row[2] = info.get(i).getEmail();
-            row[3] = info.get(i).getStat();
-            sec_edit.addRow(row);
-        }
-        addsecuritytable.setModel(sec_edit);
+        press_to_GetSecInfo();
     }//GEN-LAST:event_name_inputKeyReleased
 
     private void emailinputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailinputKeyReleased
         // TODO add your handling code here:
-        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
-        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
-        sec_edit.setRowCount(0);
-        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
-
-        Object[] row = new Object[4];
-        for(int i = 0; i < info.size(); ++i){
-            row[0] = info.get(i).getContact();
-            row[1] = info.get(i).getName();
-            row[2] = info.get(i).getEmail();
-            row[3] = info.get(i).getStat();
-            sec_edit.addRow(row);
-        }
-        addsecuritytable.setModel(sec_edit);
+        press_to_GetSecInfo();
     }//GEN-LAST:event_emailinputKeyReleased
 
     private void presentadressinputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_presentadressinputKeyReleased
         // TODO add your handling code here:
-        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
-        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
-        sec_edit.setRowCount(0);
-        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
-
-        Object[] row = new Object[4];
-        for(int i = 0; i < info.size(); ++i){
-            row[0] = info.get(i).getContact();
-            row[1] = info.get(i).getName();
-            row[2] = info.get(i).getEmail();
-            row[3] = info.get(i).getStat();
-            sec_edit.addRow(row);
-        }
-        addsecuritytable.setModel(sec_edit);
+        press_to_GetSecInfo();
     }//GEN-LAST:event_presentadressinputKeyReleased
 
     private void PermanentadressinputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PermanentadressinputKeyReleased
         // TODO add your handling code here:
-        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
-        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
-        sec_edit.setRowCount(0);
-        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
-
-        Object[] row = new Object[4];
-        for(int i = 0; i < info.size(); ++i){
-            row[0] = info.get(i).getContact();
-            row[1] = info.get(i).getName();
-            row[2] = info.get(i).getEmail();
-            row[3] = info.get(i).getStat();
-            sec_edit.addRow(row);
-        }
-        addsecuritytable.setModel(sec_edit);
+        press_to_GetSecInfo();
     }//GEN-LAST:event_PermanentadressinputKeyReleased
 
     private void activeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activeMouseReleased
         // TODO add your handling code here:
-        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
-        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
-        sec_edit.setRowCount(0);
-        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
-
-        Object[] row = new Object[4];
-        for(int i = 0; i < info.size(); ++i){
-            row[0] = info.get(i).getContact();
-            row[1] = info.get(i).getName();
-            row[2] = info.get(i).getEmail();
-            row[3] = info.get(i).getStat();
-            sec_edit.addRow(row);
-        }
-        addsecuritytable.setModel(sec_edit);
+        press_to_GetSecInfo();
     }//GEN-LAST:event_activeMouseReleased
 
     private void inactiveMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inactiveMouseReleased
         // TODO add your handling code here:
-        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
-        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
-        sec_edit.setRowCount(0);
-        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
-
-        Object[] row = new Object[4];
-        for(int i = 0; i < info.size(); ++i){
-            row[0] = info.get(i).getContact();
-            row[1] = info.get(i).getName();
-            row[2] = info.get(i).getEmail();
-            row[3] = info.get(i).getStat();
-            sec_edit.addRow(row);
-        }
-        addsecuritytable.setModel(sec_edit);
+        press_to_GetSecInfo();
     }//GEN-LAST:event_inactiveMouseReleased
 
     private void addsecuritytableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsecuritytableMousePressed
@@ -3119,10 +3092,139 @@ public class View_CommonInterface extends javax.swing.JFrame {
         emailinput.setText(addsecuritytable.getModel().getValueAt(selected, 2).toString());
         presentadressinput.setText(info.get(selected).getPresnt());
         Permanentadressinput.setText(info.get(selected).getPerma());
+        press_to_GetSecInfo();
         //Contact = getString(addsecuritytable.getModel().getValueAt(selected, 2).toString());
     }//GEN-LAST:event_addsecuritytableMousePressed
 
+    private void res_nidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_res_nidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_res_nidActionPerformed
+
+    private void res_contactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_res_contactKeyReleased
+        press_to_GetResInfo();
+    }//GEN-LAST:event_res_contactKeyReleased
+
+    private void res_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_res_nameKeyReleased
+        press_to_GetResInfo();
+    }//GEN-LAST:event_res_nameKeyReleased
+
+    private void res_emailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_res_emailKeyReleased
+        press_to_GetResInfo();
+    }//GEN-LAST:event_res_emailKeyReleased
+
+    private void res_professionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_res_professionKeyReleased
+        press_to_GetResInfo();
+    }//GEN-LAST:event_res_professionKeyReleased
+
+    private void res_job_addressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_res_job_addressKeyReleased
+        press_to_GetResInfo();
+    }//GEN-LAST:event_res_job_addressKeyReleased
+
+    private void stayingMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stayingMouseReleased
+        press_to_GetResInfo();
+    }//GEN-LAST:event_stayingMouseReleased
+
+    private void leftMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leftMouseReleased
+        press_to_GetResInfo();
+    }//GEN-LAST:event_leftMouseReleased
+
+    private void citiorminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citiorminMouseEntered
+        press_to_GetResInfo();
+    }//GEN-LAST:event_citiorminMouseEntered
+
+    private void jScrollPane12MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane12MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jScrollPane12MouseReleased
+
+    private void ManagertableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManagertableMouseReleased
+        selected = Managertable.getSelectedRow();
+        id_to_edit = man_info.get(selected).getID();
+        managernumber.setText(Managertable.getModel().getValueAt(selected, 0).toString());
+        managername.setText(Managertable.getModel().getValueAt(selected, 1).toString());
+        manageremail.setText(Managertable.getModel().getValueAt(selected, 2).toString());
+        manager_address.setText(man_info.get(selected).getPerma());
+        press_to_GetManInfo();
+    }//GEN-LAST:event_ManagertableMouseReleased
+
+    private void residenttableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_residenttableMouseReleased
+        selected = residenttable.getSelectedRow();
+        id_to_edit = res_info.get(selected).getID();
+        res_contact.setText(residenttable.getModel().getValueAt(selected, 0).toString());
+        res_name.setText(residenttable.getModel().getValueAt(selected, 1).toString());
+        res_email.setText(residenttable.getModel().getValueAt(selected, 2).toString());
+        res_profession.setText(residenttable.getModel().getValueAt(selected, 3).toString());
+        res_nid.setText("NULL");
+        res_job_address.setText(res_info.get(selected).getjobAddress());
+        press_to_GetResInfo();
+    }//GEN-LAST:event_residenttableMouseReleased
+
+    private void managernumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_managernumberKeyReleased
+        press_to_GetManInfo();
+    }//GEN-LAST:event_managernumberKeyReleased
+
+    private void managernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_managernameKeyReleased
+        press_to_GetManInfo();
+    }//GEN-LAST:event_managernameKeyReleased
+
+    private void manageremailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_manageremailKeyReleased
+        press_to_GetManInfo();
+    }//GEN-LAST:event_manageremailKeyReleased
+
+    private void manager_addressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_manager_addressKeyReleased
+        press_to_GetManInfo();
+    }//GEN-LAST:event_manager_addressKeyReleased
+
+    private void statuscheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statuscheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statuscheckActionPerformed
+
     private void initializeSelf() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                        Date date = new Date();
+
+                        long time = date.getTime();
+                        dtid = time + "";
+                        //System.out.println("Time in Milliseconds: " + time);
+
+                        Timestamp ts = new Timestamp(time);
+                        //System.out.println("Current Time Stamp: " + ts);
+                        tme = ts + "";
+                        tme = tme.substring(0, tme.length() - 4);
+                        dateandtimeshowLabel.setText(tme);
+                    } catch (InterruptedException ex) {
+                        System.out.println(ex);
+                    }
+
+                }
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                        if (citiormin.getSelectedItem().toString().equals("Citizen")) {
+                            citi_Min = 1;
+                        } else if (citiormin.getSelectedItem().toString().equals("Minor")) {
+                            citi_Min = 0;
+                        }else{
+                            citi_Min = 2;
+                        }
+                        press_to_GetResInfo();
+                    } catch (InterruptedException ex) {
+                        System.out.println(ex);
+                    }
+
+                }
+            }
+        }).start();
 
         signinimageLabel.setIcon(Resizing.resizeIcon("images/bla.jpg", signinimageLabel));
 
@@ -3134,6 +3236,19 @@ public class View_CommonInterface extends javax.swing.JFrame {
         sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
 
         addsecuritytable.setModel(sec_edit);
+        //Table for editing Resident info by manager
+        DefaultTableModel res_edit = (DefaultTableModel) residenttable.getModel();
+        res_edit.setRowCount(0);
+        res_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Profession", "Status"});
+
+        residenttable.setModel(res_edit);
+        
+        //Table for editing Manager info by Manager
+        DefaultTableModel man_edit = (DefaultTableModel) Managertable.getModel();
+        man_edit.setRowCount(0);
+        man_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Managertable.setModel(man_edit);
     }
 
     public void labelValues(int id, String name, String contact, String email, String apartment) {
@@ -3171,6 +3286,60 @@ public class View_CommonInterface extends javax.swing.JFrame {
             default:
                 break;
         }
+    }
+
+    protected void press_to_GetSecInfo() {
+        info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
+        DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
+        sec_edit.setRowCount(0);
+        sec_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Object[] row = new Object[4];
+        for (int i = 0; i < info.size(); ++i) {
+            row[0] = info.get(i).getContact();
+            row[1] = info.get(i).getName();
+            row[2] = info.get(i).getEmail();
+            row[3] = info.get(i).getStat();
+            sec_edit.addRow(row);
+        }
+        addsecuritytable.setModel(sec_edit);
+    }
+
+    protected void press_to_GetResInfo() {
+
+        res_info = sec_val.residentInfoTable(res_contact.getText(), res_name.getText(), res_nid.getText(), res_email.getText(), res_profession.getText(), res_job_address.getText(), res_act_stat, citi_Min);
+        DefaultTableModel res_edit = (DefaultTableModel) residenttable.getModel();
+        res_edit.setRowCount(0);
+        res_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Profession", "Status"});
+
+        Object[] row = new Object[5];
+        for (int i = 0; i < res_info.size(); ++i) {
+            row[0] = res_info.get(i).getContact();
+            row[1] = res_info.get(i).getName();
+            row[2] = res_info.get(i).getEmail();
+            row[3] = res_info.get(i).getProfession();
+            row[4] = res_info.get(i).getStat();
+            res_edit.addRow(row);
+        }
+        residenttable.setModel(res_edit);
+    }
+    
+    protected void press_to_GetManInfo() {
+        man_info = sec_val.managerInfoTable(managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), man_act_stat);
+        DefaultTableModel man_edit = (DefaultTableModel) Managertable.getModel();
+        man_edit.setRowCount(0);
+        man_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Object[] row = new Object[4];
+        for (int i = 0; i < man_info.size(); ++i) {
+            row[0] = man_info.get(i).getContact();
+            row[1] = man_info.get(i).getName();
+            row[2] = man_info.get(i).getEmail();
+            row[3] = man_info.get(i).getStat();
+            
+            man_edit.addRow(row);
+        }
+        Managertable.setModel(man_edit);
     }
 
     public static void main(String args[]) {
@@ -3240,11 +3409,10 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel apartmentLabel;
     private javax.swing.JLabel apartmentshowLabel;
     private javax.swing.JPanel background;
-    private javax.swing.JComboBox<String> bidorcontact;
-    private javax.swing.JTextField bidorcontactinput;
     private javax.swing.JPanel bidpanel;
     private javax.swing.JLabel changepassLabel;
     private javax.swing.ButtonGroup chooseCitizenship;
+    private javax.swing.JComboBox<String> citiormin;
     private javax.swing.JPanel citizenpanel;
     private javax.swing.JLabel contactLabel;
     private javax.swing.JTextField contactno_input;
@@ -3264,7 +3432,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTextField editservicepersonalcontact2;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailinput;
-    private javax.swing.JTextField emailno;
     private javax.swing.JLabel emailshowLabel;
     private javax.swing.JTextArea explainTextArea;
     private javax.swing.JComboBox<String> flatcombobox;
@@ -3291,6 +3458,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -3363,7 +3531,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField job_address;
     private javax.swing.JRadioButton left;
     private javax.swing.JPanel manager;
     private javax.swing.JTextField manager_address;
@@ -3375,7 +3542,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTabbedPane managertabbedpane;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField name_input;
-    private javax.swing.JTextField namein;
     private javax.swing.JLabel nameshowLabel;
     private javax.swing.JTextField newmanagercontactno;
     private javax.swing.JTextField newmanagername;
@@ -3388,7 +3554,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JPanel newreqpanel;
     private javax.swing.JButton newreqsubmitBut;
     private javax.swing.JPanel newtransiction;
-    private javax.swing.JTextField nidno;
     private javax.swing.JTextField nidnoinput;
     private javax.swing.JButton okbutton;
     private javax.swing.JTextField organizationnameinput;
@@ -3397,7 +3562,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> paymenttypecomboBox;
     private javax.swing.JTextField personnameinput;
     private javax.swing.JTextField presentadressinput;
-    private javax.swing.JTextField profession1;
     private javax.swing.JTable reeportedtransictiontable;
     private javax.swing.JPanel reportedtransiction;
     private javax.swing.JTextField reqField;
@@ -3407,10 +3571,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JButton requestback;
     private javax.swing.JPanel requestpanel;
     private javax.swing.JTable requesttable;
+    private javax.swing.JTextField res_contact;
+    private javax.swing.JTextField res_email;
+    private javax.swing.JTextField res_job_address;
+    private javax.swing.JTextField res_name;
+    private javax.swing.JTextField res_nid;
+    private javax.swing.JTextField res_profession;
     private javax.swing.JPanel rescommain;
     private javax.swing.JPanel rescompanel;
     private javax.swing.JPanel resident;
-    private javax.swing.JButton residenteditback;
     private javax.swing.JTextField residentemail;
     private javax.swing.JComboBox<String> residentflatno;
     private javax.swing.JTextField residentfullnameinput;

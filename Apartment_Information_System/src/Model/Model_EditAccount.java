@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Model_EditAccount {
-    public boolean returnvalue(String ContactNo,String Name,String Email,String PresentAddress,String PermanentAddress,int active){
+    public boolean returnvalue(int id_to_edit,String ContactNo,String Name,String Email,String PresentAddress,String PermanentAddress,int active){
         try {      
             
-            PreparedStatement stmt = connection.prepareStatement("UPDATE SecurityGuard Set Name=?, Contact_No=?,Present_Address = ?,Permanent_Address = ?,Email=?,Stat=? where  ContactNo=?");
+            PreparedStatement stmt = connection.prepareStatement("UPDATE SecurityGuard Set Name=?, Contact_No=?,Present_Address = ?,Permanent_Address = ?,Email=?,Stat=? where  SecurityID='"+id_to_edit+"SID'");
 
             //  stmt.setString(1, role);
             stmt.setString(1, Name);
@@ -19,7 +19,6 @@ public class Model_EditAccount {
             stmt.setString(4, PermanentAddress);
             stmt.setString(5, Email);
             stmt.setInt(6, active);
-            stmt.setString(7, ContactNo);
 
             stmt.executeQuery();
             
@@ -31,10 +30,10 @@ public class Model_EditAccount {
         return true;
     }
     
-    public boolean returnvalue(String Contact,String Name,String NID,String Email,String Profession,String Job_Address,int Staying){
+    public boolean returnvalue(int id_to_edit,String Contact,String Name,String NID,String Email,String Profession,String Job_Address,int Staying){
         try {      
             
-            PreparedStatement stmt = connection.prepareStatement("UPDATE Resident Set Name=?, Contact_No=?,NID_BID=?,Email=?,Profession = ?,Job_Address = ?,Current_Living=? where  ContactNo=?");
+            PreparedStatement stmt = connection.prepareStatement("UPDATE Resident Set Name=?, Contact_No=?,NID_BID=?,Email=?,Profession = ?,Job_Address = ?,Current_Living=? where  ResidentID='"+id_to_edit+"RID'");
 
             //  stmt.setString(1, role);
             stmt.setString(1, Name);
@@ -55,11 +54,14 @@ public class Model_EditAccount {
         return true;
     }
     
-    public boolean returnvalue(String Contact,String Name,String Email,String Address,int Active){
+    public boolean returnvalue(int id_to_edit,String Contact,String Name,String Email,String Address,int Active){
         try {      
-            
-            PreparedStatement stmt = connection.prepareStatement("UPDATE Manger Set Name=?, Contact_No=?,Permanent_Address = ?,Email=?,Stat=? where  ContactNo=?");
+            if(Active==1){
+                Statement quw= connection.createStatement();
+                quw.execute("Update Manager Set Stat=0");
+            }
 
+            PreparedStatement stmt = connection.prepareStatement("UPDATE Manager Set Name=?, Contact_No=?,Permanent_Address = ?,Email=?,Stat=? where ManagerID='"+id_to_edit+"MID'");
             //  stmt.setString(1, role);
             stmt.setString(1, Name);
             stmt.setString(2, Contact);
@@ -67,7 +69,7 @@ public class Model_EditAccount {
             stmt.setString(4, Email);
             stmt.setInt(5, Active);
 
-            stmt.executeQuery();
+            stmt.execute();
             
 
         } catch (SQLException e) {
