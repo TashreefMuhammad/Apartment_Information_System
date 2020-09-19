@@ -112,4 +112,31 @@ public class Model_TableValues {
         }
         return data;
     }
+
+    public ArrayList<Controller_ServiceProviderInfo> servicePersonalInfoExtractTable(String contact, String present_Address, String designation) {
+        ArrayList<Controller_ServiceProviderInfo> data = new ArrayList<>();
+
+        try {
+            PreparedStatement statement;
+
+            statement = connection.prepareStatement("SELECT * from ServiceProvider where Contact_No Like '%" + contact + "%' AND Present_Address LIKE '%" + present_Address + "%' AND Designation LIKE '%" + designation + "%'");
+
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
+            int row6;
+            String row0, row1, row2, row3, row4;
+            while (resultSet.next()) {
+                row0 = resultSet.getString("SPID");
+                row1 = resultSet.getString("Contact_No");
+                row2 = resultSet.getString("Present_Address");
+                row3 = resultSet.getString("Designation");
+                row0 = row0.substring(0, row0.length() - 4);
+
+                data.add(new Controller_ServiceProviderInfo(Integer.parseInt(row0), row1, row2, row3));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
 }

@@ -79,15 +79,16 @@ public class Model_EditAccount {
         return true;
     }
     
-    public boolean returnvalue(String Contact,String Address,String Designation,String FlatNo){
+    public boolean returnvalue(int id_to_edit,String Contact,String Address,String Designation,String FlatNo){
         try {      
             
-            PreparedStatement stmt = connection.prepareStatement("UPDATE ServiceProvider Set Contact_No=?,Present_Address = ?,Designation=? where  ContactNo=?");
+            PreparedStatement stmt = connection.prepareStatement("UPDATE ServiceProvider Set Contact_No=?,Present_Address = ?,Designation=? where  SPID='"+id_to_edit+"SPID'");
 
             //  stmt.setString(1, role);
             stmt.setString(1, Contact);
             stmt.setString(2, Address);
             stmt.setString(3, Designation);
+            
 
             stmt.executeQuery();
             

@@ -24,4 +24,8 @@ public class Controller_SearchTable {
     public ArrayList<Controller_ManagerInfo> managerInfoTable(String contact, String name, String email, String Address,int stat){
         return val.managerInfoExtractTable(contact, name, email,Address, stat);
     }
+    
+    public ArrayList<Controller_ServiceProviderInfo> ServicePersonalInfoTable(String contact,  String present_Address,String designation){
+        return val.servicePersonalInfoExtractTable(contact, present_Address, designation);
+    }
 }

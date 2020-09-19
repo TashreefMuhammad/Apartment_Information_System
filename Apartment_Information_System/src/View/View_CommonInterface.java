@@ -34,6 +34,10 @@ public class View_CommonInterface extends javax.swing.JFrame {
     //variables for Manager edit table
     int man_act_stat =2;
     ArrayList<Controller_ManagerInfo> man_info;
+    
+    //variables for ServiceProvider edit table
+ 
+    ArrayList<Controller_ServiceProviderInfo> sp_info;
 
     int flag = 0;
 
@@ -1093,11 +1097,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
             residentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(residentLayout.createSequentialGroup()
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         residentLayout.setVerticalGroup(
             residentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("Resident", resident);
@@ -1444,7 +1448,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(servicepersonalname, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(servicepersonalexplainationofservice, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(servicepersonalcontact, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addGroup(addservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(addservicepersonalLayout.createSequentialGroup()
                                 .addComponent(jLabel49)
@@ -1456,7 +1460,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                                     .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel52, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(servicepersonalnid, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 64, Short.MAX_VALUE))))))
+                                .addGap(0, 60, Short.MAX_VALUE))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addservicepersonalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(servicepersonalsubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1499,7 +1503,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(servicepersonalexplainationofservice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(servicepersonalsubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Add Account", addservicepersonal);
@@ -1517,10 +1521,21 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        servicepersonaltable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                servicepersonaltableMouseReleased(evt);
+            }
+        });
         jScrollPane18.setViewportView(servicepersonaltable);
 
         jLabel56.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel56.setText("Contact No");
+
+        SP_Designation.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SP_DesignationKeyReleased(evt);
+            }
+        });
 
         jLabel57.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel57.setText("Present Address");
@@ -1546,6 +1561,23 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         });
 
+        editSPcontact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editSPcontactActionPerformed(evt);
+            }
+        });
+        editSPcontact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                editSPcontactKeyReleased(evt);
+            }
+        });
+
+        editSP_Address.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                editSP_AddressKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout editservicepersonalLayout = new javax.swing.GroupLayout(editservicepersonal);
         editservicepersonal.setLayout(editservicepersonalLayout);
         editservicepersonalLayout.setHorizontalGroup(
@@ -1561,9 +1593,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(jLabel60)
                             .addComponent(deleteservice, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(editservicepersonalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(editSPcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(editservicepersonalLayout.createSequentialGroup()
                         .addGap(157, 157, 157)
                         .addComponent(Save, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(editservicepersonalLayout.createSequentialGroup()
@@ -1571,8 +1600,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addComponent(editSP_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(editservicepersonalLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(SP_Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addComponent(SP_Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(editservicepersonalLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(editSPcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1583,13 +1615,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         editservicepersonalLayout.setVerticalGroup(
             editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
             .addGroup(editservicepersonalLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel56)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editSPcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(editSPcontact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel57)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editSP_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1608,7 +1640,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGroup(editservicepersonalLayout.createSequentialGroup()
                     .addGap(89, 89, 89)
                     .addComponent(editservicepersonalcontact2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(481, Short.MAX_VALUE)))
+                    .addContainerGap(483, Short.MAX_VALUE)))
         );
 
         jTabbedPane4.addTab("Edit Account", editservicepersonal);
@@ -1810,9 +1842,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE))
         );
 
         managertabbedpane.addTab("  Specialized Official Entry  ", spolayeredpanel);
@@ -2093,11 +2125,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rescompanelLayout = new javax.swing.GroupLayout(rescompanel);
@@ -2108,7 +2140,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         rescompanelLayout.setVerticalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
         );
 
         managertabbedpane.addTab("  Resident Communication  ", rescompanel);
@@ -3037,7 +3069,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_res_emailActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        boolean editSp = edit.editinfo(editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText(), deleteservice.getSelectedItem().toString());
+        boolean editSp = edit.editinfo(id_to_edit,editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText(), deleteservice.getSelectedItem().toString());
     }//GEN-LAST:event_SaveActionPerformed
 
     private void residentflatnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentflatnoActionPerformed
@@ -3178,6 +3210,37 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_statuscheckActionPerformed
 
+    private void editSPcontactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSPcontactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editSPcontactActionPerformed
+
+    private void editSPcontactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editSPcontactKeyReleased
+        // TODO add your handling code here:
+        press_to_GetSPInfo();
+        
+    }//GEN-LAST:event_editSPcontactKeyReleased
+
+    private void editSP_AddressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editSP_AddressKeyReleased
+        // TODO add your handling code here:
+        press_to_GetSPInfo();
+    }//GEN-LAST:event_editSP_AddressKeyReleased
+
+    private void SP_DesignationKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SP_DesignationKeyReleased
+        // TODO add your handling code here:
+        press_to_GetSPInfo();
+    }//GEN-LAST:event_SP_DesignationKeyReleased
+
+    private void servicepersonaltableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_servicepersonaltableMouseReleased
+        // TODO add your handling code here:
+        selected = servicepersonaltable.getSelectedRow();
+        id_to_edit = sp_info.get(selected).getID();
+        editSPcontact.setText(servicepersonaltable.getModel().getValueAt(selected, 0).toString());
+        editSP_Address.setText(servicepersonaltable.getModel().getValueAt(selected, 1).toString());
+        SP_Designation.setText(servicepersonaltable.getModel().getValueAt(selected, 2).toString());
+      
+        press_to_GetSPInfo();
+    }//GEN-LAST:event_servicepersonaltableMouseReleased
+
     private void initializeSelf() {
         new Thread(new Runnable() {
             @Override
@@ -3249,6 +3312,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
         man_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
 
         Managertable.setModel(man_edit);
+        
+        //Table for editing ServiceProvider info by Manager
+        DefaultTableModel sp_edit = (DefaultTableModel) servicepersonaltable.getModel();
+        sp_edit.setRowCount(0);
+        sp_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        servicepersonaltable.setModel(sp_edit);
     }
 
     public void labelValues(int id, String name, String contact, String email, String apartment) {
@@ -3342,6 +3412,24 @@ public class View_CommonInterface extends javax.swing.JFrame {
         Managertable.setModel(man_edit);
     }
 
+    protected void press_to_GetSPInfo() {
+        sp_info = sec_val.ServicePersonalInfoTable(editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText());
+        DefaultTableModel sp_edit = (DefaultTableModel) servicepersonaltable.getModel();
+        sp_edit.setRowCount(0);
+        sp_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+
+        Object[] row = new Object[4];
+        for (int i = 0; i < sp_info.size(); ++i) {
+            row[0] = sp_info.get(i).getContact();
+            row[1] = sp_info.get(i).getpresent_Address();
+            row[2] = sp_info.get(i).getdesignation();
+            
+            
+            sp_edit.addRow(row);
+        }
+        servicepersonaltable.setModel(sp_edit);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

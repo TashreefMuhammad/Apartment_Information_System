@@ -761,7 +761,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jTabbedPane2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1846,7 +1846,7 @@
                                                               <Component id="servicepersonalexplainationofservice" alignment="0" max="32767" attributes="0"/>
                                                               <Component id="servicepersonalcontact" alignment="0" max="32767" attributes="0"/>
                                                           </Group>
-                                                          <EmptySpace pref="71" max="32767" attributes="0"/>
+                                                          <EmptySpace pref="66" max="32767" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
                                                               <Group type="102" attributes="0">
                                                                   <Component id="jLabel49" min="-2" max="-2" attributes="0"/>
@@ -1860,7 +1860,7 @@
                                                                       <Component id="jLabel52" alignment="0" min="-2" max="-2" attributes="0"/>
                                                                       <Component id="servicepersonalnid" alignment="0" max="32767" attributes="0"/>
                                                                   </Group>
-                                                                  <EmptySpace min="0" pref="64" max="32767" attributes="0"/>
+                                                                  <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
                                                               </Group>
                                                           </Group>
                                                       </Group>
@@ -1916,7 +1916,7 @@
                                                   <Component id="servicepersonalexplainationofservice" min="-2" pref="27" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="servicepersonalsubmit" min="-2" pref="25" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="66" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="69" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
@@ -2060,10 +2060,6 @@
                                                           </Group>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="editSPcontact" min="-2" pref="350" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
                                                           <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                                                           <Component id="Save" min="-2" pref="85" max="-2" attributes="0"/>
                                                       </Group>
@@ -2075,8 +2071,12 @@
                                                           <EmptySpace max="-2" attributes="0"/>
                                                           <Component id="SP_Designation" min="-2" pref="350" max="-2" attributes="0"/>
                                                       </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="editSPcontact" min="-2" pref="350" max="-2" attributes="0"/>
+                                                      </Group>
                                                   </Group>
-                                                  <EmptySpace pref="69" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="56" max="32767" attributes="0"/>
                                                   <Component id="jScrollPane18" min="-2" pref="409" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
@@ -2091,13 +2091,13 @@
                                         </DimensionLayout>
                                         <DimensionLayout dim="1">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jScrollPane18" alignment="0" pref="570" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane18" alignment="0" pref="572" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                                   <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="editSPcontact" min="-2" pref="27" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="editSPcontact" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                                   <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="editSP_Address" min="-2" max="-2" attributes="0"/>
@@ -2117,7 +2117,7 @@
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                                                       <Component id="editservicepersonalcontact2" min="-2" pref="0" max="-2" attributes="0"/>
-                                                      <EmptySpace pref="481" max="32767" attributes="0"/>
+                                                      <EmptySpace pref="483" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -2139,6 +2139,9 @@
                                                   </Table>
                                                 </Property>
                                               </Properties>
+                                              <Events>
+                                                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="servicepersonaltableMouseReleased"/>
+                                              </Events>
                                             </Component>
                                           </SubComponents>
                                         </Container>
@@ -2151,6 +2154,9 @@
                                           </Properties>
                                         </Component>
                                         <Component class="javax.swing.JTextField" name="SP_Designation">
+                                          <Events>
+                                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SP_DesignationKeyReleased"/>
+                                          </Events>
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel57">
                                           <Properties>
@@ -2208,10 +2214,17 @@
                                           </Events>
                                         </Component>
                                         <Component class="javax.swing.JTextField" name="editSPcontact">
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editSPcontactActionPerformed"/>
+                                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="editSPcontactKeyReleased"/>
+                                          </Events>
                                         </Component>
                                         <Component class="javax.swing.JTextField" name="editservicepersonalcontact2">
                                         </Component>
                                         <Component class="javax.swing.JTextField" name="editSP_Address">
+                                          <Events>
+                                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="editSP_AddressKeyReleased"/>
+                                          </Events>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -2248,9 +2261,9 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="spotablepanel" alignment="0" pref="624" max="32767" attributes="0"/>
+                              <Component id="spotablepanel" alignment="0" pref="626" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                  <Component id="spopanel" alignment="0" pref="624" max="32767" attributes="0"/>
+                                  <Component id="spopanel" alignment="0" pref="626" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2526,7 +2539,7 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLayeredPane1" pref="624" max="32767" attributes="0"/>
+                              <Component id="jLayeredPane1" pref="626" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                       </Layout>
@@ -2552,12 +2565,12 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="requestpanel" alignment="0" pref="624" max="32767" attributes="0"/>
+                                  <Component id="requestpanel" alignment="0" pref="626" max="32767" attributes="0"/>
                                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                      <Component id="transiction" alignment="0" pref="624" max="32767" attributes="0"/>
+                                      <Component id="transiction" alignment="0" pref="626" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                                      <Component id="rescommain" alignment="0" pref="624" max="32767" attributes="0"/>
+                                      <Component id="rescommain" alignment="0" pref="626" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
