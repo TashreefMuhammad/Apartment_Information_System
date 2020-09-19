@@ -21,4 +21,18 @@ public class Controller_AddNewAccount {
     public boolean checkdata(String dtid,int id,String namoforg, String reasonofvis,String nid,String count_people, String name, String contact,String prof,String namofinst,String role) {
         return givedata.returnval(dtid,id,namoforg, reasonofvis,nid,count_people,name,contact, prof,namofinst,role);
     }
+    public boolean checkdata(String name, String contact,String role) {
+        return givedata.returnval(name,contact,role);
+    }
+    public boolean checkdata(String Dtid, String sec,int res,int gues,String role) {
+        return givedata.returnval(Dtid,sec,res,gues,role);
+    }
+    
+    public boolean sp_checkdata(String dtid,int id,String Name,String Contact,String Sec_Contact){
+        return givedata.sp_returnval(dtid,id,Name,Contact,Sec_Contact);
+    }
+    //Method to get New Guest's ID
+    public int getguestID(){
+        return givedata.returnGuestID();
+    }
 }

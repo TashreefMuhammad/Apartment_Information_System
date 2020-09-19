@@ -21,7 +21,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     Controller_EditAccount edit = new Controller_EditAccount();
     Controller_SearchTable sec_val = new Controller_SearchTable();
 
-    int selected, id_to_edit;
+    int selected, id_to_edit, entry_id = -1;
     //variables for securityedit table
     ArrayList<Controller_SecurityInfo> info;
     //String contact, name, email, pres, perm;
@@ -30,15 +30,23 @@ public class View_CommonInterface extends javax.swing.JFrame {
     int res_act_stat = 2;
     ArrayList<Controller_ResidentInfo> res_info;
     int citi_Min = 1;
-    
+
     //variables for Manager edit table
-    int man_act_stat =2;
+    int man_act_stat = 2;
     ArrayList<Controller_ManagerInfo> man_info;
-    
+
     //variables for ServiceProvider edit table
- 
     ArrayList<Controller_ServiceProviderInfo> sp_info;
 
+    //variables for Guest edit table
+    ArrayList<Controller_GuestInfo> guest_info;
+
+    ArrayList<Controller_ResidentInfo> wtv_info;
+    
+    ArrayList<Controller_ServiceProviderInfo> spv_info;
+    
+    int wtv_res;
+    int sp_ent;
     int flag = 0;
 
     int mana_act_stat = 0;
@@ -47,7 +55,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     public View_CommonInterface() {
         initComponents();
-        
+
         initializeSelf();
 
     }
@@ -303,26 +311,28 @@ public class View_CommonInterface extends javax.swing.JFrame {
         grouppanel = new javax.swing.JPanel();
         guestHeaderLabel2 = new javax.swing.JLabel();
         guestnameLabel3 = new javax.swing.JLabel();
-        guestnameField3 = new javax.swing.JTextField();
+        guestname = new javax.swing.JTextField();
         guestcontactLabel1 = new javax.swing.JLabel();
-        guestcontactField1 = new javax.swing.JTextField();
+        guestcontact = new javax.swing.JTextField();
         guestheaderLabel3 = new javax.swing.JLabel();
         guestnameLabel4 = new javax.swing.JLabel();
-        guestnameField4 = new javax.swing.JTextField();
+        whomtovis_name = new javax.swing.JTextField();
         guestflatLabel1 = new javax.swing.JLabel();
-        guestflatField1 = new javax.swing.JTextField();
+        whomtovis_flat = new javax.swing.JTextField();
         guestsubmitBut1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableguest = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        whomtovisitTable = new javax.swing.JTable();
         svpanel = new javax.swing.JPanel();
         svheaderLabel = new javax.swing.JLabel();
         svnameLabel = new javax.swing.JLabel();
-        svnameField = new javax.swing.JTextField();
+        SP_name = new javax.swing.JTextField();
         svcontactLabel = new javax.swing.JLabel();
-        svcontactField = new javax.swing.JTextField();
+        SP_contact = new javax.swing.JTextField();
         svsubmitBut = new javax.swing.JButton();
         svscrollpanel = new javax.swing.JScrollPane();
-        svtable = new javax.swing.JTable();
+        Sp_table = new javax.swing.JTable();
         signinasLabel = new javax.swing.JLabel();
         signindesLabel = new javax.swing.JLabel();
         signinimageLabel = new javax.swing.JLabel();
@@ -452,7 +462,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel21)
                 .addGap(18, 18, 18)
                 .addComponent(addpermanentadress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(addsecuritysubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -1842,9 +1852,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
         );
 
         managertabbedpane.addTab("  Specialized Official Entry  ", spolayeredpanel);
@@ -2125,11 +2135,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rescompanelLayout = new javax.swing.GroupLayout(rescompanel);
@@ -2140,7 +2150,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         rescompanelLayout.setVerticalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
         );
 
         managertabbedpane.addTab("  Resident Communication  ", rescompanel);
@@ -2468,18 +2478,28 @@ public class View_CommonInterface extends javax.swing.JFrame {
         guestnameLabel3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         guestnameLabel3.setText("Full Name:");
 
-        guestnameField3.addActionListener(new java.awt.event.ActionListener() {
+        guestname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guestnameField3ActionPerformed(evt);
+                guestnameActionPerformed(evt);
+            }
+        });
+        guestname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                guestnameKeyReleased(evt);
             }
         });
 
         guestcontactLabel1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         guestcontactLabel1.setText("Contact No.:");
 
-        guestcontactField1.addActionListener(new java.awt.event.ActionListener() {
+        guestcontact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guestcontactField1ActionPerformed(evt);
+                guestcontactActionPerformed(evt);
+            }
+        });
+        guestcontact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                guestcontactKeyReleased(evt);
             }
         });
 
@@ -2489,18 +2509,28 @@ public class View_CommonInterface extends javax.swing.JFrame {
         guestnameLabel4.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         guestnameLabel4.setText("Name:");
 
-        guestnameField4.addActionListener(new java.awt.event.ActionListener() {
+        whomtovis_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guestnameField4ActionPerformed(evt);
+                whomtovis_nameActionPerformed(evt);
+            }
+        });
+        whomtovis_name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                whomtovis_nameKeyReleased(evt);
             }
         });
 
         guestflatLabel1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         guestflatLabel1.setText("Flat No.:");
 
-        guestflatField1.addActionListener(new java.awt.event.ActionListener() {
+        whomtovis_flat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guestflatField1ActionPerformed(evt);
+                whomtovis_flatActionPerformed(evt);
+            }
+        });
+        whomtovis_flat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                whomtovis_flatKeyReleased(evt);
             }
         });
 
@@ -2525,7 +2555,30 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableguest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tableguestMouseReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(tableguest);
+
+        whomtovisitTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        whomtovisitTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                whomtovisitTableMouseReleased(evt);
+            }
+        });
+        jScrollPane5.setViewportView(whomtovisitTable);
 
         javax.swing.GroupLayout grouppanelLayout = new javax.swing.GroupLayout(grouppanel);
         grouppanel.setLayout(grouppanelLayout);
@@ -2534,8 +2587,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, grouppanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(grouppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(guestnameField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(guestcontactField1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(whomtovis_name, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(guestcontact, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(guestHeaderLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(guestnameLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(guestcontactLabel1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -2545,10 +2598,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, grouppanelLayout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addComponent(guestsubmitBut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(guestnameField3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(guestflatField1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE))
+                    .addComponent(guestname, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(whomtovis_flat))
+                .addGap(48, 48, 48)
+                .addGroup(grouppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5)))
         );
         grouppanelLayout.setVerticalGroup(
             grouppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2558,26 +2613,28 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addComponent(guestnameLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(guestnameField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(guestname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(guestcontactLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(guestcontactField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(guestcontact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(guestheaderLabel3)
                 .addGap(32, 32, 32)
                 .addComponent(guestnameLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(guestnameField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(whomtovis_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(guestflatLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(guestflatField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(whomtovis_flat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(guestsubmitBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
             .addGroup(grouppanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -2591,18 +2648,28 @@ public class View_CommonInterface extends javax.swing.JFrame {
         svnameLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         svnameLabel.setText("Full Name");
 
-        svnameField.addActionListener(new java.awt.event.ActionListener() {
+        SP_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                svnameFieldActionPerformed(evt);
+                SP_nameActionPerformed(evt);
+            }
+        });
+        SP_name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SP_nameKeyReleased(evt);
             }
         });
 
         svcontactLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         svcontactLabel.setText("Contact No.");
 
-        svcontactField.addActionListener(new java.awt.event.ActionListener() {
+        SP_contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                svcontactFieldActionPerformed(evt);
+                SP_contactActionPerformed(evt);
+            }
+        });
+        SP_contact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SP_contactKeyReleased(evt);
             }
         });
 
@@ -2614,7 +2681,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         });
 
-        svtable.setModel(new javax.swing.table.DefaultTableModel(
+        Sp_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2625,7 +2692,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        svscrollpanel.setViewportView(svtable);
+        Sp_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Sp_tableMouseReleased(evt);
+            }
+        });
+        svscrollpanel.setViewportView(Sp_table);
 
         javax.swing.GroupLayout svpanelLayout = new javax.swing.GroupLayout(svpanel);
         svpanel.setLayout(svpanelLayout);
@@ -2641,12 +2713,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addGroup(svpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(svcontactLabel)
                             .addComponent(svnameLabel)
-                            .addComponent(svcontactField)
-                            .addComponent(svnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(SP_contact, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(SP_name)))
                     .addGroup(svpanelLayout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(svsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(svscrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         svpanelLayout.setVerticalGroup(
@@ -2657,16 +2729,16 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(96, 96, 96)
                 .addComponent(svnameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(svnameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SP_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(svcontactLabel)
                 .addGap(28, 28, 28)
-                .addComponent(svcontactField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SP_contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(svsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
             .addGroup(svpanelLayout.createSequentialGroup()
-                .addComponent(svscrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                .addComponent(svscrollpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2682,7 +2754,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             securitypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(securitypanelLayout.createSequentialGroup()
                 .addComponent(securitytab, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
         panellayers.setLayer(managerpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -2853,16 +2925,16 @@ public class View_CommonInterface extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_signoutButActionPerformed
 
-    private void svnameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svnameFieldActionPerformed
+    private void SP_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SP_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_svnameFieldActionPerformed
+    }//GEN-LAST:event_SP_nameActionPerformed
 
-    private void svcontactFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svcontactFieldActionPerformed
+    private void SP_contactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SP_contactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_svcontactFieldActionPerformed
+    }//GEN-LAST:event_SP_contactActionPerformed
 
     private void svsubmitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svsubmitButActionPerformed
-        // TODO add your handling code here:
+        boolean spv_entry = add.sp_checkdata(dtid,sp_ent,SP_name.getText(),SP_contact.getText(),contactshowLabel.getText());
     }//GEN-LAST:event_svsubmitButActionPerformed
 
     private void paymenttypecomboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymenttypecomboBoxActionPerformed
@@ -2877,24 +2949,32 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_newreqsubmitButActionPerformed
 
-    private void guestnameField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestnameField3ActionPerformed
+    private void guestnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_guestnameField3ActionPerformed
+    }//GEN-LAST:event_guestnameActionPerformed
 
-    private void guestcontactField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestcontactField1ActionPerformed
+    private void guestcontactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestcontactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_guestcontactField1ActionPerformed
+    }//GEN-LAST:event_guestcontactActionPerformed
 
-    private void guestnameField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestnameField4ActionPerformed
+    private void whomtovis_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whomtovis_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_guestnameField4ActionPerformed
+    }//GEN-LAST:event_whomtovis_nameActionPerformed
 
-    private void guestflatField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestflatField1ActionPerformed
+    private void whomtovis_flatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whomtovis_flatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_guestflatField1ActionPerformed
+    }//GEN-LAST:event_whomtovis_flatActionPerformed
 
     private void guestsubmitBut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestsubmitBut1ActionPerformed
-        // TODO add your handling code here:
+        if(entry_id==-1){
+            boolean guest = add.checkdata(guestname.getText(),guestcontact.getText(),"Guest");
+            //Getting The ID of The New Guest
+            entry_id = add.getguestID();
+        }
+        
+        boolean whomtovisit = add.checkdata(dtid,contactshowLabel.getText(),wtv_res,entry_id,"GuestEntry");
+        
+        
     }//GEN-LAST:event_guestsubmitBut1ActionPerformed
 
     private void reqhisfilterComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reqhisfilterComboBoxActionPerformed
@@ -2910,11 +2990,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_contactnoinputActionPerformed
 
     private void editmanagersaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editmanagersaveActionPerformed
-        if(statuscheck.isSelected()){
-            mana_act_stat=1;
-        }else{mana_act_stat=0;}
-        
-        boolean editmana = edit.editinfo(id_to_edit,managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), mana_act_stat);
+        if (statuscheck.isSelected()) {
+            mana_act_stat = 1;
+        } else {
+            mana_act_stat = 0;
+        }
+
+        boolean editmana = edit.editinfo(id_to_edit, managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), mana_act_stat);
     }//GEN-LAST:event_editmanagersaveActionPerformed
 
     private void newmanagercontactnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newmanagercontactnoActionPerformed
@@ -3061,7 +3143,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_leftActionPerformed
 
     private void saveinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveinfoActionPerformed
-        boolean editres = edit.editinfo(id_to_edit,res_contact.getText(), res_name.getText(), res_nid.getText(), res_email.getText(), res_profession.getText(), res_job_address.getText(), res_act_stat);
+        boolean editres = edit.editinfo(id_to_edit, res_contact.getText(), res_name.getText(), res_nid.getText(), res_email.getText(), res_profession.getText(), res_job_address.getText(), res_act_stat);
     }//GEN-LAST:event_saveinfoActionPerformed
 
     private void res_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_res_emailActionPerformed
@@ -3069,7 +3151,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_res_emailActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        boolean editSp = edit.editinfo(id_to_edit,editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText(), deleteservice.getSelectedItem().toString());
+        boolean editSp = edit.editinfo(id_to_edit, editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText(), deleteservice.getSelectedItem().toString());
     }//GEN-LAST:event_SaveActionPerformed
 
     private void residentflatnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentflatnoActionPerformed
@@ -3217,7 +3299,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private void editSPcontactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editSPcontactKeyReleased
         // TODO add your handling code here:
         press_to_GetSPInfo();
-        
+
     }//GEN-LAST:event_editSPcontactKeyReleased
 
     private void editSP_AddressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editSP_AddressKeyReleased
@@ -3237,9 +3319,58 @@ public class View_CommonInterface extends javax.swing.JFrame {
         editSPcontact.setText(servicepersonaltable.getModel().getValueAt(selected, 0).toString());
         editSP_Address.setText(servicepersonaltable.getModel().getValueAt(selected, 1).toString());
         SP_Designation.setText(servicepersonaltable.getModel().getValueAt(selected, 2).toString());
-      
+
         press_to_GetSPInfo();
     }//GEN-LAST:event_servicepersonaltableMouseReleased
+
+    private void guestnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_guestnameKeyReleased
+        Check_GuestList();
+    }//GEN-LAST:event_guestnameKeyReleased
+
+    private void guestcontactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_guestcontactKeyReleased
+        // TODO add your handling code here:
+        Check_GuestList();
+    }//GEN-LAST:event_guestcontactKeyReleased
+
+    private void tableguestMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableguestMouseReleased
+        // TODO add your handling code here:
+        selected = tableguest.getSelectedRow();
+        entry_id = guest_info.get(selected).getID();
+        guestname.setText(guest_info.get(selected).getName());
+        guestcontact.setText(guest_info.get(selected).getContact());
+
+        Check_GuestList();
+    }//GEN-LAST:event_tableguestMouseReleased
+
+    private void whomtovis_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_whomtovis_nameKeyReleased
+        Check_WhomToVisit();
+    }//GEN-LAST:event_whomtovis_nameKeyReleased
+
+    private void whomtovis_flatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_whomtovis_flatKeyReleased
+        Check_WhomToVisit();
+    }//GEN-LAST:event_whomtovis_flatKeyReleased
+
+    private void whomtovisitTableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_whomtovisitTableMouseReleased
+        selected = whomtovisitTable.getSelectedRow();
+        wtv_res= wtv_info.get(selected).getID();
+        whomtovis_name.setText(wtv_info.get(selected).getName());
+        whomtovis_flat.setText(wtv_info.get(selected).getFlatNo());
+    }//GEN-LAST:event_whomtovisitTableMouseReleased
+
+    private void SP_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SP_nameKeyReleased
+        SP_Entry();
+    }//GEN-LAST:event_SP_nameKeyReleased
+
+    private void Sp_tableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Sp_tableMouseReleased
+        selected = Sp_table.getSelectedRow();
+        sp_ent = spv_info.get(selected).getID();
+        SP_name.setText(spv_info.get(selected).getName());
+        SP_contact.setText(spv_info.get(selected).getContact());
+    }//GEN-LAST:event_Sp_tableMouseReleased
+
+    private void SP_contactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SP_contactKeyReleased
+        SP_Entry();
+    }//GEN-LAST:event_SP_contactKeyReleased
 
     private void initializeSelf() {
         new Thread(new Runnable() {
@@ -3277,7 +3408,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             citi_Min = 1;
                         } else if (citiormin.getSelectedItem().toString().equals("Minor")) {
                             citi_Min = 0;
-                        }else{
+                        } else {
                             citi_Min = 2;
                         }
                         press_to_GetResInfo();
@@ -3305,20 +3436,40 @@ public class View_CommonInterface extends javax.swing.JFrame {
         res_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Profession", "Status"});
 
         residenttable.setModel(res_edit);
-        
+
         //Table for editing Manager info by Manager
         DefaultTableModel man_edit = (DefaultTableModel) Managertable.getModel();
         man_edit.setRowCount(0);
         man_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
 
         Managertable.setModel(man_edit);
-        
+
         //Table for editing ServiceProvider info by Manager
         DefaultTableModel sp_edit = (DefaultTableModel) servicepersonaltable.getModel();
         sp_edit.setRowCount(0);
         sp_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
 
         servicepersonaltable.setModel(sp_edit);
+
+        //SecurityEntry for Guest
+        DefaultTableModel entry_guest = (DefaultTableModel) tableguest.getModel();
+        entry_guest.setRowCount(0);
+        entry_guest.setColumnIdentifiers(new Object[]{"ContactNo", "Name"});
+
+        tableguest.setModel(entry_guest);
+        
+        //Security Entry Resident For Guest
+        DefaultTableModel wtv_edit = (DefaultTableModel) whomtovisitTable.getModel();
+        wtv_edit.setRowCount(0);
+        wtv_edit.setColumnIdentifiers(new Object[]{"Name", "Flat_No"});
+        whomtovisitTable.setModel(wtv_edit);
+        
+        //SecurityEntry for Guest
+        DefaultTableModel spv_edit= (DefaultTableModel) Sp_table.getModel();
+        spv_edit.setRowCount(0);
+        spv_edit.setColumnIdentifiers(new Object[]{"Name", "Contact_No"});
+
+        Sp_table.setModel(spv_edit);
     }
 
     public void labelValues(int id, String name, String contact, String email, String apartment) {
@@ -3393,7 +3544,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         }
         residenttable.setModel(res_edit);
     }
-    
+
     protected void press_to_GetManInfo() {
         man_info = sec_val.managerInfoTable(managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), man_act_stat);
         DefaultTableModel man_edit = (DefaultTableModel) Managertable.getModel();
@@ -3406,7 +3557,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             row[1] = man_info.get(i).getName();
             row[2] = man_info.get(i).getEmail();
             row[3] = man_info.get(i).getStat();
-            
+
             man_edit.addRow(row);
         }
         Managertable.setModel(man_edit);
@@ -3423,13 +3574,63 @@ public class View_CommonInterface extends javax.swing.JFrame {
             row[0] = sp_info.get(i).getContact();
             row[1] = sp_info.get(i).getpresent_Address();
             row[2] = sp_info.get(i).getdesignation();
-            
-            
+
             sp_edit.addRow(row);
         }
         servicepersonaltable.setModel(sp_edit);
     }
+
+    protected void Check_GuestList() {
+        guest_info = sec_val.GuestInfoTable(guestname.getText(), guestcontact.getText());
+
+        DefaultTableModel entry_guest = (DefaultTableModel) tableguest.getModel();
+        entry_guest.setRowCount(0);
+        entry_guest.setColumnIdentifiers(new Object[]{"ContactNo", "Name"});
+
+        Object[] row = new Object[2];
+        for (int i = 0; i < guest_info.size(); ++i) {
+            row[0] = guest_info.get(i).getContact();
+            row[1] = guest_info.get(i).getName();
+
+            entry_guest.addRow(row);
+        }
+        tableguest.setModel(entry_guest);
+    }
+
+    protected void Check_WhomToVisit() {
+        wtv_info = sec_val.WhomtoVisit(whomtovis_name.getText(), whomtovis_flat.getText());
+
+        DefaultTableModel wtv_edit = (DefaultTableModel) whomtovisitTable.getModel();
+        wtv_edit.setRowCount(0);
+        wtv_edit.setColumnIdentifiers(new Object[]{"Name", "Flat_No"});
+
+        Object[] row = new Object[2];
+        for (int i = 0; i < wtv_info.size(); ++i) {
+            row[0] = wtv_info.get(i).getName();
+            row[1] = wtv_info.get(i).getFlatNo();
+
+            wtv_edit.addRow(row);
+        }
+        whomtovisitTable.setModel(wtv_edit);
+    }
     
+    protected void SP_Entry(){
+        spv_info = sec_val.SPV_Entry(SP_name.getText(),SP_contact.getText());
+
+        DefaultTableModel spv_edit= (DefaultTableModel) Sp_table.getModel();
+        spv_edit.setRowCount(0);
+        spv_edit.setColumnIdentifiers(new Object[]{"Name", "Contact_No"});
+
+        Object[] row = new Object[2];
+        for (int i = 0; i < spv_info.size(); ++i) {
+            row[0] = spv_info.get(i).getName();
+            row[1] = spv_info.get(i).getContact();
+
+            spv_edit.addRow(row);
+        }
+        Sp_table.setModel(spv_edit);
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -3470,8 +3671,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTextField Permanentadressinput;
     private javax.swing.ButtonGroup ResidentLiving;
     private javax.swing.JTextField SP_Designation;
+    private javax.swing.JTextField SP_contact;
+    private javax.swing.JTextField SP_name;
     private javax.swing.JButton Save;
     private javax.swing.ButtonGroup SecurityStatus;
+    private javax.swing.JTable Sp_table;
     private javax.swing.JButton Submit;
     private javax.swing.JPanel acmanagepanel;
     private javax.swing.JTabbedPane acountmngtabpane;
@@ -3529,13 +3733,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTable fundhistorytable;
     private javax.swing.JPanel grouppanel;
     private javax.swing.JLabel guestHeaderLabel2;
-    private javax.swing.JTextField guestcontactField1;
+    private javax.swing.JTextField guestcontact;
     private javax.swing.JLabel guestcontactLabel1;
-    private javax.swing.JTextField guestflatField1;
     private javax.swing.JLabel guestflatLabel1;
     private javax.swing.JLabel guestheaderLabel3;
-    private javax.swing.JTextField guestnameField3;
-    private javax.swing.JTextField guestnameField4;
+    private javax.swing.JTextField guestname;
     private javax.swing.JLabel guestnameLabel3;
     private javax.swing.JLabel guestnameLabel4;
     private javax.swing.JButton guestsubmitBut1;
@@ -3612,6 +3814,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
@@ -3723,15 +3926,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JCheckBox statuscheck;
     private javax.swing.JRadioButton staying;
     private javax.swing.JButton submitbutton;
-    private javax.swing.JTextField svcontactField;
     private javax.swing.JLabel svcontactLabel;
     private javax.swing.JLabel svheaderLabel;
-    private javax.swing.JTextField svnameField;
     private javax.swing.JLabel svnameLabel;
     private javax.swing.JPanel svpanel;
     private javax.swing.JScrollPane svscrollpanel;
     private javax.swing.JButton svsubmitBut;
-    private javax.swing.JTable svtable;
     private javax.swing.JTable tableguest;
     private javax.swing.JTextField tidField;
     private javax.swing.JComboBox<String> transactionfilterComboBox;
@@ -3742,5 +3942,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTabbedPane transictiontabbedpane;
     private javax.swing.JTable transictiontable;
     private javax.swing.JPanel transpanel;
+    private javax.swing.JTextField whomtovis_flat;
+    private javax.swing.JTextField whomtovis_name;
+    private javax.swing.JTable whomtovisitTable;
     // End of variables declaration//GEN-END:variables
 }

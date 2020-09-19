@@ -280,3 +280,5 @@ Drop table Transactions*/
 SELECT * FROM Manager Where Contact_No = '01718438309' AND Pass = HASHBYTES('MD5','01718438309')
 
 update Manager set Stat=1 where Contact_No='01718438309'
+
+Select Count(*) from Guest

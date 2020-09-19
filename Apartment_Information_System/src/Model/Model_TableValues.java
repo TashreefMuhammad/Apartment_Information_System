@@ -65,7 +65,7 @@ public class Model_TableValues {
             statement.execute();
             ResultSet resultSet = statement.executeQuery();
             int row6, row7;
-            String row0, row1, row2, row3, row4, row5;
+            String row0, row1, row2, row3, row4, row5, row8;
             while (resultSet.next()) {
                 row0 = resultSet.getString("ResidentID");
                 row1 = resultSet.getString("Name");
@@ -75,9 +75,10 @@ public class Model_TableValues {
                 row5 = resultSet.getString("Email");
                 row6 = resultSet.getInt("Current_Living");
                 row7 = resultSet.getInt("Citizenship");
+                row8 = resultSet.getString("Flat_No");
 
                 row0 = row0.substring(0, row0.length() - 3);
-                data.add(new Controller_ResidentInfo(Integer.parseInt(row0), row1, row2, "NULL", row5, row3, row4, row6, row7));
+                data.add(new Controller_ResidentInfo(Integer.parseInt(row0), row1, row2, "NULL", row5, row3, row4, row6, row7, row8));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -128,15 +129,98 @@ public class Model_TableValues {
             while (resultSet.next()) {
                 row0 = resultSet.getString("SPID");
                 row1 = resultSet.getString("Contact_No");
-                row2 = resultSet.getString("Present_Address");
-                row3 = resultSet.getString("Designation");
+                row2 = resultSet.getString("Name");
+                row3 = resultSet.getString("Present_Address");
+                row4 = resultSet.getString("Designation");
                 row0 = row0.substring(0, row0.length() - 4);
 
-                data.add(new Controller_ServiceProviderInfo(Integer.parseInt(row0), row1, row2, row3));
+                data.add(new Controller_ServiceProviderInfo(Integer.parseInt(row0), row1, row2, row3,row4));
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
         return data;
     }
+
+    public ArrayList<Controller_GuestInfo> guestInfoExtractTable(String Name, String Contact) {
+        ArrayList<Controller_GuestInfo> data = new ArrayList<>();
+
+        try {
+            PreparedStatement statement;
+
+            statement = connection.prepareStatement("SELECT * from Guest where Contact_No Like '%" + Contact + "%' AND Name LIKE '%" + Name + "%'");
+
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
+            int row6;
+            String row0, row1, row2, row3, row4;
+            while (resultSet.next()) {
+                row0 = resultSet.getString("GuestID");
+                row1 = resultSet.getString("Contact_No");
+                row2 = resultSet.getString("Name");
+
+                row0 = row0.substring(0, row0.length() - 3);
+
+                data.add(new Controller_GuestInfo(Integer.parseInt(row0), row1, row2));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
+
+    public ArrayList<Controller_ResidentInfo> whomtovisitExtractTable(String Name, String Flatno) {
+        ArrayList<Controller_ResidentInfo> data = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + Name + "%' AND Flat_No Like '%" + Flatno + "%'");
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
+            int row6, row7;
+            String row0, row1, row2, row3, row4, row5, row8;
+            while (resultSet.next()) {
+                row0 = resultSet.getString("ResidentID");
+                row1 = resultSet.getString("Name");
+                row2 = resultSet.getString("Contact_No");
+                row3 = resultSet.getString("Profession");
+                row4 = resultSet.getString("Job_Address");
+                row5 = resultSet.getString("Email");
+                row6 = resultSet.getInt("Current_Living");
+                row7 = resultSet.getInt("Citizenship");
+                row8 = resultSet.getString("Flat_No");
+
+                row0 = row0.substring(0, row0.length() - 3);
+                data.add(new Controller_ResidentInfo(Integer.parseInt(row0), row1, row2, "NULL", row5, row3, row4, row6, row7, row8));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
+
+    public ArrayList<Controller_ServiceProviderInfo> spVisitExtractTable(String Name, String Contact) {
+        ArrayList<Controller_ServiceProviderInfo> data = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from ServiceProvider where Name Like '%" + Name + "%' AND Contact_No Like '%" + Contact + "%'");
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
+            int row6, row7;
+            String row0, row1, row2, row3, row4, row5, row8;
+            while (resultSet.next()) {
+                row0 = resultSet.getString("SPID");
+                row1 = resultSet.getString("Contact_No");
+                row2 = resultSet.getString("Name");
+                row3 = resultSet.getString("Present_Address");
+                row4 = resultSet.getString("Designation");
+
+                row0 = row0.substring(0, row0.length() - 4);
+                data.add(new Controller_ServiceProviderInfo(Integer.parseInt(row0), row1, row2, row3, row4));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
+
 }

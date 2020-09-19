@@ -393,7 +393,7 @@
                                                   <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="addpermanentadress" min="-2" pref="28" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="103" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="78" max="32767" attributes="0"/>
                                                   <Component id="addsecuritysubmit" min="-2" pref="36" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                               </Group>
@@ -2261,9 +2261,9 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="spotablepanel" alignment="0" pref="626" max="32767" attributes="0"/>
+                              <Component id="spotablepanel" alignment="0" pref="624" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                  <Component id="spopanel" alignment="0" pref="626" max="32767" attributes="0"/>
+                                  <Component id="spopanel" alignment="0" pref="624" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2539,7 +2539,7 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLayeredPane1" pref="626" max="32767" attributes="0"/>
+                              <Component id="jLayeredPane1" pref="624" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                       </Layout>
@@ -2565,12 +2565,12 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="requestpanel" alignment="0" pref="626" max="32767" attributes="0"/>
+                                  <Component id="requestpanel" alignment="0" pref="624" max="32767" attributes="0"/>
                                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                      <Component id="transiction" alignment="0" pref="626" max="32767" attributes="0"/>
+                                      <Component id="transiction" alignment="0" pref="624" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                                      <Component id="rescommain" alignment="0" pref="626" max="32767" attributes="0"/>
+                                      <Component id="rescommain" alignment="0" pref="624" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -3587,7 +3587,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="securitytab" min="-2" pref="649" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3622,8 +3622,8 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="guestnameField4" alignment="0" pref="300" max="32767" attributes="0"/>
-                                      <Component id="guestcontactField1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="whomtovis_name" alignment="0" pref="300" max="32767" attributes="0"/>
+                                      <Component id="guestcontact" alignment="0" max="32767" attributes="0"/>
                                       <Component id="guestHeaderLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="guestnameLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="guestcontactLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -3634,11 +3634,14 @@
                                           <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                                           <Component id="guestsubmitBut1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="guestnameField3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="guestflatField1" max="32767" attributes="0"/>
+                                      <Component id="guestname" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="whomtovis_flat" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="43" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane2" pref="482" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane2" pref="486" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -3650,27 +3653,29 @@
                                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="guestnameLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="guestnameField3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="guestname" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="guestcontactLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="guestcontactField1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="guestcontact" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="guestheaderLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="guestnameLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="guestnameField4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="whomtovis_name" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="guestflatLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="guestflatField1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="whomtovis_flat" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="69" max="32767" attributes="0"/>
                                   <Component id="guestsubmitBut1" min="-2" pref="50" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jScrollPane2" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane5" min="-2" pref="311" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -3693,9 +3698,10 @@
                             <Property name="text" type="java.lang.String" value="Full Name:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="guestnameField3">
+                        <Component class="javax.swing.JTextField" name="guestname">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guestnameField3ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guestnameActionPerformed"/>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="guestnameKeyReleased"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="guestcontactLabel1">
@@ -3706,9 +3712,10 @@
                             <Property name="text" type="java.lang.String" value="Contact No.:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="guestcontactField1">
+                        <Component class="javax.swing.JTextField" name="guestcontact">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guestcontactField1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guestcontactActionPerformed"/>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="guestcontactKeyReleased"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="guestheaderLabel3">
@@ -3727,9 +3734,10 @@
                             <Property name="text" type="java.lang.String" value="Name:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="guestnameField4">
+                        <Component class="javax.swing.JTextField" name="whomtovis_name">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guestnameField4ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="whomtovis_nameActionPerformed"/>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="whomtovis_nameKeyReleased"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="guestflatLabel1">
@@ -3740,9 +3748,10 @@
                             <Property name="text" type="java.lang.String" value="Flat No.:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="guestflatField1">
+                        <Component class="javax.swing.JTextField" name="whomtovis_flat">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guestflatField1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="whomtovis_flatActionPerformed"/>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="whomtovis_flatKeyReleased"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="guestsubmitBut1">
@@ -3777,6 +3786,33 @@
                                   </Table>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableguestMouseReleased"/>
+                              </Events>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+                          <AuxValues>
+                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                          </AuxValues>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JTable" name="whomtovisitTable">
+                              <Properties>
+                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                  <Table columnCount="4" rowCount="4">
+                                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                                  </Table>
+                                </Property>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="whomtovisitTableMouseReleased"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3810,8 +3846,8 @@
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="svcontactLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="svnameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="svcontactField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="svnameField" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                              <Component id="SP_contact" alignment="0" pref="300" max="32767" attributes="0"/>
+                                              <Component id="SP_name" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -3819,7 +3855,7 @@
                                           <Component id="svsubmitBut" min="-2" pref="140" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                                  <EmptySpace pref="49" max="32767" attributes="0"/>
                                   <Component id="svscrollpanel" min="-2" pref="485" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -3832,17 +3868,17 @@
                                   <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                                   <Component id="svnameLabel" min="-2" pref="36" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="svnameField" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SP_name" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                                   <Component id="svcontactLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="svcontactField" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SP_contact" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="svsubmitBut" min="-2" pref="55" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="svscrollpanel" pref="610" max="32767" attributes="0"/>
+                                  <Component id="svscrollpanel" pref="613" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -3865,9 +3901,10 @@
                             <Property name="text" type="java.lang.String" value="Full Name"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="svnameField">
+                        <Component class="javax.swing.JTextField" name="SP_name">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="svnameFieldActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SP_nameActionPerformed"/>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SP_nameKeyReleased"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="svcontactLabel">
@@ -3878,9 +3915,10 @@
                             <Property name="text" type="java.lang.String" value="Contact No."/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="svcontactField">
+                        <Component class="javax.swing.JTextField" name="SP_contact">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="svcontactFieldActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SP_contactActionPerformed"/>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SP_contactKeyReleased"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="svsubmitBut">
@@ -3898,7 +3936,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="svtable">
+                            <Component class="javax.swing.JTable" name="Sp_table">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="4">
@@ -3909,6 +3947,9 @@
                                   </Table>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Sp_tableMouseReleased"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>

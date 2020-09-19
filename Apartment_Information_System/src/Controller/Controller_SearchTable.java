@@ -28,4 +28,17 @@ public class Controller_SearchTable {
     public ArrayList<Controller_ServiceProviderInfo> ServicePersonalInfoTable(String contact,  String present_Address,String designation){
         return val.servicePersonalInfoExtractTable(contact, present_Address, designation);
     }
+    
+    public ArrayList<Controller_GuestInfo> GuestInfoTable(String Name,String Contact){
+        return val.guestInfoExtractTable(Name,Contact);
+    }
+    
+    public ArrayList<Controller_ResidentInfo> WhomtoVisit(String Name,String Flatno){
+        return val.whomtovisitExtractTable(Name,Flatno);
+    }
+    
+    public ArrayList<Controller_ServiceProviderInfo> SPV_Entry(String Name,String Contact){
+        return val.spVisitExtractTable(Name,Contact);
+    }
+    
 }

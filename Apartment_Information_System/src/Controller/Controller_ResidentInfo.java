@@ -10,9 +10,9 @@ public class Controller_ResidentInfo {
 
 
     int id, stat,citi_Min;
-    String name, contact, nid, email,profession,jobAddress;
+    String name, contact, nid, email,profession,jobAddress,Flatno;
     
-    public Controller_ResidentInfo(int id, String name, String contact, String nid, String email, String profession,String jobAddress, int stat,int citi_Min){
+    public Controller_ResidentInfo(int id, String name, String contact, String nid, String email, String profession,String jobAddress, int stat,int citi_Min,String Flatno){
         this.id = id;
         this.name = name;
         this.contact = contact;
@@ -22,6 +22,7 @@ public class Controller_ResidentInfo {
         this.email = email;
         this.stat = stat;
         this.citi_Min= citi_Min;
+        this.Flatno = Flatno;
     }
     
     public String getName(){
@@ -50,6 +51,9 @@ public class Controller_ResidentInfo {
     }
     public int getCitizen(){
         return this.citi_Min;
+    }
+    public String getFlatNo(){
+        return this.Flatno;
     }
 }
 
