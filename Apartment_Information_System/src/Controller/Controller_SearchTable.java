@@ -41,5 +41,8 @@ public class Controller_SearchTable {
     public ArrayList<Controller_ServiceProviderInfo> SPV_Entry(String Name,String Contact){
         return val.spVisitExtractTable(Name,Contact);
     }
+    public ArrayList<Controller_ResidentTransaction> fundhistoryTable(int resID){
+        return val.fundhistoryTable(resID);
+    }
     
 }

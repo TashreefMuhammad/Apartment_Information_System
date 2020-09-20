@@ -2262,9 +2262,9 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="spotablepanel" alignment="0" pref="624" max="32767" attributes="0"/>
+                              <Component id="spotablepanel" alignment="0" pref="626" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                  <Component id="spopanel" alignment="0" pref="624" max="32767" attributes="0"/>
+                                  <Component id="spopanel" alignment="0" pref="626" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2543,7 +2543,7 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLayeredPane1" pref="624" max="32767" attributes="0"/>
+                              <Component id="jLayeredPane1" pref="626" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                       </Layout>
@@ -2569,12 +2569,12 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="requestpanel" alignment="0" pref="624" max="32767" attributes="0"/>
+                                  <Component id="requestpanel" alignment="0" pref="626" max="32767" attributes="0"/>
                                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                      <Component id="transiction" alignment="0" pref="624" max="32767" attributes="0"/>
+                                      <Component id="transiction" alignment="0" pref="626" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                                      <Component id="rescommain" alignment="0" pref="624" max="32767" attributes="0"/>
+                                      <Component id="rescommain" alignment="0" pref="626" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>

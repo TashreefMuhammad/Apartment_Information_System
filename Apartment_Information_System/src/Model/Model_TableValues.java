@@ -230,4 +230,28 @@ public class Model_TableValues {
         return data;
     }
 
+    
+//    Getting Data of Fund HIstory To show in the Table for Fund History Table    
+     public ArrayList<Controller_ResidentTransaction> fundhistoryTable(int resID) {
+        ArrayList<Controller_ResidentTransaction> data = new ArrayList<>();
+         
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from Fund where ResidentID ='" + resID +"RID'");
+            ResultSet resultSet = statement.executeQuery();
+           
+            String row0, row1, row2, row3;
+            while (resultSet.next()) {
+                row0 = resultSet.getString("TransactionID");
+                row1 = resultSet.getString("DateAndTime");
+                row2 = resultSet.getString("TypeOfPayment");
+                row3 = resultSet.getString("Amount_Paid");
+            
+
+                data.add(new Controller_ResidentTransaction( row0, row1, row2, row3));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
 }

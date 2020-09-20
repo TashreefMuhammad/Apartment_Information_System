@@ -46,6 +46,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     ArrayList<Controller_ServiceProviderInfo> spv_info;
 
+    ArrayList<Controller_ResidentTransaction> restran_info;
+
     int wtv_res;
     int sp_ent;
     int flag = 0;
@@ -2947,11 +2949,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     //Fund Entry Call 
     private void addfundButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addfundButActionPerformed
-        boolean fund_entry = add.trans_checkdata(transactionID.getText(),tme,paymenttype.getSelectedItem().toString(),amountpaid.getText(),contactshowLabel.getText());
+        boolean fund_entry = add.trans_checkdata(transactionID.getText(), tme, paymenttype.getSelectedItem().toString(), amountpaid.getText(), contactshowLabel.getText());
     }//GEN-LAST:event_addfundButActionPerformed
 
     private void newreqsubmitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newreqsubmitButActionPerformed
-        boolean newReq_entry = add.req_checkdata(dtid,contactshowLabel.getText(),"NULL",request.getText(),explain_req.getText(),priority.getSelectedItem().toString());
+        boolean newReq_entry = add.req_checkdata(dtid, contactshowLabel.getText(), "NULL", request.getText(), explain_req.getText(), priority.getSelectedItem().toString());
     }//GEN-LAST:event_newreqsubmitButActionPerformed
 
     private void guestnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestnameActionPerformed
@@ -3241,10 +3243,10 @@ public class View_CommonInterface extends javax.swing.JFrame {
             soe_contact.setText("");
             soe_prof.setText("");
             soe_namepfinst.setText("");
-            
+
             spopanel.setVisible(false);
             spotablepanel.setVisible(true);
-            
+
             GetResInfoforSOP();
         } else {
             JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
@@ -3607,9 +3609,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spopanel.setVisible(true);
     }//GEN-LAST:event_spotablebuttonActionPerformed
 
-    
     private void initializeSelf() {
-        
+
         // A thread Show Time and Entry DTID
         new Thread(new Runnable() {
             @Override
@@ -3656,6 +3657,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             res_nid.setVisible(false);
                         }
                         press_to_GetResInfo();
+                        Completed_TransactionTable();
                     } catch (InterruptedException ex) {
                         System.out.println(ex);
                     }
@@ -3663,8 +3665,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         }).start();
 
-        
-        
         signinimageLabel.setIcon(Resizing.resizeIcon("images/bla.jpg", signinimageLabel));
 
         choosePanel(View_LoginPage.getChoice());
@@ -3715,6 +3715,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spv_edit.setColumnIdentifiers(new Object[]{"Name", "Contact_No"});
 
         Sp_table.setModel(spv_edit);
+
     }
 
     //Show Account Data in The LeftFrame For Resident
@@ -3724,9 +3725,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         contactshowLabel.setText(contact);
         emailshowLabel.setText(email);
         apartmentshowLabel.setText(apartment);
+
     }
 
-    
     private void choosePanel(String choice) {
         spotablepanel.setVisible(false);
         requestpanel.setVisible(false);
@@ -3884,7 +3885,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         }
         Sp_table.setModel(spv_edit);
     }
-    
+
     //Show Data According to Entry in Resident
     protected void GetResInfoforSOP() {
 
@@ -3903,6 +3904,27 @@ public class View_CommonInterface extends javax.swing.JFrame {
             res_edit.addRow(row);
         }
         spotable.setModel(res_edit);
+    }
+
+    protected void Completed_TransactionTable() {
+
+        restran_info = sec_val.fundhistoryTable(id);
+        DefaultTableModel res_trans = (DefaultTableModel) fundhistorytable.getModel();
+
+        res_trans.setRowCount(0);
+        res_trans.setColumnIdentifiers(new Object[]{"TransactionID", "DateOfTime", "TypeOfPayment", "Amount_Paid"});
+
+        Object[] row = new Object[4];
+        for (int i = 0; i < restran_info.size(); ++i) {
+            row[0] = restran_info.get(i).gettransId();
+            row[1] = restran_info.get(i).getdateoftime();
+            row[2] = restran_info.get(i).gettypeofpay();
+            row[3] = restran_info.get(i).getamount();
+
+            res_trans.addRow(row);
+        }
+        fundhistorytable.setModel(res_trans);
+
     }
 
     public static void main(String args[]) {
