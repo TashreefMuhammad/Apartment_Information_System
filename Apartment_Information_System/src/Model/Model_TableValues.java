@@ -284,4 +284,28 @@ public class Model_TableValues {
         }
         return data;
     }
+    
+    // Method to retirieve amount of money stored in a Flats account
+    public int retrieveAmountinFlat(String Flat_No){
+        int amount = 0;
+        try{
+            PreparedStatement stmt = connection.prepareStatement("SELECT Amount_Paid FROM Fund Where ResidentID = (SELECT ResidentID from Flat Where Flat_No = '"+ Flat_No+"')");
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                amount += rs.getInt(1);
+            }
+            
+            stmt = connection.prepareStatement("Select Paid_Amount FROM Transactions Where Flat_No = '"+Flat_No+"'");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                amount -= rs.getInt(1);
+            }
+        }catch(SQLException e){
+            System.out.println(e);
+            return -1;
+        }
+        return amount;
+    }
 }

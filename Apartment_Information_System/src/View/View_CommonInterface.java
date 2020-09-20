@@ -55,7 +55,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     int flag = 0;
 
     int id;
-    String tme, dtid;
+    String tme, dtid, flat_man_resCom;
 
     public View_CommonInterface() {
         initComponents();
@@ -3633,9 +3633,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
         if ("--".equals(flatcombobox.getSelectedItem().toString())) {
             JOptionPane.showMessageDialog(null, "Select A FlatNo to interect with the information");
         } else if ("Transaction".equals(informationbox.getSelectedItem().toString())) {
+            flat_man_resCom = flatcombobox.getSelectedItem().toString();
+            jLabel3.setText("Amount in Store for Flat " + flat_man_resCom + ": " + sec_val.retrieve_amount(flat_man_resCom));
             transiction.setVisible(true);
             rescommain.setVisible(false);    
         } else if ("Request".equals(informationbox.getSelectedItem().toString())) {
+            jLabel3.setText("Amount in Store for Flat " + flatcombobox.getSelectedItem().toString());
+            flat_man_resCom = flatcombobox.getSelectedItem().toString();
             requestpanel.setVisible(true);
             rescommain.setVisible(false);  
         }

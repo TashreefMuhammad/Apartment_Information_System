@@ -47,5 +47,7 @@ public class Controller_SearchTable {
     public ArrayList<Controller_RequestHandle> res_reqHisTable(String rid,String isCom){
         return val.res_req_history(rid,isCom);
     }
-    
+    public int retrieve_amount(String Flat_No){
+        return val.retrieveAmountinFlat(Flat_No);
+    }
 }
