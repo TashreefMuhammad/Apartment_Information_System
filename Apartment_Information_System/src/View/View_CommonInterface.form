@@ -2543,7 +2543,7 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLayeredPane1" pref="624" max="32767" attributes="0"/>
+                              <Component id="jLayeredPane1" pref="605" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                       </Layout>
@@ -2569,12 +2569,12 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="requestpanel" alignment="0" pref="624" max="32767" attributes="0"/>
+                                  <Component id="requestpanel" alignment="0" max="32767" attributes="0"/>
                                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                      <Component id="transiction" alignment="0" pref="624" max="32767" attributes="0"/>
+                                      <Component id="transiction" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                                      <Component id="rescommain" alignment="0" pref="624" max="32767" attributes="0"/>
+                                      <Component id="rescommain" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2742,105 +2742,71 @@
                                         <DimensionLayout dim="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="jLabel6" min="-2" pref="180" max="-2" attributes="0"/>
-                                                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel7" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <Component id="jLabel9" min="-2" pref="118" max="-2" attributes="0"/>
-                                                                  <EmptySpace max="-2" attributes="0"/>
-                                                                  <Component id="amountinput" max="32767" attributes="0"/>
-                                                              </Group>
-                                                              <Component id="jLabel4" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
-                                                              <Component id="organizationnameinput" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="jLabel5" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
-                                                              <Component id="organizationtypeinput" alignment="0" pref="378" max="32767" attributes="0"/>
-                                                              <Component id="personnameinput" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="contactnoinput" alignment="0" max="32767" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace max="32767" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                                           <Component id="submitbutton" min="-2" pref="80" max="-2" attributes="0"/>
-                                                          <EmptySpace pref="131" max="32767" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                                                           <Component id="transictionback" min="-2" pref="80" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                                                       </Group>
+                                                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel7" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
+                                                      <Component id="jLabel5" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
+                                                      <Component id="SPTrans_Contact" alignment="0" pref="350" max="32767" attributes="0"/>
+                                                      <Component id="SPTrans_Name" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="SpTrans_des" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel9" min="-2" pref="118" max="-2" attributes="0"/>
+                                                      <Component id="amount_paid" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane1" min="-2" pref="421" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
                                         <DimensionLayout dim="1">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel4" min="-2" pref="28" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                                  <Component id="organizationnameinput" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="organizationtypeinput" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="personnameinput" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="SPTrans_Name" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="SpTrans_des" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="contactnoinput" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="24" max="32767" attributes="0"/>
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="amountinput" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="transictionback" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                                      <Component id="submitbutton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="SPTrans_Contact" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="amount_paid" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="submitbutton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                                      <Component id="transictionback" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane1" pref="471" max="32767" attributes="0"/>
                                           </Group>
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel4">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Tahoma" size="14" style="1"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" value="Name Of The Organization"/>
-                                          </Properties>
-                                        </Component>
-                                        <Component class="javax.swing.JTextField" name="organizationnameinput">
-                                        </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel5">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Tahoma" size="14" style="1"/>
                                             </Property>
-                                            <Property name="text" type="java.lang.String" value="Type Of Organization"/>
+                                            <Property name="text" type="java.lang.String" value="Designation"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="organizationtypeinput">
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel6">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Tahoma" size="18" style="1"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" value="Person Who Came"/>
-                                          </Properties>
+                                        <Component class="javax.swing.JTextField" name="SpTrans_des">
+                                          <Events>
+                                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SpTrans_desKeyReleased"/>
+                                          </Events>
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel7">
                                           <Properties>
@@ -2850,9 +2816,10 @@
                                             <Property name="text" type="java.lang.String" value="Name"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="personnameinput">
+                                        <Component class="javax.swing.JTextField" name="SPTrans_Name">
                                           <Events>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="personnameinputActionPerformed"/>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SPTrans_NameActionPerformed"/>
+                                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SPTrans_NameKeyReleased"/>
                                           </Events>
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -2863,9 +2830,10 @@
                                             <Property name="text" type="java.lang.String" value="Contact No"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="contactnoinput">
+                                        <Component class="javax.swing.JTextField" name="SPTrans_Contact">
                                           <Events>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contactnoinputActionPerformed"/>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SPTrans_ContactActionPerformed"/>
+                                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SPTrans_ContactKeyReleased"/>
                                           </Events>
                                         </Component>
                                         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -2876,7 +2844,7 @@
                                             <Property name="text" type="java.lang.String" value="Amount Paid :"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.JTextField" name="amountinput">
+                                        <Component class="javax.swing.JTextField" name="amount_paid">
                                         </Component>
                                         <Component class="javax.swing.JButton" name="submitbutton">
                                           <Properties>
@@ -2885,6 +2853,9 @@
                                             </Property>
                                             <Property name="text" type="java.lang.String" value="Submit"/>
                                           </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitbuttonActionPerformed"/>
+                                          </Events>
                                         </Component>
                                         <Component class="javax.swing.JButton" name="transictionback">
                                           <Properties>
@@ -2892,6 +2863,12 @@
                                               <Font name="Tahoma" size="14" style="1"/>
                                             </Property>
                                             <Property name="text" type="java.lang.String" value="Back"/>
+                                            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                              <Dimension value="[77, 29]"/>
+                                            </Property>
+                                            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                              <Dimension value="[77, 29]"/>
+                                            </Property>
                                           </Properties>
                                           <Events>
                                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="transictionbackActionPerformed"/>
@@ -2915,6 +2892,9 @@
                                                   </Table>
                                                 </Property>
                                               </Properties>
+                                              <Events>
+                                                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable2MouseReleased"/>
+                                              </Events>
                                             </Component>
                                           </SubComponents>
                                         </Container>
@@ -3001,7 +2981,7 @@
                                           <Component id="rqstscrollpane" min="-2" pref="540" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="requestback" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="44" max="32767" attributes="0"/>
+                                          <EmptySpace pref="25" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>

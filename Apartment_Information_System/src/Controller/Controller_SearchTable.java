@@ -50,4 +50,8 @@ public class Controller_SearchTable {
     public int retrieve_amount(String Flat_No){
         return val.retrieveAmountinFlat(Flat_No);
     }
+    
+    public ArrayList<Controller_ServiceProviderInfo> ServicePersonal_Trans(String name,  String contact,String designation){
+        return val.servicePersonalTransExtractTable(name ,contact, designation);
+    }
 }

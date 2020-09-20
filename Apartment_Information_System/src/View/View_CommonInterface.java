@@ -255,17 +255,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
         transiction = new javax.swing.JPanel();
         transictiontabbedpane = new javax.swing.JTabbedPane();
         newtransiction = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        organizationnameinput = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        organizationtypeinput = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        SpTrans_des = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        personnameinput = new javax.swing.JTextField();
+        SPTrans_Name = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        contactnoinput = new javax.swing.JTextField();
+        SPTrans_Contact = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        amountinput = new javax.swing.JTextField();
+        amount_paid = new javax.swing.JTextField();
         submitbutton = new javax.swing.JButton();
         transictionback = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -1929,30 +1926,40 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
         transiction.setPreferredSize(new java.awt.Dimension(840, 605));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Name Of The Organization");
-
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Type Of Organization");
+        jLabel5.setText("Designation");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel6.setText("Person Who Came");
+        SpTrans_des.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SpTrans_desKeyReleased(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Name");
 
-        personnameinput.addActionListener(new java.awt.event.ActionListener() {
+        SPTrans_Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                personnameinputActionPerformed(evt);
+                SPTrans_NameActionPerformed(evt);
+            }
+        });
+        SPTrans_Name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SPTrans_NameKeyReleased(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Contact No");
 
-        contactnoinput.addActionListener(new java.awt.event.ActionListener() {
+        SPTrans_Contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactnoinputActionPerformed(evt);
+                SPTrans_ContactActionPerformed(evt);
+            }
+        });
+        SPTrans_Contact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SPTrans_ContactKeyReleased(evt);
             }
         });
 
@@ -1961,9 +1968,16 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
         submitbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         submitbutton.setText("Submit");
+        submitbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitbuttonActionPerformed(evt);
+            }
+        });
 
         transictionback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         transictionback.setText("Back");
+        transictionback.setMaximumSize(new java.awt.Dimension(77, 29));
+        transictionback.setMinimumSize(new java.awt.Dimension(77, 29));
         transictionback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 transictionbackActionPerformed(evt);
@@ -1981,6 +1995,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTable2MouseReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable2);
 
         javax.swing.GroupLayout newtransictionLayout = new javax.swing.GroupLayout(newtransiction);
@@ -1988,64 +2007,49 @@ public class View_CommonInterface extends javax.swing.JFrame {
         newtransictionLayout.setHorizontalGroup(
             newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newtransictionLayout.createSequentialGroup()
-                .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(34, 34, 34)
+                .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(newtransictionLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(newtransictionLayout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(amountinput))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(organizationnameinput)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(organizationtypeinput, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
-                            .addComponent(personnameinput)
-                            .addComponent(contactnoinput))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(newtransictionLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
+                        .addGap(38, 38, 38)
                         .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                        .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(113, 113, 113)
+                        .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SPTrans_Contact, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(SPTrans_Name)
+                    .addComponent(SpTrans_des)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(amount_paid))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         newtransictionLayout.setVerticalGroup(
             newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newtransictionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(organizationnameinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(organizationtypeinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(personnameinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SPTrans_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SpTrans_des, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contactnoinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(SPTrans_Contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(amount_paid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(amountinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addComponent(jScrollPane1)
+                    .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
         );
 
         transictiontabbedpane.addTab("  Entry  ", newtransiction);
@@ -2142,7 +2146,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(rqstscrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(requestback)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(rescommain, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -2161,11 +2165,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rescompanelLayout = new javax.swing.GroupLayout(rescompanel);
@@ -2176,7 +2180,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         rescompanelLayout.setVerticalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
         );
 
         managertabbedpane.addTab("  Resident Communication  ", rescompanel);
@@ -3011,9 +3015,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_amountpaidActionPerformed
 
-    private void contactnoinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactnoinputActionPerformed
+    private void SPTrans_ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SPTrans_ContactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contactnoinputActionPerformed
+    }//GEN-LAST:event_SPTrans_ContactActionPerformed
 
     private void editmanagersaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editmanagersaveActionPerformed
         if (statuscheck.isSelected()) {
@@ -3285,9 +3289,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_name_inputActionPerformed
 
-    private void personnameinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personnameinputActionPerformed
+    private void SPTrans_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SPTrans_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_personnameinputActionPerformed
+    }//GEN-LAST:event_SPTrans_NameActionPerformed
 
     private void servicepersonalapartmentnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonalapartmentnoActionPerformed
         // TODO add your handling code here:
@@ -3309,7 +3313,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
             }
             name_input.setText("");
-            contactnoinput.setText("");
+            SPTrans_Contact.setText("");
             Permanentadressinput.setText("");
             emailinput.setText("");
             presentadressinput.setText("");
@@ -3657,6 +3661,30 @@ public class View_CommonInterface extends javax.swing.JFrame {
         transiction.setVisible(false);
     }//GEN-LAST:event_transictionbackActionPerformed
 
+    private void submitbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbuttonActionPerformed
+        
+    }//GEN-LAST:event_submitbuttonActionPerformed
+
+    private void SPTrans_NameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SPTrans_NameKeyReleased
+        press_to_GetSPInfo_Trans();
+    }//GEN-LAST:event_SPTrans_NameKeyReleased
+
+    private void SpTrans_desKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SpTrans_desKeyReleased
+        press_to_GetSPInfo_Trans();
+    }//GEN-LAST:event_SpTrans_desKeyReleased
+
+    private void SPTrans_ContactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SPTrans_ContactKeyReleased
+        press_to_GetSPInfo_Trans();
+    }//GEN-LAST:event_SPTrans_ContactKeyReleased
+
+    private void jTable2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseReleased
+        selected = jTable2.getSelectedRow();
+        sp_ent = sp_info.get(selected).getID();
+        SPTrans_Name.setText(sp_info.get(selected).getName());
+        SPTrans_Contact.setText(sp_info.get(selected).getContact());
+        SpTrans_des.setText(sp_info.get(selected).getdesignation());
+    }//GEN-LAST:event_jTable2MouseReleased
+
     private void initializeSelf() {
 
         // A thread Show Time and Entry DTID
@@ -3868,7 +3896,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         sp_info = sec_val.ServicePersonalInfoTable(editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText());
         DefaultTableModel sp_edit = (DefaultTableModel) servicepersonaltable.getModel();
         sp_edit.setRowCount(0);
-        sp_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
+        sp_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Address", "Designation"});
 
         Object[] row = new Object[4];
         for (int i = 0; i < sp_info.size(); ++i) {
@@ -3993,6 +4021,24 @@ public class View_CommonInterface extends javax.swing.JFrame {
         }
         ReqHistory_Res.setModel(res_req);
     }
+    
+    //Show data for Manager transaction panel
+    protected void press_to_GetSPInfo_Trans() {
+        sp_info = sec_val.ServicePersonal_Trans(SPTrans_Name.getText(), SPTrans_Contact.getText(), SpTrans_des.getText());
+        DefaultTableModel sp_edit = (DefaultTableModel) jTable2.getModel();
+        sp_edit.setRowCount(0);
+        sp_edit.setColumnIdentifiers(new Object[]{"Name","ContactNo", "Designation"});
+
+        Object[] row = new Object[3];
+        for (int i = 0; i < sp_info.size(); ++i) {
+            row[0] = sp_info.get(i).getName();
+            row[1] = sp_info.get(i).getContact();
+            row[2] = sp_info.get(i).getdesignation();
+
+            sp_edit.addRow(row);
+        }
+        jTable2.setModel(sp_edit);
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -4034,11 +4080,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTextField Permanentadressinput;
     private javax.swing.JTable ReqHistory_Res;
     private javax.swing.ButtonGroup ResidentLiving;
+    private javax.swing.JTextField SPTrans_Contact;
+    private javax.swing.JTextField SPTrans_Name;
     private javax.swing.JTextField SP_Designation;
     private javax.swing.JTextField SP_contact;
     private javax.swing.JTextField SP_name;
     private javax.swing.JButton Save;
     private javax.swing.ButtonGroup SecurityStatus;
+    private javax.swing.JTextField SpTrans_des;
     private javax.swing.JTable Sp_table;
     private javax.swing.JButton Submit;
     private javax.swing.JPanel acmanagepanel;
@@ -4060,7 +4109,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JButton addsecuritysubmit;
     private javax.swing.JTable addsecuritytable;
     private javax.swing.JPanel addservicepersonal;
-    private javax.swing.JTextField amountinput;
+    private javax.swing.JTextField amount_paid;
     private javax.swing.JTextField amountpaid;
     private javax.swing.JLabel apartmentLabel;
     private javax.swing.JLabel apartmentshowLabel;
@@ -4072,7 +4121,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JPanel citizenpanel;
     private javax.swing.JLabel contactLabel;
     private javax.swing.JTextField contactno_input;
-    private javax.swing.JTextField contactnoinput;
     private javax.swing.JLabel contactshowLabel;
     private javax.swing.JTextField count_people;
     private javax.swing.JLabel dateandtimeLabel;
@@ -4140,7 +4188,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -4159,7 +4206,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
@@ -4209,11 +4255,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JPanel newtransiction;
     private javax.swing.JTextField nidnoinput;
     private javax.swing.JButton okbutton;
-    private javax.swing.JTextField organizationnameinput;
-    private javax.swing.JTextField organizationtypeinput;
     private javax.swing.JLayeredPane panellayers;
     private javax.swing.JComboBox<String> paymenttype;
-    private javax.swing.JTextField personnameinput;
     private javax.swing.JTextField presentadressinput;
     private javax.swing.JComboBox<String> priority;
     private javax.swing.JTable reeportedtransictiontable;
