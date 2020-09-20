@@ -355,6 +355,29 @@ public class Model_AddNewAccountData {
         return true;
     }
     
+    //Adding New Request to Request  Table By Resident
+    public boolean req_returnval(String Dtid, String rid,String mid, String req, String explain,String urgency) {
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet res = statement.executeQuery("SELECT ResidentID FROM Resident where Contact_No='" + rid + "'");
+            String res_id = "NULL";
+
+            if (res.next()) {
+                res_id = res.getString(1);
+            }
+            Statement stmt = connection.createStatement();
+            stmt.execute("INSERT into Requests(DTID,ResidentID,ManagerID,Main_Request,Descrip,Urgency)VALUES('"+Dtid+"RQ','"+res_id+"',NULL,'"+req+"','"+explain+"',"+Integer.parseInt(urgency)+")");
+           
+
+            //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+        return true;
+    }
+    
     //Passing the New Guest's ID
     public int returnGuestID() {
         return guestID_GE;

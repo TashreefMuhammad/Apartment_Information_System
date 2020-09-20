@@ -238,7 +238,7 @@ INSERT into Transactions(DTID,Flat_No,Paid_Amount,SPID,Report,ManagerID)VALUES
 
 
 INSERT into Requests(DTID,ResidentID,ManagerID,Main_Request,Descrip,Urgency)VALUES
-('1600432752392RQ','1RID','2MID','Need Electrician','One of the fan is not spinning in a room','3'),
+('1600432700392RQ','1RID',NULL,'Need Electrician','One of the fan is not spinning in a room','3'),
 ('1600433237031RQ','3RID','2MID','Need Mechanics','Gas Leakage','5'),
 ('1600433247393RQ','5RID','2MID','Need Plumber','One of the pipes in the kitchen','2')
 

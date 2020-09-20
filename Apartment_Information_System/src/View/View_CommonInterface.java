@@ -294,12 +294,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
         transictiontable = new javax.swing.JTable();
         newreqpanel = new javax.swing.JPanel();
         newreqLabel1 = new javax.swing.JLabel();
-        reqField = new javax.swing.JTextField();
+        request = new javax.swing.JTextField();
         newreqLabel2 = new javax.swing.JLabel();
         newreqsubmitBut = new javax.swing.JButton();
         newreqScrollPanel = new javax.swing.JScrollPane();
-        explainTextArea = new javax.swing.JTextArea();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        explain_req = new javax.swing.JTextArea();
+        priority = new javax.swing.JComboBox<>();
         jLabel61 = new javax.swing.JLabel();
         reqhispanel = new javax.swing.JPanel();
         reqhisfilterLabel = new javax.swing.JLabel();
@@ -1756,7 +1756,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(soe_prof)
                             .addComponent(soe_contact)
                             .addComponent(soe_name))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, spopanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1798,7 +1798,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(soe_namepfinst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel30))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1829,7 +1829,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spotablepanel.setLayout(spotablepanelLayout);
         spotablepanelLayout.setHorizontalGroup(
             spotablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablescrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
+            .addComponent(spotablescrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, spotablepanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(spotablebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1839,7 +1839,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             spotablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(spotablepanelLayout.createSequentialGroup()
                 .addComponent(spotablescrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(spotablebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -1851,15 +1851,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spolayeredpanel.setLayout(spolayeredpanelLayout);
         spolayeredpanelLayout.setHorizontalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
         );
 
         managertabbedpane.addTab("  Specialized Official Entry  ", spolayeredpanel);
@@ -2109,7 +2109,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         requestpanel.setLayout(requestpanelLayout);
         requestpanelLayout.setHorizontalGroup(
             requestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rqstscrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
+            .addComponent(rqstscrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
             .addGroup(requestpanelLayout.createSequentialGroup()
                 .addGap(353, 353, 353)
                 .addComponent(requestback, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2121,7 +2121,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(rqstscrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(requestback)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(rescommain, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -2350,11 +2350,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         });
 
-        explainTextArea.setColumns(20);
-        explainTextArea.setRows(5);
-        newreqScrollPanel.setViewportView(explainTextArea);
+        explain_req.setColumns(20);
+        explain_req.setRows(5);
+        newreqScrollPanel.setViewportView(explain_req);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        priority.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
         jLabel61.setText("Priority : (Higher number more priority)");
 
@@ -2368,10 +2368,10 @@ public class View_CommonInterface extends javax.swing.JFrame {
                     .addGroup(newreqpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(newreqScrollPanel)
                         .addComponent(newreqLabel2)
-                        .addComponent(reqField, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(request, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(newreqLabel1))
                     .addComponent(jLabel61)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(priority, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(187, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newreqpanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2384,7 +2384,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addComponent(newreqLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(reqField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(request, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(newreqLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2392,7 +2392,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel61)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(priority, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(newreqsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -2951,7 +2951,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_addfundButActionPerformed
 
     private void newreqsubmitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newreqsubmitButActionPerformed
-        // TODO add your handling code here:
+        boolean newReq_entry = add.req_checkdata(dtid,contactshowLabel.getText(),"NULL",request.getText(),explain_req.getText(),priority.getSelectedItem().toString());
     }//GEN-LAST:event_newreqsubmitButActionPerformed
 
     private void guestnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestnameActionPerformed
@@ -3999,7 +3999,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailinput;
     private javax.swing.JLabel emailshowLabel;
-    private javax.swing.JTextArea explainTextArea;
+    private javax.swing.JTextArea explain_req;
     private javax.swing.JComboBox<String> flatcombobox;
     private javax.swing.JTextField fullnameinput;
     private javax.swing.JPanel fundhistorypanel;
@@ -4017,7 +4017,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JButton guestsubmitBut1;
     private javax.swing.JRadioButton inactive;
     private javax.swing.JComboBox<String> informationbox;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4127,12 +4126,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> paymenttype;
     private javax.swing.JTextField personnameinput;
     private javax.swing.JTextField presentadressinput;
+    private javax.swing.JComboBox<String> priority;
     private javax.swing.JTable reeportedtransictiontable;
     private javax.swing.JPanel reportedtransiction;
-    private javax.swing.JTextField reqField;
     private javax.swing.JComboBox<String> reqhisfilterComboBox;
     private javax.swing.JLabel reqhisfilterLabel;
     private javax.swing.JPanel reqhispanel;
+    private javax.swing.JTextField request;
     private javax.swing.JButton requestback;
     private javax.swing.JPanel requestpanel;
     private javax.swing.JTable requesttable;

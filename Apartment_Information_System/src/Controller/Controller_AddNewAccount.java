@@ -51,6 +51,11 @@ public class Controller_AddNewAccount {
         return givedata.trans_returnval(transID,time,paymentType,amount,contact);
     }
     
+    //Adding Data to Request Table
+    public boolean req_checkdata(String Dtid,String rid,String mid,String req,String explain,String urgency){
+        return givedata.req_returnval(Dtid,rid,mid,req,explain,urgency);
+    }
+    
     //Method to get New Guest's ID
     public int getguestID(){
         return givedata.returnGuestID();

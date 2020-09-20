@@ -138,7 +138,7 @@ public class Model_TableValues {
                 row4 = resultSet.getString("Designation");
                 row0 = row0.substring(0, row0.length() - 4);
 
-                data.add(new Controller_ServiceProviderInfo(Integer.parseInt(row0), row1, row2, row3,row4));
+                data.add(new Controller_ServiceProviderInfo(Integer.parseInt(row0), row1, row2, row3, row4));
             }
         } catch (SQLException e) {
             System.out.println(e);
