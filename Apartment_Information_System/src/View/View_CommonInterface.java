@@ -278,11 +278,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         residenttab = new javax.swing.JTabbedPane();
         addfundpanel = new javax.swing.JPanel();
         addfundLabel1 = new javax.swing.JLabel();
-        paymenttypecomboBox = new javax.swing.JComboBox<>();
+        paymenttype = new javax.swing.JComboBox<>();
         addfundLabel2 = new javax.swing.JLabel();
-        amountpaidField = new javax.swing.JTextField();
+        amountpaid = new javax.swing.JTextField();
         addfundLabel3 = new javax.swing.JLabel();
-        tidField = new javax.swing.JTextField();
+        transactionID = new javax.swing.JTextField();
         addfundBut = new javax.swing.JButton();
         fundhistorypanel = new javax.swing.JPanel();
         fundhistoryscrollpanel = new javax.swing.JScrollPane();
@@ -869,7 +869,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(citizenpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(residentsubmit)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Add Account", addresident);
@@ -1111,7 +1111,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         residentLayout.setVerticalGroup(
             residentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("Resident", resident);
@@ -1513,7 +1513,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(servicepersonalexplainationofservice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(servicepersonalsubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Add Account", addservicepersonal);
@@ -1625,7 +1625,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         editservicepersonalLayout.setVerticalGroup(
             editservicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
+            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
             .addGroup(editservicepersonalLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel56)
@@ -1650,7 +1650,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGroup(editservicepersonalLayout.createSequentialGroup()
                     .addGap(89, 89, 89)
                     .addComponent(editservicepersonalcontact2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(483, Short.MAX_VALUE)))
+                    .addContainerGap(456, Short.MAX_VALUE)))
         );
 
         jTabbedPane4.addTab("Edit Account", editservicepersonal);
@@ -1674,7 +1674,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             acmanagepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(acmanagepanelLayout.createSequentialGroup()
                 .addComponent(acountmngtabpane, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         acmanagepanelLayout.setVerticalGroup(
             acmanagepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1851,15 +1851,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spolayeredpanel.setLayout(spolayeredpanelLayout);
         spolayeredpanelLayout.setHorizontalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         managertabbedpane.addTab("  Specialized Official Entry  ", spolayeredpanel);
@@ -1913,7 +1913,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(42, 42, 42)
                 .addComponent(informationbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addComponent(okbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104))
         );
@@ -2083,7 +2083,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(transictiontabbedpane, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         requestpanel.setPreferredSize(new java.awt.Dimension(840, 605));
@@ -2109,7 +2109,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         requestpanel.setLayout(requestpanelLayout);
         requestpanelLayout.setHorizontalGroup(
             requestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rqstscrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+            .addComponent(rqstscrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
             .addGroup(requestpanelLayout.createSequentialGroup()
                 .addGap(353, 353, 353)
                 .addComponent(requestback, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2121,7 +2121,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(rqstscrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(requestback)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(rescommain, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -2183,19 +2183,19 @@ public class View_CommonInterface extends javax.swing.JFrame {
         addfundLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         addfundLabel1.setText("Type of Payment: (Name of MFS)");
 
-        paymenttypecomboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "bKash", "Rocket", "SureCash", "Nagad", " " }));
-        paymenttypecomboBox.addActionListener(new java.awt.event.ActionListener() {
+        paymenttype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "bKash", "Rocket", "SureCash", "Nagad", "" }));
+        paymenttype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paymenttypecomboBoxActionPerformed(evt);
+                paymenttypeActionPerformed(evt);
             }
         });
 
         addfundLabel2.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         addfundLabel2.setText("Amount Paid:");
 
-        amountpaidField.addActionListener(new java.awt.event.ActionListener() {
+        amountpaid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amountpaidFieldActionPerformed(evt);
+                amountpaidActionPerformed(evt);
             }
         });
 
@@ -2218,18 +2218,16 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(addfundpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addfundpanelLayout.createSequentialGroup()
-                        .addComponent(paymenttypecomboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(addfundpanelLayout.createSequentialGroup()
-                        .addComponent(addfundLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addfundLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
                         .addGap(316, 316, 316))
                     .addGroup(addfundpanelLayout.createSequentialGroup()
                         .addGroup(addfundpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(addfundLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addfundLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(addfundLabel3)
-                            .addComponent(amountpaidField, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                            .addComponent(tidField))
-                        .addGap(0, 576, Short.MAX_VALUE))))
+                            .addComponent(amountpaid)
+                            .addComponent(paymenttype, 0, 384, Short.MAX_VALUE)
+                            .addComponent(transactionID))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addfundpanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addfundBut, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2241,16 +2239,16 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addGap(89, 89, 89)
                 .addComponent(addfundLabel1)
                 .addGap(33, 33, 33)
-                .addComponent(paymenttypecomboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(paymenttype, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(addfundLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(amountpaidField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(amountpaid, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addfundLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tidField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(transactionID, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(addfundBut, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62))
         );
@@ -2397,7 +2395,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(newreqsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         residenttab.addTab("         New Requests           ", newreqpanel);
@@ -2633,7 +2631,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(guestflatLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(whomtovis_flat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(guestsubmitBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
             .addGroup(grouppanelLayout.createSequentialGroup()
@@ -2938,16 +2936,18 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SP_contactActionPerformed
 
+    // Service Provider Entry
     private void svsubmitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svsubmitButActionPerformed
         boolean spv_entry = add.sp_checkdata(dtid, sp_ent, SP_name.getText(), SP_contact.getText(), contactshowLabel.getText());
     }//GEN-LAST:event_svsubmitButActionPerformed
 
-    private void paymenttypecomboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymenttypecomboBoxActionPerformed
+    private void paymenttypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymenttypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_paymenttypecomboBoxActionPerformed
+    }//GEN-LAST:event_paymenttypeActionPerformed
 
+    //Fund Entry Call 
     private void addfundButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addfundButActionPerformed
-        // TODO add your handling code here:
+        boolean fund_entry = add.trans_checkdata(transactionID.getText(),tme,paymenttype.getSelectedItem().toString(),amountpaid.getText(),contactshowLabel.getText());
     }//GEN-LAST:event_addfundButActionPerformed
 
     private void newreqsubmitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newreqsubmitButActionPerformed
@@ -2986,9 +2986,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_reqhisfilterComboBoxActionPerformed
 
-    private void amountpaidFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountpaidFieldActionPerformed
+    private void amountpaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountpaidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_amountpaidFieldActionPerformed
+    }//GEN-LAST:event_amountpaidActionPerformed
 
     private void contactnoinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactnoinputActionPerformed
         // TODO add your handling code here:
@@ -3607,7 +3607,10 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spopanel.setVisible(true);
     }//GEN-LAST:event_spotablebuttonActionPerformed
 
+    
     private void initializeSelf() {
+        
+        // A thread Show Time and Entry DTID
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -3632,7 +3635,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 }
             }
         }).start();
-
+        //A Thread To Handle The Resident Data to Show in the Table 
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -3660,6 +3663,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         }).start();
 
+        
+        
         signinimageLabel.setIcon(Resizing.resizeIcon("images/bla.jpg", signinimageLabel));
 
         choosePanel(View_LoginPage.getChoice());
@@ -3712,6 +3717,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         Sp_table.setModel(spv_edit);
     }
 
+    //Show Account Data in The LeftFrame For Resident
     public void labelValues(int id, String name, String contact, String email, String apartment) {
         this.id = id;
         nameshowLabel.setText(name);
@@ -3720,6 +3726,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         apartmentshowLabel.setText(apartment);
     }
 
+    
     private void choosePanel(String choice) {
         spotablepanel.setVisible(false);
         requestpanel.setVisible(false);
@@ -3749,6 +3756,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         }
     }
 
+    //Show Data According to Entry in Edit Security Panel
     protected void press_to_GetSecInfo() {
         info = sec_val.securityInfoTable(contactno_input.getText(), name_input.getText(), presentadressinput.getText(), Permanentadressinput.getText(), emailinput.getText(), sec_act_stat);
         DefaultTableModel sec_edit = (DefaultTableModel) addsecuritytable.getModel();
@@ -3766,6 +3774,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         addsecuritytable.setModel(sec_edit);
     }
 
+    //Show Data According to Entry in Edit Resident
     protected void press_to_GetResInfo() {
 
         res_info = sec_val.residentInfoTable(res_contact.getText(), res_name.getText(), res_nid.getText(), res_email.getText(), res_profession.getText(), res_job_address.getText(), res_act_stat, citi_Min);
@@ -3785,6 +3794,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         residenttable.setModel(res_edit);
     }
 
+    //Show Data According to Entry in Edit Manager
     protected void press_to_GetManInfo() {
         man_info = sec_val.managerInfoTable(managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), mana_act_stat);
         DefaultTableModel man_edit = (DefaultTableModel) Managertable.getModel();
@@ -3803,6 +3813,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         Managertable.setModel(man_edit);
     }
 
+    //Show Data According to Entry in Service Personal
     protected void press_to_GetSPInfo() {
         sp_info = sec_val.ServicePersonalInfoTable(editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText());
         DefaultTableModel sp_edit = (DefaultTableModel) servicepersonaltable.getModel();
@@ -3820,6 +3831,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         servicepersonaltable.setModel(sp_edit);
     }
 
+    //Show Data According to Entry in Guest
     protected void Check_GuestList() {
         guest_info = sec_val.GuestInfoTable(guestname.getText(), guestcontact.getText());
 
@@ -3837,6 +3849,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         tableguest.setModel(entry_guest);
     }
 
+    //Show Data According to Entry for Guest Entry
     protected void Check_WhomToVisit() {
         wtv_info = sec_val.WhomtoVisit(whomtovis_name.getText(), whomtovis_flat.getText());
 
@@ -3854,6 +3867,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         whomtovisitTable.setModel(wtv_edit);
     }
 
+    //Show Data According to Entry for Service Provider Entry
     protected void SP_Entry() {
         spv_info = sec_val.SPV_Entry(SP_name.getText(), SP_contact.getText());
 
@@ -3871,6 +3885,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         Sp_table.setModel(spv_edit);
     }
     
+    //Show Data According to Entry in Resident
     protected void GetResInfoforSOP() {
 
         res_info = sec_val.residentInfoTable("", "", "", "", "", "", 2, 1);
@@ -3956,7 +3971,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTable addsecuritytable;
     private javax.swing.JPanel addservicepersonal;
     private javax.swing.JTextField amountinput;
-    private javax.swing.JTextField amountpaidField;
+    private javax.swing.JTextField amountpaid;
     private javax.swing.JLabel apartmentLabel;
     private javax.swing.JLabel apartmentshowLabel;
     private javax.swing.JPanel background;
@@ -4109,7 +4124,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTextField organizationnameinput;
     private javax.swing.JTextField organizationtypeinput;
     private javax.swing.JLayeredPane panellayers;
-    private javax.swing.JComboBox<String> paymenttypecomboBox;
+    private javax.swing.JComboBox<String> paymenttype;
     private javax.swing.JTextField personnameinput;
     private javax.swing.JTextField presentadressinput;
     private javax.swing.JTable reeportedtransictiontable;
@@ -4192,7 +4207,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JScrollPane svscrollpanel;
     private javax.swing.JButton svsubmitBut;
     private javax.swing.JTable tableguest;
-    private javax.swing.JTextField tidField;
+    private javax.swing.JTextField transactionID;
     private javax.swing.JComboBox<String> transactionfilterComboBox;
     private javax.swing.JLabel transactionfilterLabel;
     private javax.swing.JPanel transiction;

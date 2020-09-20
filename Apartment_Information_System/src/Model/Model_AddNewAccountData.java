@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Model;
 
 import static Model.Model_ConnectMSSQL.connection;
@@ -11,14 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- *
- * @author Tasin
- */
+
 public class Model_AddNewAccountData {
 
     int guestID_GE;
 
+    //Adding New Entry to Security Table
+    
     public boolean returnval(String name, String nid, String contact, String permanenetadress, String email, String presentadress, String role) {
         try {
             Statement statement = connection.createStatement();
@@ -55,6 +50,8 @@ public class Model_AddNewAccountData {
         return true;
     }
 
+    //Adding New Entry to Resident Table By Manager
+    
     public boolean returnval(String dtid, String tme, String name, String nid_bid, int citizenship, String flatno, String contactno, String email, String permanentaddress, String profession, String jobaddress, String role) {
         try {
             Statement statement = connection.createStatement();
@@ -101,7 +98,8 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-
+    
+    //Adding New Entry to Manager Table by Manager
     public boolean returnval(String name, String nid, String contactno, String email, String permanentaddress, String role) {
         try {
             Statement statement = connection.createStatement();
@@ -136,7 +134,9 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-
+    
+    //Adding New Entry to Service Provider Table by Manager
+    
     public boolean returnval(String dtid, String tme, String name, String nid, String contactno, String presentaddress, String permanenetaddress, String designation, String flatno, String explainationofservice, String role) {
         try {
             int id = 0;
@@ -185,6 +185,8 @@ public class Model_AddNewAccountData {
 
         return true;
     }
+    
+    //Adding New Entry to Official Personnel Table By Manager
 
     public boolean returnval(String dtid, int mid, String namoforg, String reasonofvis, String nid, String count, String name, String contact, String prof, String namofinst, String role) {
         try {
@@ -222,6 +224,8 @@ public class Model_AddNewAccountData {
 
         return true;
     }
+    
+    //Adding New Entry to Guest Table by Security
 
     public boolean returnval(String Name, String Contact, String role) {
         try {
@@ -255,6 +259,8 @@ public class Model_AddNewAccountData {
         return true;
     }
 
+    //Adding New Entry to Guest Entry Table By Security
+    
     public boolean returnval(String Dtid, String sec, int resi, int gues, String role) {
         try {
             Statement statement = connection.createStatement();
@@ -282,7 +288,9 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-
+    
+    //Adding New Entry to Service Provider Entry Table by Security
+    
     public boolean sp_returnval(String Dtid, int id, String Name, String Contact, String Sec_Contact) {
         try {
             Statement statement = connection.createStatement();
@@ -316,7 +324,37 @@ public class Model_AddNewAccountData {
 
         return true;
     }
+    
+    //Adding New Entry to Transactiuon Table By  Resident
+    
+    public boolean trans_returnval(String transID, String time,String payType, String amount, String contact) {
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet res = statement.executeQuery("SELECT ResidentID FROM Resident where Contact_No='" + contact + "'");
+            String res_id = "NULL";
 
+            if (res.next()) {
+                res_id = res.getString(1);
+            }
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO Fund (TransactionID,DateAndTime,TypeOfPayment,Amount_Paid,ResidentID) VALUES (?, ?, ?, ?, ?)");
+
+            //  stmt.setString(1, role);
+            stmt.setString(1, transID);
+            stmt.setString(2, time);
+            stmt.setString(3, payType);
+            stmt.setFloat(4, Float.parseFloat(amount));
+            stmt.setString(5, res_id);
+
+            stmt.execute();
+            //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+        return true;
+    }
+    
     //Passing the New Guest's ID
     public int returnGuestID() {
         return guestID_GE;

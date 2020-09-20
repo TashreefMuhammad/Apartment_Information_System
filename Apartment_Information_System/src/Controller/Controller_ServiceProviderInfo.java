@@ -1,9 +1,6 @@
 package Controller;
 
-/**
- *
- * @author USER
- */
+
 public class Controller_ServiceProviderInfo {
 
     int id;

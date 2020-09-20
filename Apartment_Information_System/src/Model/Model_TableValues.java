@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Model_TableValues {
 
+//    Getting Data of Security To show in the Table
     public ArrayList<Controller_SecurityInfo> securityInfoExtractTable(String contact, String name, String present, String perma, String email, int stat) {
         ArrayList<Controller_SecurityInfo> data = new ArrayList<>();
 
@@ -43,6 +44,7 @@ public class Model_TableValues {
         return data;
     }
 
+    //    Getting Data of Resident To show in the Table
     public ArrayList<Controller_ResidentInfo> residentInfoExtractTable(String contact, String name, String nid, String email, String profession, String jobAddress, int stat, int citi_Min) {
         ArrayList<Controller_ResidentInfo> data = new ArrayList<>();
 
@@ -86,6 +88,7 @@ public class Model_TableValues {
         return data;
     }
 
+    //    Getting Data of Manager To show in the Table
     public ArrayList<Controller_ManagerInfo> managerInfoExtractTable(String contact, String name, String email, String Address, int stat) {
         ArrayList<Controller_ManagerInfo> data = new ArrayList<>();
 
@@ -114,6 +117,7 @@ public class Model_TableValues {
         return data;
     }
 
+    //    Getting Data of Service Provider To show in the Table
     public ArrayList<Controller_ServiceProviderInfo> servicePersonalInfoExtractTable(String contact, String present_Address, String designation) {
         ArrayList<Controller_ServiceProviderInfo> data = new ArrayList<>();
 
@@ -142,6 +146,7 @@ public class Model_TableValues {
         return data;
     }
 
+    //    Getting Data of Guest To show in the Table
     public ArrayList<Controller_GuestInfo> guestInfoExtractTable(String Name, String Contact) {
         ArrayList<Controller_GuestInfo> data = new ArrayList<>();
 
@@ -169,6 +174,7 @@ public class Model_TableValues {
         return data;
     }
 
+    //    Getting Data of Resident To show in the Table For Guest Entry
     public ArrayList<Controller_ResidentInfo> whomtovisitExtractTable(String Name, String Flatno) {
         ArrayList<Controller_ResidentInfo> data = new ArrayList<>();
 
@@ -198,6 +204,7 @@ public class Model_TableValues {
         return data;
     }
 
+//    Getting Data of Service Provider To show in the Table for Service Provider Entry
     public ArrayList<Controller_ServiceProviderInfo> spVisitExtractTable(String Name, String Contact) {
         ArrayList<Controller_ServiceProviderInfo> data = new ArrayList<>();
 

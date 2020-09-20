@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Model_EditAccount {
+    
+    //Edit Data To Security
     public boolean returnvalue(int id_to_edit,String ContactNo,String Name,String Email,String PresentAddress,String PermanentAddress,int active){
         try {      
             
@@ -30,6 +32,7 @@ public class Model_EditAccount {
         return true;
     }
     
+    //Edit Data To Resident
     public boolean returnvalue(int id_to_edit,String Contact,String Name,String NID,String Email,String Profession,String Job_Address,int Staying){
         try {      
             
@@ -72,6 +75,7 @@ public class Model_EditAccount {
         return true;
     }
     
+    //Edit Data To Manager
     public boolean returnvalue(int id_to_edit,String Contact,String Name,String Email,String Address,int Active){
         try {      
             if(Active==1){
@@ -97,6 +101,7 @@ public class Model_EditAccount {
         return true;
     }
     
+    //Edit Data To Service Provider
     public boolean returnvalue(int id_to_edit,String Contact,String Address,String Designation,String FlatNo, String tme){
         try {      
             

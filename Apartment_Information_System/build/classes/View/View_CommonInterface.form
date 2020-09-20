@@ -767,7 +767,7 @@
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTabbedPane2" alignment="0" pref="577" max="32767" attributes="0"/>
+                                      <Component id="jTabbedPane2" alignment="0" pref="593" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
@@ -857,7 +857,7 @@
                                                   <Component id="citizenpanel" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="residentsubmit" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="31" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
@@ -1916,7 +1916,7 @@
                                                   <Component id="servicepersonalexplainationofservice" min="-2" pref="27" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="servicepersonalsubmit" min="-2" pref="25" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="69" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="41" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
@@ -2091,7 +2091,7 @@
                                         </DimensionLayout>
                                         <DimensionLayout dim="1">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jScrollPane18" alignment="0" pref="572" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane18" alignment="0" pref="545" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                                   <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
@@ -2117,7 +2117,7 @@
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                                                       <Component id="editservicepersonalcontact2" min="-2" pref="0" max="-2" attributes="0"/>
-                                                      <EmptySpace pref="483" max="32767" attributes="0"/>
+                                                      <EmptySpace pref="456" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -2618,7 +2618,7 @@
                                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                           <Component id="informationbox" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="150" max="32767" attributes="0"/>
+                                          <EmptySpace pref="137" max="32767" attributes="0"/>
                                           <Component id="okbutton" min="-2" pref="52" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                                       </Group>
@@ -2713,7 +2713,7 @@
                                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="transictiontabbedpane" min="-2" pref="501" max="-2" attributes="0"/>
-                                          <EmptySpace pref="58" max="32767" attributes="0"/>
+                                          <EmptySpace pref="77" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -3092,21 +3092,18 @@
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="paymenttypecomboBox" min="-2" pref="384" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="addfundLabel1" max="32767" attributes="0"/>
+                                          <Component id="addfundLabel1" pref="512" max="32767" attributes="0"/>
                                           <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="addfundLabel2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="addfundLabel2" alignment="0" min="-2" pref="247" max="-2" attributes="0"/>
                                               <Component id="addfundLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="amountpaidField" alignment="0" pref="247" max="32767" attributes="0"/>
-                                              <Component id="tidField" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="amountpaid" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="paymenttype" alignment="0" pref="384" max="32767" attributes="0"/>
+                                              <Component id="transactionID" alignment="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="0" pref="576" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -3123,16 +3120,16 @@
                                   <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                                   <Component id="addfundLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="paymenttypecomboBox" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="paymenttype" min="-2" pref="50" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="addfundLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="amountpaidField" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="amountpaid" min="-2" pref="50" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="addfundLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tidField" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                                  <Component id="transactionID" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <EmptySpace pref="37" max="32767" attributes="0"/>
                                   <Component id="addfundBut" min="-2" pref="50" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                               </Group>
@@ -3148,7 +3145,7 @@
                             <Property name="text" type="java.lang.String" value="Type of Payment: (Name of MFS)"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="paymenttypecomboBox">
+                        <Component class="javax.swing.JComboBox" name="paymenttype">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="6">
@@ -3157,12 +3154,12 @@
                                 <StringItem index="2" value="Rocket"/>
                                 <StringItem index="3" value="SureCash"/>
                                 <StringItem index="4" value="Nagad"/>
-                                <StringItem index="5" value=" "/>
+                                <StringItem index="5" value=""/>
                               </StringArray>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paymenttypecomboBoxActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paymenttypeActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -3176,9 +3173,9 @@
                             <Property name="text" type="java.lang.String" value="Amount Paid:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="amountpaidField">
+                        <Component class="javax.swing.JTextField" name="amountpaid">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="amountpaidFieldActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="amountpaidActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="addfundLabel3">
@@ -3189,7 +3186,7 @@
                             <Property name="text" type="java.lang.String" value="Transaction ID:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="tidField">
+                        <Component class="javax.swing.JTextField" name="transactionID">
                         </Component>
                         <Component class="javax.swing.JButton" name="addfundBut">
                           <Properties>
@@ -3402,7 +3399,7 @@
                                   <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="newreqsubmitBut" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                                  <EmptySpace pref="28" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
