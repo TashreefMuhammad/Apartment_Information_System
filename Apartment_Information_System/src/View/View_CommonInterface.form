@@ -253,7 +253,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="acountmngtabpane" min="-2" pref="840" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2185,13 +2185,14 @@
                                         <Component class="javax.swing.JComboBox" name="deleteservice">
                                           <Properties>
                                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                              <StringArray count="6">
-                                                <StringItem index="0" value="A1"/>
-                                                <StringItem index="1" value="A2"/>
-                                                <StringItem index="2" value="B1"/>
-                                                <StringItem index="3" value="B2"/>
-                                                <StringItem index="4" value="C1"/>
-                                                <StringItem index="5" value="C2"/>
+                                              <StringArray count="7">
+                                                <StringItem index="0" value="--"/>
+                                                <StringItem index="1" value="A1"/>
+                                                <StringItem index="2" value="A2"/>
+                                                <StringItem index="3" value="B1"/>
+                                                <StringItem index="4" value="B2"/>
+                                                <StringItem index="5" value="C1"/>
+                                                <StringItem index="6" value="C2"/>
                                               </StringArray>
                                             </Property>
                                           </Properties>
@@ -2512,6 +2513,9 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="OK"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="spotablebuttonActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3668,7 +3672,7 @@
                                   <Component id="guestflatLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="whomtovis_flat" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="69" max="32767" attributes="0"/>
+                                  <EmptySpace pref="55" max="32767" attributes="0"/>
                                   <Component id="guestsubmitBut1" min="-2" pref="50" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               </Group>

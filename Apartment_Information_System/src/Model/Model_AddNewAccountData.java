@@ -16,8 +16,9 @@ import java.sql.Statement;
  * @author Tasin
  */
 public class Model_AddNewAccountData {
-    
+
     int guestID_GE;
+
     public boolean returnval(String name, String nid, String contact, String permanenetadress, String email, String presentadress, String role) {
         try {
             Statement statement = connection.createStatement();
@@ -138,28 +139,37 @@ public class Model_AddNewAccountData {
 
     public boolean returnval(String dtid, String tme, String name, String nid, String contactno, String presentaddress, String permanenetaddress, String designation, String flatno, String explainationofservice, String role) {
         try {
-            Statement statement = connection.createStatement();
-            ResultSet res = statement.executeQuery("SELECT COUNT(*) FROM " + role);
             int id = 0;
             String sid = "SPID";
+            PreparedStatement stmt;
+            Statement statement = connection.createStatement();
+            ResultSet res = statement.executeQuery("Select * from ServiceProvider where Contact_No = '" + contactno + "SPID'");
 
             if (res.next()) {
-                id = res.getInt(1);
+                sid = res.getString("SPID");
             }
-            id++;
-            sid = id + sid;
-            System.out.println(role);
-            PreparedStatement stmt = connection.prepareStatement("INSERT INTO " + role + " (SPID,Contact_No,Name,Present_Address,Permanent_Address,Designation) VALUES (?, ?, ?, ?, ?, ? )");
 
-            //  stmt.setString(1, role);
-            stmt.setString(1, sid);
-            stmt.setString(2, contactno);
-            stmt.setString(3, name);
-            stmt.setString(4, presentaddress);
-            stmt.setString(5, permanenetaddress);
-            stmt.setString(6, designation);
+            if (sid.equals("SPID")) {
+                res = statement.executeQuery("SELECT COUNT(*) FROM " + role);
 
-            stmt.executeQuery();
+                if (res.next()) {
+                    id = res.getInt(1);
+                }
+                id++;
+                sid = id + sid;
+                System.out.println(role);
+                stmt = connection.prepareStatement("INSERT INTO " + role + " (SPID,Contact_No,Name,Present_Address,Permanent_Address,Designation) VALUES (?, ?, ?, ?, ?, ? )");
+
+                //  stmt.setString(1, role);
+                stmt.setString(1, sid);
+                stmt.setString(2, contactno);
+                stmt.setString(3, name);
+                stmt.setString(4, presentaddress);
+                stmt.setString(5, permanenetaddress);
+                stmt.setString(6, designation);
+
+                stmt.execute();
+            }
             //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
 
             stmt = connection.prepareStatement("INSERT into ServiceDuration(DTID,DTIN,Flat_No,SPID,DTOUT)VALUES(?,?,?,?,?)");
@@ -213,7 +223,7 @@ public class Model_AddNewAccountData {
         return true;
     }
 
-    public boolean returnval(String Name,String Contact,String role) {
+    public boolean returnval(String Name, String Contact, String role) {
         try {
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery("SELECT COUNT(*) FROM " + role);
@@ -224,7 +234,7 @@ public class Model_AddNewAccountData {
                 id = res.getInt(1);
             }
             id++;
-            
+
             ///Keeping the ID of the New Guest
             guestID_GE = id;
             sid = id + sid;
@@ -234,7 +244,7 @@ public class Model_AddNewAccountData {
             stmt.setString(1, sid);
             stmt.setString(2, Name);
             stmt.setString(3, Contact);
-            
+
             stmt.execute();
             //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
 
@@ -244,27 +254,25 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-    
-    public boolean returnval(String Dtid,String sec,int resi, int gues,String role) {
+
+    public boolean returnval(String Dtid, String sec, int resi, int gues, String role) {
         try {
             Statement statement = connection.createStatement();
-            ResultSet res = statement.executeQuery("SELECT SecurityID FROM SecurityGuard where Contact_No='"+sec+"'");
-            String id="NULL";
-            
+            ResultSet res = statement.executeQuery("SELECT SecurityID FROM SecurityGuard where Contact_No='" + sec + "'");
+            String id = "NULL";
 
             if (res.next()) {
                 id = res.getString(1);
             }
-            
-            
+
             PreparedStatement stmt = connection.prepareStatement("INSERT INTO " + role + " (DTID,SecurityID,ResidentID,GuestID) VALUES (?, ?, ?, ?)");
 
             //  stmt.setString(1, role);
-            stmt.setString(1, Dtid+"GE");
+            stmt.setString(1, Dtid + "GE");
             stmt.setString(2, id);
-            stmt.setString(3, resi+"RID");
-            stmt.setString(4, gues+"GID");
-            
+            stmt.setString(3, resi + "RID");
+            stmt.setString(4, gues + "GID");
+
             stmt.execute();
             //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
 
@@ -274,31 +282,31 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-    
-    public boolean sp_returnval(String Dtid,int id,String Name,String Contact,String Sec_Contact) {
+
+    public boolean sp_returnval(String Dtid, int id, String Name, String Contact, String Sec_Contact) {
         try {
             Statement statement = connection.createStatement();
-            ResultSet res = statement.executeQuery("SELECT SecurityID FROM SecurityGuard where Contact_No='"+Sec_Contact+"'");
-            String Security_id= "NULL";
+            ResultSet res = statement.executeQuery("SELECT SecurityID FROM SecurityGuard where Contact_No='" + Sec_Contact + "'");
+            String Security_id = "NULL";
 
             if (res.next()) {
-                Security_id= res.getString(1);
+                Security_id = res.getString(1);
             }
-            
-            ResultSet res1 = statement.executeQuery("SELECT Flat_No FROM ServiceDuration where SPID='"+id+"SPID'");
-            String sp_flat="NULL";
+
+            ResultSet res1 = statement.executeQuery("SELECT Flat_No FROM ServiceDuration where SPID='" + id + "SPID'");
+            String sp_flat = "NULL";
             if (res1.next()) {
-                sp_flat= res1.getString(1);
+                sp_flat = res1.getString(1);
             }
-            
+
             PreparedStatement stmt = connection.prepareStatement("INSERT INTO ServiceProviderEntry (DTID,SPID,SecurityID,Flat_No) VALUES (?, ?, ?, ?)");
 
             //  stmt.setString(1, role);
-            stmt.setString(1, Dtid+"SPE");
-            stmt.setString(2, id+"SPID");
+            stmt.setString(1, Dtid + "SPE");
+            stmt.setString(2, id + "SPID");
             stmt.setString(3, Security_id);
             stmt.setString(4, sp_flat);
-            
+
             stmt.execute();
             //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
 
@@ -308,8 +316,9 @@ public class Model_AddNewAccountData {
 
         return true;
     }
+
     //Passing the New Guest's ID
-    public int returnGuestID(){
+    public int returnGuestID() {
         return guestID_GE;
     }
 }

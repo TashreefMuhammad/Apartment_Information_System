@@ -16,7 +16,7 @@ public class Controller_EditAccount {
         return givendata.returnvalue(id_to_edit,Contact, Name, Email, Address, Active);
     }
     
-    public boolean editinfo(int id_to_edit,String Contact,String Address,String Designation,String FlatNo){
-        return givendata.returnvalue(id_to_edit,Contact, Address, Designation, FlatNo);
+    public boolean editinfo(int id_to_edit,String Contact,String Address,String Designation,String FlatNo, String tme){
+        return givendata.returnvalue(id_to_edit,Contact, Address, Designation, FlatNo, tme);
     }
 }

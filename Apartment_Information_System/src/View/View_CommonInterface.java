@@ -20,6 +20,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     Controller_AddNewAccount add = new Controller_AddNewAccount();
     Controller_EditAccount edit = new Controller_EditAccount();
     Controller_SearchTable sec_val = new Controller_SearchTable();
+    Controller_DataValidation validate = new Controller_DataValidation();
 
     int selected, id_to_edit, entry_id = -1;
     //variables for securityedit table
@@ -32,7 +33,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     int citi_Min = 1;
 
     //variables for Manager edit table
-    int man_act_stat = 2;
+    int mana_act_stat = 2;
     ArrayList<Controller_ManagerInfo> man_info;
 
     //variables for ServiceProvider edit table
@@ -42,14 +43,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
     ArrayList<Controller_GuestInfo> guest_info;
 
     ArrayList<Controller_ResidentInfo> wtv_info;
-    
+
     ArrayList<Controller_ServiceProviderInfo> spv_info;
-    
+
     int wtv_res;
     int sp_ent;
     int flag = 0;
 
-    int mana_act_stat = 0;
     int id;
     String tme, dtid;
 
@@ -1556,7 +1556,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel60.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel60.setText("Delete Apartment Reciving Service");
 
-        deleteservice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A1", "A2", "B1", "B2", "C1", "C2" }));
+        deleteservice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "A1", "A2", "B1", "B2", "C1", "C2" }));
         deleteservice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteserviceActionPerformed(evt);
@@ -1756,7 +1756,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(soe_prof)
                             .addComponent(soe_contact)
                             .addComponent(soe_name))))
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, spopanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1798,7 +1798,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(soe_namepfinst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel30))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1819,12 +1819,17 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spotablescrollpane.setViewportView(spotable);
 
         spotablebutton.setText("OK");
+        spotablebutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spotablebuttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout spotablepanelLayout = new javax.swing.GroupLayout(spotablepanel);
         spotablepanel.setLayout(spotablepanelLayout);
         spotablepanelLayout.setHorizontalGroup(
             spotablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablescrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+            .addComponent(spotablescrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, spotablepanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(spotablebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1834,7 +1839,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             spotablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(spotablepanelLayout.createSequentialGroup()
                 .addComponent(spotablescrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(spotablebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -2934,7 +2939,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_SP_contactActionPerformed
 
     private void svsubmitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svsubmitButActionPerformed
-        boolean spv_entry = add.sp_checkdata(dtid,sp_ent,SP_name.getText(),SP_contact.getText(),contactshowLabel.getText());
+        boolean spv_entry = add.sp_checkdata(dtid, sp_ent, SP_name.getText(), SP_contact.getText(), contactshowLabel.getText());
     }//GEN-LAST:event_svsubmitButActionPerformed
 
     private void paymenttypecomboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymenttypecomboBoxActionPerformed
@@ -2966,15 +2971,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_whomtovis_flatActionPerformed
 
     private void guestsubmitBut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestsubmitBut1ActionPerformed
-        if(entry_id==-1){
-            boolean guest = add.checkdata(guestname.getText(),guestcontact.getText(),"Guest");
+        if (entry_id == -1) {
+            boolean guest = add.checkdata(guestname.getText(), guestcontact.getText(), "Guest");
             //Getting The ID of The New Guest
             entry_id = add.getguestID();
         }
-        
-        boolean whomtovisit = add.checkdata(dtid,contactshowLabel.getText(),wtv_res,entry_id,"GuestEntry");
-        
-        
+
+        boolean whomtovisit = add.checkdata(dtid, contactshowLabel.getText(), wtv_res, entry_id, "GuestEntry");
+
+
     }//GEN-LAST:event_guestsubmitBut1ActionPerformed
 
     private void reqhisfilterComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reqhisfilterComboBoxActionPerformed
@@ -2996,7 +3001,34 @@ public class View_CommonInterface extends javax.swing.JFrame {
             mana_act_stat = 0;
         }
 
-        boolean editmana = edit.editinfo(id_to_edit, managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), mana_act_stat);
+        boolean con = validate.validateContact(addcontactinput.getText());
+        boolean mail = validate.validateEmail(addemailinput.getText());
+        if (con && mail) {
+            int a = JOptionPane.showConfirmDialog(null, "Regardless of your entry you will be logged out once pressed Yes and the system updates. Are you sure?");
+
+            boolean editmana = edit.editinfo(id_to_edit, managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), mana_act_stat);
+
+            if (editmana) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+
+            if (a == JOptionPane.YES_OPTION) {
+                View_LoginPage tmp = new View_LoginPage();
+                tmp.setVisible(true);
+                this.dispose();
+            }
+        } else {
+            if (!con) {
+                JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+                managernumber.setText("");
+            }
+            if (!mail) {
+                JOptionPane.showMessageDialog(null, "Email is expected to be in the format 'string@string.string.' (e.g.: name@gmail.com). Please try again.");
+                manageremail.setText("");
+            }
+        }
     }//GEN-LAST:event_editmanagersaveActionPerformed
 
     private void newmanagercontactnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newmanagercontactnoActionPerformed
@@ -3005,10 +3037,32 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     private void newmanagersubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newmanagersubmitActionPerformed
         // TODO add your handling code here:
+        boolean con = validate.validateContact(addcontactinput.getText());
+        boolean mail = validate.validateEmail(addemailinput.getText());
 
-        boolean res = add.checkdata(newmanagername.getText(), newmanagernid.getText(), newmanagercontactno.getText(),
-                manageremailinput.getText(), newmanagerpermanentadress.getText(), "Manager");
-
+        if (con && mail) {
+            boolean res = add.checkdata(newmanagername.getText(), newmanagernid.getText(), newmanagercontactno.getText(),
+                    manageremailinput.getText(), newmanagerpermanentadress.getText(), "Manager");
+            if (res) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            newmanagername.setText("");
+            newmanagernid.setText("");
+            newmanagercontactno.setText("");
+            manageremailinput.setText("");
+            newmanagerpermanentadress.setText("");
+        } else {
+            if (!con) {
+                JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+                newmanagercontactno.setText("");
+            }
+            if (!mail) {
+                JOptionPane.showMessageDialog(null, "Email is expected to be in the format 'string@string.string.' (e.g.: name@gmail.com). Please try again.");
+                manageremailinput.setText("");
+            }
+        }
     }//GEN-LAST:event_newmanagersubmitActionPerformed
 
     private void servicepersonaldesignationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonaldesignationActionPerformed
@@ -3045,19 +3099,77 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     private void addsecuritysubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsecuritysubmitActionPerformed
         // TODO add your handling code here:
-        boolean res = add.checkdata(fullnameinput.getText(), nidnoinput.getText(), addcontactinput.getText(),
-                addpermanentadress.getText(), addemailinput.getText(), addpresentadress.getText(), "SecurityGuard");
+        boolean con = validate.validateContact(addcontactinput.getText());
+        boolean mail = validate.validateEmail(addemailinput.getText());
+
+        if (con && mail) {
+            boolean res = add.checkdata(fullnameinput.getText(), nidnoinput.getText(), addcontactinput.getText(),
+                    addpermanentadress.getText(), addemailinput.getText(), addpresentadress.getText(), "SecurityGuard");
+            if (res) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            fullnameinput.setText("");
+            nidnoinput.setText("");
+            addcontactinput.setText("");
+            addpermanentadress.setText("");
+            addemailinput.setText("");
+            addpresentadress.setText("");
+        } else {
+            if (!con) {
+                JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+                addcontactinput.setText("");
+            }
+            if (!mail) {
+                JOptionPane.showMessageDialog(null, "Email is expected to be in the format 'string@string.string.' (e.g.: name@gmail.com). Please try again.");
+                addemailinput.setText("");
+            }
+        }
     }//GEN-LAST:event_addsecuritysubmitActionPerformed
 
     private void residentsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentsubmitActionPerformed
 
         if (flag == 1) {
-            boolean res = add.checkdata(dtid, tme, residentfullnameinput.getText(), residentid.getText(), 1,
-                    residentflatno.getSelectedItem().toString(), addresidentcontactno.getText(), residentemail.getText(), residentpermanentadress.getText(), residentprofession.getText(), residentjobadressinput.getText(), "Resident");
+            boolean con = validate.validateContact(addresidentcontactno.getText());
+            boolean mail = validate.validateEmail(residentemail.getText());
+
+            if (con && mail) {
+                boolean res = add.checkdata(dtid, tme, residentfullnameinput.getText(), residentid.getText(), 1,
+                        residentflatno.getSelectedItem().toString(), addresidentcontactno.getText(), residentemail.getText(), residentpermanentadress.getText(), residentprofession.getText(), residentjobadressinput.getText(), "Resident");
+                if (res) {
+                    JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+                }
+                residentfullnameinput.setText("");
+                residentid.setText("");
+                addresidentcontactno.setText("");
+                residentemail.setText("");
+                residentpermanentadress.setText("");
+                residentprofession.setText("");
+                residentjobadressinput.setText("");
+            } else {
+                if (!con) {
+                    JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+                    addresidentcontactno.setText("");
+                }
+                if (!mail) {
+                    JOptionPane.showMessageDialog(null, "Email is expected to be in the format 'string@string.string.' (e.g.: name@gmail.com). Please try again.");
+                    residentemail.setText("");
+                }
+            }
         } else if (flag == 2) {
 
             boolean res = add.checkdata(dtid, tme, residentfullnameinput.getText(), residentid.getText(), 0,
                     residentflatno.getSelectedItem().toString(), null, null, null, null, null, "Resident");
+            if (res) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Chosse whether the Resident is a Citizen or minor first.");
         }
 
     }//GEN-LAST:event_residentsubmitActionPerformed
@@ -3086,14 +3198,58 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     private void servicepersonalsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicepersonalsubmitActionPerformed
         // TODO add your handling code here:
-        boolean res = add.checkdata(dtid, tme, servicepersonalname.getText(), servicepersonalnid.getText(), servicepersonalcontact.getText(),
-                servicepersonalpresentaddress.getText(), servicepersonalpermanentaddress.getText(), servicepersonaldesignation.getText(), servicepersonalapartmentno.getText(), servicepersonalexplainationofservice.getText(), "ServiceProvider");
+        boolean con = validate.validateContact(servicepersonalcontact.getText());
+
+        if (con) {
+            boolean res = add.checkdata(dtid, tme, servicepersonalname.getText(), servicepersonalnid.getText(), servicepersonalcontact.getText(), servicepersonalpresentaddress.getText(),
+                    servicepersonalpermanentaddress.getText(), servicepersonaldesignation.getText(), servicepersonalapartmentno.getText(), servicepersonalexplainationofservice.getText(), "ServiceProvider");
+            if (res) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            servicepersonalname.setText("");
+            servicepersonalnid.setText("");
+            servicepersonalcontact.setText("");
+            servicepersonalpresentaddress.setText("");
+            servicepersonalpermanentaddress.setText("");
+            servicepersonaldesignation.setText("");
+            servicepersonalapartmentno.setText("");
+            servicepersonalexplainationofservice.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+            servicepersonalcontact.setText("");
+        }
     }//GEN-LAST:event_servicepersonalsubmitActionPerformed
 
     private void spoacBut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spoacBut1ActionPerformed
         // TODO add your handling code here:
-        boolean res = add.checkdata(dtid, id, soe_nameoforg.getText(), soe_reasonofvis.getText(), soe_nid.getText(), count_people.getText(),
-                soe_name.getText(), soe_contact.getText(), soe_prof.getText(), soe_namepfinst.getText(), "OfficialPersonnel");
+        boolean con = validate.validateContact(soe_contact.getText());
+        if (con) {
+            boolean res = add.checkdata(dtid, id, soe_nameoforg.getText(), soe_reasonofvis.getText(), soe_nid.getText(), count_people.getText(),
+                    soe_name.getText(), soe_contact.getText(), soe_prof.getText(), soe_namepfinst.getText(), "OfficialPersonnel");
+            if (res) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            soe_nameoforg.setText("");
+            soe_reasonofvis.setText("");
+            soe_nid.setText("");
+            count_people.setText("");
+            soe_name.setText("");
+            soe_contact.setText("");
+            soe_prof.setText("");
+            soe_namepfinst.setText("");
+            
+            spopanel.setVisible(false);
+            spotablepanel.setVisible(true);
+            
+            GetResInfoforSOP();
+        } else {
+            JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+            soe_contact.setText("");
+        }
     }//GEN-LAST:event_spoacBut1ActionPerformed
 
     private void count_peopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_count_peopleActionPerformed
@@ -3121,9 +3277,36 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_presentadressinputActionPerformed
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
+        boolean con = validate.validateContact(contactno_input.getText());
+        boolean mail = validate.validateEmail(emailinput.getText());
 
-        boolean editSec = edit.editinfo(id_to_edit, contactno_input.getText(), name_input.getText(), emailinput.getText(), presentadressinput.getText(), Permanentadressinput.getText(), sec_act_stat);
-
+        if (con && mail && sec_act_stat != 2) {
+            boolean editSec = edit.editinfo(id_to_edit, contactno_input.getText(), name_input.getText(), emailinput.getText(), presentadressinput.getText(), Permanentadressinput.getText(), sec_act_stat);
+            if (editSec) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            name_input.setText("");
+            contactnoinput.setText("");
+            Permanentadressinput.setText("");
+            emailinput.setText("");
+            presentadressinput.setText("");
+            sec_act_stat = 2;
+        } else {
+            if (!con) {
+                JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+                addcontactinput.setText("");
+            }
+            if (!mail) {
+                JOptionPane.showMessageDialog(null, "Email is expected to be in the format 'string@string.string.' (e.g.: name@gmail.com). Please try again.");
+                addemailinput.setText("");
+            }
+            if (sec_act_stat == 2) {
+                JOptionPane.showMessageDialog(null, "You must choose 'Active' or 'Inactive' status before submitting.");
+            }
+        }
+        press_to_GetSecInfo();
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void activeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activeActionPerformed
@@ -3143,7 +3326,38 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_leftActionPerformed
 
     private void saveinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveinfoActionPerformed
-        boolean editres = edit.editinfo(id_to_edit, res_contact.getText(), res_name.getText(), res_nid.getText(), res_email.getText(), res_profession.getText(), res_job_address.getText(), res_act_stat);
+        boolean con = validate.validateContact(contactno_input.getText());
+        boolean mail = validate.validateEmail(emailinput.getText());
+
+        if (con && mail && res_act_stat != 2) {
+            boolean editres = edit.editinfo(id_to_edit, res_contact.getText(), res_name.getText(), res_nid.getText(),
+                    res_email.getText(), res_profession.getText(), res_job_address.getText(), res_act_stat);
+            if (editres) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            res_contact.setText("");
+            res_name.setText("");
+            res_nid.setText("");
+            res_email.setText("");
+            res_profession.setText("");
+            res_job_address.setText("");
+            res_act_stat = 2;
+        } else {
+            if (!con) {
+                JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+                addcontactinput.setText("");
+            }
+            if (!mail) {
+                JOptionPane.showMessageDialog(null, "Email is expected to be in the format 'string@string.string.' (e.g.: name@gmail.com). Please try again.");
+                addemailinput.setText("");
+            }
+            if (res_act_stat == 2) {
+                JOptionPane.showMessageDialog(null, "You must choose 'Staying' or 'Left' status before submitting.");
+            }
+        }
+        press_to_GetResInfo();
     }//GEN-LAST:event_saveinfoActionPerformed
 
     private void res_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_res_emailActionPerformed
@@ -3151,7 +3365,21 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_res_emailActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        boolean editSp = edit.editinfo(id_to_edit, editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText(), deleteservice.getSelectedItem().toString());
+        boolean con = validate.validateContact(editSPcontact.getText());
+        if (con) {
+            boolean editSp = edit.editinfo(id_to_edit, editSPcontact.getText(), editSP_Address.getText(), SP_Designation.getText(), deleteservice.getSelectedItem().toString(), tme);
+            if (editSp) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            editSPcontact.setText("");
+            editSP_Address.setText("");
+            SP_Designation.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+            editSPcontact.setText("");
+        }
     }//GEN-LAST:event_SaveActionPerformed
 
     private void residentflatnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentflatnoActionPerformed
@@ -3352,9 +3580,10 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     private void whomtovisitTableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_whomtovisitTableMouseReleased
         selected = whomtovisitTable.getSelectedRow();
-        wtv_res= wtv_info.get(selected).getID();
+        wtv_res = wtv_info.get(selected).getID();
         whomtovis_name.setText(wtv_info.get(selected).getName());
         whomtovis_flat.setText(wtv_info.get(selected).getFlatNo());
+        Check_WhomToVisit();
     }//GEN-LAST:event_whomtovisitTableMouseReleased
 
     private void SP_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SP_nameKeyReleased
@@ -3371,6 +3600,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private void SP_contactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SP_contactKeyReleased
         SP_Entry();
     }//GEN-LAST:event_SP_contactKeyReleased
+
+    private void spotablebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spotablebuttonActionPerformed
+        // TODO add your handling code here:
+        spotablepanel.setVisible(false);
+        spopanel.setVisible(true);
+    }//GEN-LAST:event_spotablebuttonActionPerformed
 
     private void initializeSelf() {
         new Thread(new Runnable() {
@@ -3406,16 +3641,21 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         Thread.sleep(1000);
                         if (citiormin.getSelectedItem().toString().equals("Citizen")) {
                             citi_Min = 1;
+                            jLabel31.setVisible(false);
+                            res_nid.setVisible(false);
                         } else if (citiormin.getSelectedItem().toString().equals("Minor")) {
                             citi_Min = 0;
+                            jLabel31.setVisible(true);
+                            res_nid.setVisible(true);
                         } else {
                             citi_Min = 2;
+                            jLabel31.setVisible(false);
+                            res_nid.setVisible(false);
                         }
                         press_to_GetResInfo();
                     } catch (InterruptedException ex) {
                         System.out.println(ex);
                     }
-
                 }
             }
         }).start();
@@ -3457,15 +3697,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
         entry_guest.setColumnIdentifiers(new Object[]{"ContactNo", "Name"});
 
         tableguest.setModel(entry_guest);
-        
+
         //Security Entry Resident For Guest
         DefaultTableModel wtv_edit = (DefaultTableModel) whomtovisitTable.getModel();
         wtv_edit.setRowCount(0);
         wtv_edit.setColumnIdentifiers(new Object[]{"Name", "Flat_No"});
         whomtovisitTable.setModel(wtv_edit);
-        
+
         //SecurityEntry for Guest
-        DefaultTableModel spv_edit= (DefaultTableModel) Sp_table.getModel();
+        DefaultTableModel spv_edit = (DefaultTableModel) Sp_table.getModel();
         spv_edit.setRowCount(0);
         spv_edit.setColumnIdentifiers(new Object[]{"Name", "Contact_No"});
 
@@ -3546,7 +3786,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }
 
     protected void press_to_GetManInfo() {
-        man_info = sec_val.managerInfoTable(managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), man_act_stat);
+        man_info = sec_val.managerInfoTable(managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), mana_act_stat);
         DefaultTableModel man_edit = (DefaultTableModel) Managertable.getModel();
         man_edit.setRowCount(0);
         man_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Status"});
@@ -3613,11 +3853,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         }
         whomtovisitTable.setModel(wtv_edit);
     }
-    
-    protected void SP_Entry(){
-        spv_info = sec_val.SPV_Entry(SP_name.getText(),SP_contact.getText());
 
-        DefaultTableModel spv_edit= (DefaultTableModel) Sp_table.getModel();
+    protected void SP_Entry() {
+        spv_info = sec_val.SPV_Entry(SP_name.getText(), SP_contact.getText());
+
+        DefaultTableModel spv_edit = (DefaultTableModel) Sp_table.getModel();
         spv_edit.setRowCount(0);
         spv_edit.setColumnIdentifiers(new Object[]{"Name", "Contact_No"});
 
@@ -3629,6 +3869,25 @@ public class View_CommonInterface extends javax.swing.JFrame {
             spv_edit.addRow(row);
         }
         Sp_table.setModel(spv_edit);
+    }
+    
+    protected void GetResInfoforSOP() {
+
+        res_info = sec_val.residentInfoTable("", "", "", "", "", "", 2, 1);
+        DefaultTableModel res_edit = (DefaultTableModel) spotable.getModel();
+        res_edit.setRowCount(0);
+        res_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Profession", "Status"});
+
+        Object[] row = new Object[5];
+        for (int i = 0; i < res_info.size(); ++i) {
+            row[0] = res_info.get(i).getContact();
+            row[1] = res_info.get(i).getName();
+            row[2] = res_info.get(i).getEmail();
+            row[3] = res_info.get(i).getProfession();
+            row[4] = res_info.get(i).getStat();
+            res_edit.addRow(row);
+        }
+        spotable.setModel(res_edit);
     }
 
     public static void main(String args[]) {

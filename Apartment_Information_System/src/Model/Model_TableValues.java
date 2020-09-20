@@ -173,7 +173,7 @@ public class Model_TableValues {
         ArrayList<Controller_ResidentInfo> data = new ArrayList<>();
 
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + Name + "%' AND Flat_No Like '%" + Flatno + "%'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + Name + "%' AND Flat_No Like '%" + Flatno + "%' AND Flat_No IS NOT NULL");
             statement.execute();
             ResultSet resultSet = statement.executeQuery();
             int row6, row7;
