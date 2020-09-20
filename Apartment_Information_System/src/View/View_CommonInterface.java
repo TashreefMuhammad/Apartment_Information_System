@@ -47,6 +47,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
     ArrayList<Controller_ServiceProviderInfo> spv_info;
 
     ArrayList<Controller_ResidentTransaction> restran_info;
+    
+    ArrayList<Controller_RequestHandle> res_req_his;
 
     int wtv_res;
     int sp_ent;
@@ -305,9 +307,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel61 = new javax.swing.JLabel();
         reqhispanel = new javax.swing.JPanel();
         reqhisfilterLabel = new javax.swing.JLabel();
-        reqhisfilterComboBox = new javax.swing.JComboBox<>();
+        reqhisfilter = new javax.swing.JComboBox<>();
         jScrollPane20 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ReqHistory_Res = new javax.swing.JTable();
         securitypanel = new javax.swing.JPanel();
         securitytab = new javax.swing.JTabbedPane();
         grouppanel = new javax.swing.JPanel();
@@ -1758,7 +1760,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(soe_prof)
                             .addComponent(soe_contact)
                             .addComponent(soe_name))))
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, spopanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1831,7 +1833,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spotablepanel.setLayout(spotablepanelLayout);
         spotablepanelLayout.setHorizontalGroup(
             spotablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablescrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+            .addComponent(spotablescrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, spotablepanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(spotablebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1853,9 +1855,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spolayeredpanel.setLayout(spolayeredpanelLayout);
         spolayeredpanelLayout.setHorizontalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1876,16 +1878,21 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel1.setText("Select Flat No :");
 
         flatcombobox.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        flatcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALL", "A1", "A2", "B1.B2", "C1", "C2" }));
+        flatcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "A1", "A2", "B1.B2", "C1", "C2" }));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Which Information To Interact :");
 
         informationbox.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        informationbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Transiction", "Request" }));
+        informationbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Transaction", "Request" }));
 
         okbutton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         okbutton.setText("Ok");
+        okbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okbuttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout rescommainLayout = new javax.swing.GroupLayout(rescommain);
         rescommain.setLayout(rescommainLayout);
@@ -1915,7 +1922,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(42, 42, 42)
                 .addComponent(informationbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                 .addComponent(okbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104))
         );
@@ -1957,6 +1964,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
         transictionback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         transictionback.setText("Back");
+        transictionback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transictionbackActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2036,7 +2048,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             .addComponent(jScrollPane1)
         );
 
-        transictiontabbedpane.addTab("tab2", newtransiction);
+        transictiontabbedpane.addTab("  Entry  ", newtransiction);
 
         reeportedtransictiontable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2055,14 +2067,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
         reportedtransiction.setLayout(reportedtransictionLayout);
         reportedtransictionLayout.setHorizontalGroup(
             reportedtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
         );
         reportedtransictionLayout.setVerticalGroup(
             reportedtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
         );
 
-        transictiontabbedpane.addTab("tab1", reportedtransiction);
+        transictiontabbedpane.addTab(" History ", reportedtransiction);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(240, 0, 0));
@@ -2072,11 +2084,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
         transiction.setLayout(transictionLayout);
         transictionLayout.setHorizontalGroup(
             transictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(transictiontabbedpane)
             .addGroup(transictionLayout.createSequentialGroup()
                 .addGap(186, 186, 186)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(327, Short.MAX_VALUE))
+            .addGroup(transictionLayout.createSequentialGroup()
+                .addComponent(transictiontabbedpane, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         transictionLayout.setVerticalGroup(
             transictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2085,7 +2099,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(transictiontabbedpane, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         requestpanel.setPreferredSize(new java.awt.Dimension(840, 605));
@@ -2106,12 +2120,17 @@ public class View_CommonInterface extends javax.swing.JFrame {
         requestback.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         requestback.setText("Back");
         requestback.setActionCommand("");
+        requestback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestbackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout requestpanelLayout = new javax.swing.GroupLayout(requestpanel);
         requestpanel.setLayout(requestpanelLayout);
         requestpanelLayout.setHorizontalGroup(
             requestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rqstscrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+            .addComponent(rqstscrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
             .addGroup(requestpanelLayout.createSequentialGroup()
                 .addGap(353, 353, 353)
                 .addComponent(requestback, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2134,11 +2153,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2153,7 +2172,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         rescompanel.setLayout(rescompanelLayout);
         rescompanelLayout.setHorizontalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         rescompanelLayout.setVerticalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2407,14 +2426,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
         reqhisfilterLabel.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         reqhisfilterLabel.setText("Filter By:");
 
-        reqhisfilterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Confirm/Report", "Reported", "Resolved" }));
-        reqhisfilterComboBox.addActionListener(new java.awt.event.ActionListener() {
+        reqhisfilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Completed", "Incomplete" }));
+        reqhisfilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reqhisfilterComboBoxActionPerformed(evt);
+                reqhisfilterActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ReqHistory_Res.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2425,7 +2444,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane20.setViewportView(jTable1);
+        jScrollPane20.setViewportView(ReqHistory_Res);
 
         javax.swing.GroupLayout reqhispanelLayout = new javax.swing.GroupLayout(reqhispanel);
         reqhispanel.setLayout(reqhispanelLayout);
@@ -2438,7 +2457,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(reqhisfilterLabel)
                 .addGap(18, 18, 18)
-                .addComponent(reqhisfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(reqhisfilter, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
         );
         reqhispanelLayout.setVerticalGroup(
@@ -2447,7 +2466,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(reqhispanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(reqhisfilterLabel)
-                    .addComponent(reqhisfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(reqhisfilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(646, 646, 646))
@@ -2984,9 +3003,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     }//GEN-LAST:event_guestsubmitBut1ActionPerformed
 
-    private void reqhisfilterComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reqhisfilterComboBoxActionPerformed
+    private void reqhisfilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reqhisfilterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_reqhisfilterComboBoxActionPerformed
+    }//GEN-LAST:event_reqhisfilterActionPerformed
 
     private void amountpaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountpaidActionPerformed
         // TODO add your handling code here:
@@ -3609,6 +3628,31 @@ public class View_CommonInterface extends javax.swing.JFrame {
         spopanel.setVisible(true);
     }//GEN-LAST:event_spotablebuttonActionPerformed
 
+    private void okbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okbuttonActionPerformed
+        // TODO add your handling code here:
+        if ("--".equals(flatcombobox.getSelectedItem().toString())) {
+            JOptionPane.showMessageDialog(null, "Select A FlatNo to interect with the information");
+        } else if ("Transaction".equals(informationbox.getSelectedItem().toString())) {
+            transiction.setVisible(true);
+            rescommain.setVisible(false);    
+        } else if ("Request".equals(informationbox.getSelectedItem().toString())) {
+            requestpanel.setVisible(true);
+            rescommain.setVisible(false);  
+        }
+    }//GEN-LAST:event_okbuttonActionPerformed
+
+    private void requestbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestbackActionPerformed
+        // TODO add your handling code here:
+        rescommain.setVisible(true);
+        requestpanel.setVisible(false);
+    }//GEN-LAST:event_requestbackActionPerformed
+
+    private void transictionbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transictionbackActionPerformed
+        // TODO add your handling code here:
+        rescommain.setVisible(true);
+        transiction.setVisible(false);
+    }//GEN-LAST:event_transictionbackActionPerformed
+
     private void initializeSelf() {
 
         // A thread Show Time and Entry DTID
@@ -3658,6 +3702,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         }
                         press_to_GetResInfo();
                         Completed_TransactionTable();
+                        Resident_Request();
                     } catch (InterruptedException ex) {
                         System.out.println(ex);
                     }
@@ -3926,6 +3971,24 @@ public class View_CommonInterface extends javax.swing.JFrame {
         fundhistorytable.setModel(res_trans);
 
     }
+    
+    protected void Resident_Request(){
+        res_req_his = sec_val.res_reqHisTable(id+"RID",reqhisfilter.getSelectedItem().toString());
+        DefaultTableModel res_req = (DefaultTableModel) ReqHistory_Res.getModel();
+
+        res_req.setRowCount(0);
+        res_req.setColumnIdentifiers(new Object[]{"Request", "Description", "Urgency"});
+
+        Object[] row = new Object[4];
+        for (int i = 0; i < res_req_his.size(); ++i) {
+            row[0] = res_req_his.get(i).getReq();
+            row[1] = res_req_his.get(i).getDescrip();
+            row[2] = res_req_his.get(i).getUrgency();
+            
+            res_req.addRow(row);
+        }
+        ReqHistory_Res.setModel(res_req);
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -3965,6 +4028,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel E;
     private javax.swing.JTable Managertable;
     private javax.swing.JTextField Permanentadressinput;
+    private javax.swing.JTable ReqHistory_Res;
     private javax.swing.ButtonGroup ResidentLiving;
     private javax.swing.JTextField SP_Designation;
     private javax.swing.JTextField SP_contact;
@@ -4115,7 +4179,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JRadioButton left;
     private javax.swing.JPanel manager;
@@ -4151,7 +4214,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> priority;
     private javax.swing.JTable reeportedtransictiontable;
     private javax.swing.JPanel reportedtransiction;
-    private javax.swing.JComboBox<String> reqhisfilterComboBox;
+    private javax.swing.JComboBox<String> reqhisfilter;
     private javax.swing.JLabel reqhisfilterLabel;
     private javax.swing.JPanel reqhispanel;
     private javax.swing.JTextField request;

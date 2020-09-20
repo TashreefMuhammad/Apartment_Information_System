@@ -53,18 +53,19 @@ public class Model_TableValues {
 
             if (stat != 2) {
                 if (citi_Min != 2) {
-                    statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND Contact_No Like '%" + contact + "%' AND Profession LIKE '%" + profession + "%' AND Job_Address LIKE '%" + jobAddress + "%' AND Email LIKE '%" + email + "%' AND Current_Living = " + stat + " AND Citizenship=" + citi_Min);
+                    statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND (Contact_No Like '%" + contact + "%' OR Contact_No IS NULL) AND (Profession LIKE '%" + profession + "%' OR Profession IS NULL) AND (Job_Address LIKE '%" + jobAddress + "%' OR Job_Address IS NULL) AND (Email LIKE '%" + email + "%' OR Email IS NULL) AND Current_Living = " + stat + " AND Citizenship=" + citi_Min);
                 } else {
                     statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND Contact_No Like '%" + contact + "%' AND Profession LIKE '%" + profession + "%' AND Job_Address LIKE '%" + jobAddress + "%' AND Email LIKE '%" + email + "%' AND Current_Living = " + stat);
                 }
             } else {
                 if (citi_Min != 2) {
+
                     statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND Contact_No Like '%" + contact + "%' AND Profession LIKE '%" + profession + "%' AND Job_Address LIKE '%" + jobAddress + "%' AND Email LIKE '%" + email + "%' AND Citizenship=" + citi_Min);
                 } else {
+
                     statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND Contact_No Like '%" + contact + "%' AND Profession LIKE '%" + profession + "%' AND Job_Address LIKE '%" + jobAddress + "%' AND Email LIKE '%" + email + "%'");
                 }
             }
-            statement.execute();
             ResultSet resultSet = statement.executeQuery();
             int row6, row7;
             String row0, row1, row2, row3, row4, row5, row8;
@@ -230,24 +231,53 @@ public class Model_TableValues {
         return data;
     }
 
-    
 //    Getting Data of Fund HIstory To show in the Table for Fund History Table    
-     public ArrayList<Controller_ResidentTransaction> fundhistoryTable(int resID) {
+    public ArrayList<Controller_ResidentTransaction> fundhistoryTable(int resID) {
         ArrayList<Controller_ResidentTransaction> data = new ArrayList<>();
-         
+
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * from Fund where ResidentID ='" + resID +"RID'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * from Fund where ResidentID ='" + resID + "RID'");
             ResultSet resultSet = statement.executeQuery();
-           
+
             String row0, row1, row2, row3;
             while (resultSet.next()) {
                 row0 = resultSet.getString("TransactionID");
                 row1 = resultSet.getString("DateAndTime");
                 row2 = resultSet.getString("TypeOfPayment");
                 row3 = resultSet.getString("Amount_Paid");
-            
 
-                data.add(new Controller_ResidentTransaction( row0, row1, row2, row3));
+                data.add(new Controller_ResidentTransaction(row0, row1, row2, row3));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
+    //Getting Data of Request History Table
+
+    public ArrayList<Controller_RequestHandle> res_req_history(String rid, String isCom) {
+        ArrayList<Controller_RequestHandle> data = new ArrayList<>();
+
+        try {
+            PreparedStatement statement;
+            if (isCom.equals("All")) {
+                statement = connection.prepareStatement("SELECT * from Requests where ResidentID ='" + rid + "'");
+            }else if(isCom.equals("Completed")){
+                statement = connection.prepareStatement("SELECT * from Requests where ResidentID ='" + rid + "' AND ManagerID is not NULL");
+            }else {
+                statement = connection.prepareStatement("SELECT * from Requests where ResidentID ='" + rid + "' AND ManagerID is NULL");
+            }
+            ResultSet resultSet = statement.executeQuery();
+            String row0, row1,row2,row3;
+            int row4;
+            while (resultSet.next()) {
+                row0 = resultSet.getString("ResidentID");
+                row1 = resultSet.getString("ManagerID");
+                row2 = resultSet.getString("Main_Request");
+                row3 = resultSet.getString("Descrip");
+                row4 = resultSet.getInt("Urgency");
+
+                data.add(new Controller_RequestHandle(row0, row1, row2,row3,row4));
             }
         } catch (SQLException e) {
             System.out.println(e);

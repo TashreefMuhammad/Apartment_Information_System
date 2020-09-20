@@ -44,5 +44,8 @@ public class Controller_SearchTable {
     public ArrayList<Controller_ResidentTransaction> fundhistoryTable(int resID){
         return val.fundhistoryTable(resID);
     }
+    public ArrayList<Controller_RequestHandle> res_reqHisTable(String rid,String isCom){
+        return val.res_req_history(rid,isCom);
+    }
     
 }
