@@ -1830,9 +1830,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
         );
 
         managertabbedpane.addTab("  Specialized Official Entry  ", spolayeredpanel);
@@ -1891,7 +1891,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(informationbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addComponent(okbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104))
         );
@@ -2080,7 +2080,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(transictiontabbedpane, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         requestpanel.setPreferredSize(new java.awt.Dimension(840, 605));
@@ -2128,7 +2128,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(rqstscrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(requestback)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(rescommain, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -2147,11 +2147,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(requestpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(transiction, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(rescommain, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rescompanelLayout = new javax.swing.GroupLayout(rescompanel);
@@ -2162,7 +2162,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         rescompanelLayout.setVerticalGroup(
             rescompanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
         );
 
         managertabbedpane.addTab("  Resident Communication  ", rescompanel);
@@ -2875,10 +2875,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
                                 .addComponent(signindesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(backgroundLayout.createSequentialGroup()
                                 .addGap(29, 29, 29)
-                                .addComponent(signinimageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(backgroundLayout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(changepassLabel)))
+                                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(changepassLabel)
+                                    .addComponent(signinimageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 37, Short.MAX_VALUE))
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
@@ -3090,20 +3089,19 @@ public class View_CommonInterface extends javax.swing.JFrame {
             mana_act_stat = 0;
         }
 
-        boolean con = validate.validateContact(addcontactinput.getText());
-        boolean mail = validate.validateEmail(addemailinput.getText());
+        boolean con = validate.validateContact(managernumber.getText());
+        boolean mail = validate.validateEmail(manageremail.getText());
         if (con && mail) {
             int a = JOptionPane.showConfirmDialog(null, "Regardless of your entry you will be logged out once pressed Yes and the system updates. Are you sure?");
 
             boolean editmana = edit.editinfo(id_to_edit, managernumber.getText(), managername.getText(), manageremail.getText(), manager_address.getText(), mana_act_stat);
-
-            if (editmana) {
-                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
-            } else {
-                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
-            }
-
             if (a == JOptionPane.YES_OPTION) {
+                if (editmana) {
+                    JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+                }
+
                 View_LoginPage tmp = new View_LoginPage();
                 tmp.setVisible(true);
                 this.dispose();
@@ -3126,8 +3124,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     private void newmanagersubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newmanagersubmitActionPerformed
         // TODO add your handling code here:
-        boolean con = validate.validateContact(addcontactinput.getText());
-        boolean mail = validate.validateEmail(addemailinput.getText());
+        boolean con = validate.validateContact(newmanagercontactno.getText());
+        boolean mail = validate.validateEmail(manageremailinput.getText());
 
         if (con && mail) {
             boolean res = add.checkdata(newmanagername.getText(), newmanagernid.getText(), newmanagercontactno.getText(),
@@ -3342,11 +3340,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
             GetResInfoforSOP();
         } else {
-            if(!con){
+            if (!con) {
                 JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
                 soe_contact.setText("");
             }
-            if(!num){
+            if (!num) {
                 JOptionPane.showMessageDialog(null, "Number of People has to be an integer.");
                 soe_contact.setText("");
             }
@@ -3419,13 +3417,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_inactiveActionPerformed
 
     private void saveinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveinfoActionPerformed
-        boolean con = validate.validateContact(contactno_input.getText());
-        boolean mail = validate.validateEmail(emailinput.getText());
-        if(stayorLeft.isSelected()){
+        boolean con = validate.validateContact(res_contact.getText());
+        boolean mail = validate.validateEmail(res_email.getText());
+        if (stayorLeft.isSelected()) {
             res_act_stat = 0;
         }
 
-        if (con && mail && res_act_stat != 2) {
+        if (con && mail) {
             boolean editres = edit.editinfo(id_to_edit, res_contact.getText(), res_name.getText(), res_nid.getText(),
                     res_email.getText(), res_profession.getText(), res_job_address.getText(), res_act_stat);
             if (editres) {
@@ -3443,14 +3441,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
         } else {
             if (!con) {
                 JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
-                addcontactinput.setText("");
+                res_contact.setText("");
             }
             if (!mail) {
                 JOptionPane.showMessageDialog(null, "Email is expected to be in the format 'string@string.string.' (e.g.: name@gmail.com). Please try again.");
-                addemailinput.setText("");
-            }
-            if (res_act_stat == 2) {
-                JOptionPane.showMessageDialog(null, "You must choose 'Staying' or 'Left' status before submitting.");
+                res_email.setText("");
             }
         }
         press_to_GetResInfo();
@@ -3744,7 +3739,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
             if (!contact) {
                 JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
                 SPTrans_Contact.setText("");
-            } if(!money) {
+            }
+            if (!money) {
                 JOptionPane.showMessageDialog(null, "Amount paid should be a numeric value.");
                 amount_paid.setText("");
             }
@@ -3850,8 +3846,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 }
             }
         }).start();
-
-        signinimageLabel.setIcon(Resizing.resizeIcon("images/bla.jpg", signinimageLabel));
+        
+        
 
         choosePanel(View_LoginPage.getChoice());
 
@@ -3926,14 +3922,17 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
         switch (choice) {
             case "Manager":
+                signinimageLabel.setIcon(Resizing.resizeIcon("images/Manager.png", signinimageLabel));
                 managerpanel.setVisible(true);
                 apartmentLabel.setVisible(false);
                 apartmentshowLabel.setVisible(false);
                 break;
             case "Resident":
+                signinimageLabel.setIcon(Resizing.resizeIcon("images/Resident.jpg", signinimageLabel));
                 residentpanel.setVisible(true);
                 break;
             case "SecurityGuard":
+                signinimageLabel.setIcon(Resizing.resizeIcon("images/Security.png", signinimageLabel));
                 securitypanel.setVisible(true);
                 apartmentLabel.setVisible(false);
                 apartmentshowLabel.setVisible(false);

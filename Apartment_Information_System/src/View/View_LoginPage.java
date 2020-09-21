@@ -93,7 +93,7 @@ public class View_LoginPage extends javax.swing.JFrame {
         });
 
         ManagerBut.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        ManagerBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/manager.png"))); // NOI18N
+        ManagerBut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Manager.png"))); // NOI18N
         ManagerBut.setText("Manager");
         ManagerBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +102,7 @@ public class View_LoginPage extends javax.swing.JFrame {
         });
 
         ResidentBut.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ResidentBut.setIcon(new javax.swing.ImageIcon("K:\\3.2\\ISD\\Apartment_Information_System\\Apartment_Information_System\\images\\Resident.jpg")); // NOI18N
         ResidentBut.setText("Residence");
         ResidentBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +111,7 @@ public class View_LoginPage extends javax.swing.JFrame {
         });
 
         SecurityBut.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        SecurityBut.setIcon(new javax.swing.ImageIcon("K:\\3.2\\ISD\\Apartment_Information_System\\Apartment_Information_System\\images\\Security.png")); // NOI18N
         SecurityBut.setText("Security");
         SecurityBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

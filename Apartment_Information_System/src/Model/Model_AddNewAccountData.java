@@ -168,7 +168,6 @@ public class Model_AddNewAccountData {
                 }
                 id++;
                 sid = id + sid;
-                System.out.println(role);
                 stmt = connection.prepareStatement("INSERT INTO " + role + " (SPID,Contact_No,Name,Present_Address,Permanent_Address,Designation) VALUES (?, ?, ?, ?, ?, ? )");
 
                 //  stmt.setString(1, role);
@@ -184,12 +183,13 @@ public class Model_AddNewAccountData {
             //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
 
             stmt = connection.prepareStatement("INSERT into ServiceDuration(DTID,DTIN,Flat_No,SPID,DTOUT)VALUES(?,?,?,?,?)");
+
             stmt.setString(1, dtid + "SD");
             stmt.setString(2, tme);
             stmt.setString(3, flatno);
             stmt.setString(4, sid);
             stmt.setString(5, "NULL");
-
+            stmt.execute();
         } catch (SQLException e) {
             System.out.println(e);
         }

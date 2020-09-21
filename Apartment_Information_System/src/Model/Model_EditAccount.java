@@ -22,7 +22,7 @@ public class Model_EditAccount {
             stmt.setString(5, Email);
             stmt.setInt(6, active);
 
-            stmt.executeQuery();
+            stmt.execute();
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -43,16 +43,15 @@ public class Model_EditAccount {
                 sta = rs.getInt(1);
             }
 
-            PreparedStatement stmt = connection.prepareStatement("UPDATE Resident Set Name=?, Contact_No=?,NID_BID=?,Email=?,Profession = ?,Job_Address = ?,Current_Living=? where  ResidentID='" + id_to_edit + "RID'");
+            PreparedStatement stmt = connection.prepareStatement("UPDATE Resident Set Name=?, Contact_No=?,Email=?,Profession = ?,Job_Address = ?,Current_Living=? where  ResidentID='" + id_to_edit + "RID'");
 
             //  stmt.setString(1, role);
             stmt.setString(1, Name);
             stmt.setString(2, Contact);
-            stmt.setString(3, NID);
-            stmt.setString(4, Email);
-            stmt.setString(5, Profession);
-            stmt.setString(6, Job_Address);
-            stmt.setInt(7, Staying);
+            stmt.setString(3, Email);
+            stmt.setString(4, Profession);
+            stmt.setString(5, Job_Address);
+            stmt.setInt(6, Staying);
 
             stmt.execute();
 

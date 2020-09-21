@@ -281,16 +281,6 @@ Drop table Transactions*/
 
 SELECT * FROM Manager Where Contact_No = '01718438309' AND Pass = HASHBYTES('MD5','01718438309')
 
-update Manager set Pass = HASHBYTES('MD5','01718438309') where Contact_No='01718438309'
+update Manager set Stat=1 where Contact_No='01718438309'
 
-Select Count(*) from Guest
 
-Select  ServiceProvider.Name,ServiceProvider.Contact_No,ServiceProvider.SPID,ServiceProvider.Present_Address,ServiceProvider.Designation from ServiceProvider
-INNER JOIN
-ServiceDuration ON ServiceProvider.SPID=ServiceDuration.SPID
-where ServiceDuration.Flat_No='A2' AND ServiceProvider.Name Like '%%' AND ServiceProvider.Contact_No Like '%%'  AND ServiceProvider.Designation LIKE '%%'
-
-Select Requests.DTID as DTID,Requests.ResidentID as ResidentID,Requests.ManagerID as ManagerID, Requests.Main_Request As Main_Requests,Requests.Descrip as Descrip,Requests.Urgency as Urgency,Resident.Flat_No as Flat_No from Requests
-INNER JOIN
-Resident ON Requests.ResidentID = Resident.ResidentID 
-where Resident.Flat_No='A2' order by Urgency DESC
