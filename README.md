@@ -1,9 +1,13 @@
 # Apartment Information System
 
-This is a project made by [Shams Al Ahsan](https://github.com/ShamsAl), [Shah Alam Tasin](https://github.com/ShahAlamTasin), [Tashreef Muhammad](https://github.com/TashreefMuhammad) and [Arafat Uddin](https://github.com/Arafat4869) for **Information System Design and Software Engineering Lab (CSE 3224 Course)**. The project was made using Java Swing and for DataBase Microsoft SQL was used.
+This is a project made by [Shams Al Ahsan](https://github.com/ShamsAl), [Shah Alam Tasin](https://github.com/ShahAlamTasin), [Tashreef Muhammad](https://github.com/TashreefMuhammad) and [Arafat Uddin](https://github.com/Arafat4869) for **Information System Design and Software Engineering Lab (CSE 3224 Course)** of 3rd Year, 2nd Semester of B.Sc. in Computer Science and Engineering at [Ahsanullah University of Science and Technology](http://aust.edu/). The project was made using Java Swing and for DataBase Microsoft SQL Server was used. 
+
+**Windows 10** was the Operating System used.
 
 As per requirement of the course here it is described on how to setup the system for seeing and running the code. The main procedures can be divided into the following parts:
-
+1. [Install environment for running Java](#install-environment-for-running-java)
+2. [Install Microsoft SQl Server](#install-microsoft-sql-server)
+3. [Setting Up MSSQL to Work with Java Code](#setting-up-mssql-to-work-with-java-code)
 
 ## Install environment for running Java:
 For the purpose of setting up environment to run Java and see codes, it will be necessarry to have *`JDK`* and *`JRE`* installed. Also, as for IDE *`NetBeans`* will be explained on how to explain here.
@@ -14,9 +18,9 @@ Install **`NetBean 8.2`** from [here](https://netbeans.org/downloads/old/8.2/). 
 
 
 ## Install Microsoft SQL Server:
-Microsoft SQL Server can be installed from the internet. During development *`Microsoft SQL Server 2014`* was used. This version can be downloaded from [here](https://www.microsoft.com/en-US/download/details.aspx?id=42299). The `ExpressAdvanced [Size 1.1GB)` can be downloaded to ensure all required components be installed in one go.
+Microsoft SQL Server can be installed from the internet. During development *`Microsoft SQL Server 2014`* was used. This version can be downloaded from [here](https://www.microsoft.com/en-US/download/details.aspx?id=42299). The `ExpressAdvanced [Size 1.1GB]` can be downloaded to ensure all required components be installed in one go.
 * **Installing *`MSSQL`*:**
-Install MSSQL following instructions by the installer. For reference [this](https://drive.google.com/file/d/1U-7v1RKhvxQXSvo5KTavMXgIcWbbTgwh/view?usp=sharing) can be used where it is described on how to install `SQL Server 2008 Express(Including Management Studio)`. 
+Install MSSQL following instructions by the installer. For reference [this](https://drive.google.com/file/d/1U-7v1RKhvxQXSvo5KTavMXgIcWbbTgwh/view?usp=sharing) can be used where it is described on how to install `SQL Server 2008 Express(Including Management Studio)`. The system is almost same and the option selection should be followed thoroughly.
 
 ## Setting Up MSSQL to Work with Java Code:
 Some setup is required to ensure that the DataBase in MSSQL can be used through Java. The procedure is explained below:
@@ -39,3 +43,7 @@ Some setup is required to ensure that the DataBase in MSSQL can be used through 
 * Disconnect the SQL Server and then reconnect. Now choose `SQL Server Authentication`. For `User Name` write `sa` and for `Password` write `ISD_AIS_A1_G1`
 
 * Now open the `Apartment_Information_System.sql` provided in the project repository. Run the file suitably to add data to the required database. A set of random sampled data are inserted there just for setting up DataBase for use. All data are random and are not collected from anywhere or has any authenticity.
+
+* Now the server is completely ready to be utilized. Next the Java Code needs some jar libraries be added to it. Open the project using `NetBeans`. For the first time it should show some errors regarding Library or missing jar. If not getting this error, it is not required. If shown, then exapnd the project and right-click on the `Libraries`. Choose `Add JAR/Folder` and add the `sqljdbc42.jar` and `javax.mail-1.6.2.jar` which is provided in the project repository.
+
+With this the project is ready to be run through NetBeans IDE.
