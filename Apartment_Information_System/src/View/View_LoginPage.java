@@ -305,11 +305,11 @@ public class View_LoginPage extends javax.swing.JFrame {
             Image image = ImageIO.read(new File("images/manager.png")).getScaledInstance(ManagerBut.getWidth(), ManagerBut.getHeight(), Image.SCALE_DEFAULT);
             ManagerBut.setIcon(new ImageIcon(image));
 
-            Image image1 = ImageIO.read(new File("images/resident.png")).getScaledInstance(ManagerBut.getWidth(), ManagerBut.getHeight(), Image.SCALE_DEFAULT);
-            ResidentBut.setIcon(new ImageIcon(image1));
-
-            Image image2 = ImageIO.read(new File("images/securityadmin.png")).getScaledInstance(ManagerBut.getWidth(), ManagerBut.getHeight(), Image.SCALE_DEFAULT);
-            SecurityBut.setIcon(new ImageIcon(image2));
+//            Image image1 = ImageIO.read(new File("images/resident.png")).getScaledInstance(ManagerBut.getWidth(), ManagerBut.getHeight(), Image.SCALE_DEFAULT);
+//            ResidentBut.setIcon(new ImageIcon(image1));
+//
+//            Image image2 = ImageIO.read(new File("images/securityadmin.png")).getScaledInstance(ManagerBut.getWidth(), ManagerBut.getHeight(), Image.SCALE_DEFAULT);
+//            SecurityBut.setIcon(new ImageIcon(image2));
         } catch (IOException e) {
             System.out.println(e);
         }

@@ -41,7 +41,8 @@ public class Controller_LoginHandling {
         else {
 
            final String fromEmail = "apartmentinfosystem@gmail.com";//user.getFromEmail(); //requires valid gmail id
-            final String password = "ISD_AIS_A1_G1";//user.getPassword(); // correct password for gmail id
+           ///Write The Correct Password of the Given Email
+            final String password = "";//user.getPassword(); // correct password for gmail id
             final String toEmail = useremail; // can be any email id 
 
             Properties props = new Properties();
