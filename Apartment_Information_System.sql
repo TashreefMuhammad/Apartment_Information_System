@@ -242,6 +242,8 @@ INSERT into Requests(DTID,ResidentID,ManagerID,Main_Request,Descrip,Urgency)VALU
 ('1600433237031RQ','3RID','2MID','Need Mechanics','Gas Leakage','5'),
 ('1600433247393RQ','5RID','2MID','Need Plumber','One of the pipes in the kitchen','2')
 
+INSERT into Requests(DTID,ResidentID,ManagerID,Main_Request,Descrip,Urgency)VALUES
+('1600433137031RQ','3RID','2MID','Need Mechanics','Gas Leakage','2')
 
 --  Viewing all entered Data --
 
@@ -282,3 +284,13 @@ SELECT * FROM Manager Where Contact_No = '01718438309' AND Pass = HASHBYTES('MD5
 update Manager set Pass = HASHBYTES('MD5','01718438309') where Contact_No='01718438309'
 
 Select Count(*) from Guest
+
+Select  ServiceProvider.Name,ServiceProvider.Contact_No,ServiceProvider.SPID,ServiceProvider.Present_Address,ServiceProvider.Designation from ServiceProvider
+INNER JOIN
+ServiceDuration ON ServiceProvider.SPID=ServiceDuration.SPID
+where ServiceDuration.Flat_No='A2' AND ServiceProvider.Name Like '%%' AND ServiceProvider.Contact_No Like '%%'  AND ServiceProvider.Designation LIKE '%%'
+
+Select Requests.DTID as DTID,Requests.ResidentID as ResidentID,Requests.ManagerID as ManagerID, Requests.Main_Request As Main_Requests,Requests.Descrip as Descrip,Requests.Urgency as Urgency,Resident.Flat_No as Flat_No from Requests
+INNER JOIN
+Resident ON Requests.ResidentID = Resident.ResidentID 
+where Resident.Flat_No='A2' order by Urgency DESC

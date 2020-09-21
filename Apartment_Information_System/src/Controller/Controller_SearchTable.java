@@ -51,7 +51,19 @@ public class Controller_SearchTable {
         return val.retrieveAmountinFlat(Flat_No);
     }
     
-    public ArrayList<Controller_ServiceProviderInfo> ServicePersonal_Trans(String name,  String contact,String designation){
-        return val.servicePersonalTransExtractTable(name ,contact, designation);
+    public ArrayList<Controller_ServiceProviderInfo> ServicePersonal_Trans(String name,  String contact,String designation,String Flat){
+        return val.servicePersonalTransExtractTable(name ,contact, designation,Flat);
+    }
+    
+    public ArrayList <Controller_Transaction>Trans_History(String flat){
+        return val.transHistory(flat);
+    }
+    
+    public ArrayList <Controller_Transaction>Trans_History_Res(String flat,String Report){
+        return val.transHistory(flat,Report);
+    }
+    
+    public ArrayList<Controller_RequestHandle>man_reqHisTable(String Flat){
+        return  val.show_request(Flat);
     }
 }

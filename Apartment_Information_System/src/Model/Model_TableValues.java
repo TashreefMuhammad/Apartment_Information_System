@@ -262,13 +262,13 @@ public class Model_TableValues {
             PreparedStatement statement;
             if (isCom.equals("All")) {
                 statement = connection.prepareStatement("SELECT * from Requests where ResidentID ='" + rid + "'");
-            }else if(isCom.equals("Completed")){
+            } else if (isCom.equals("Completed")) {
                 statement = connection.prepareStatement("SELECT * from Requests where ResidentID ='" + rid + "' AND ManagerID is not NULL");
-            }else {
+            } else {
                 statement = connection.prepareStatement("SELECT * from Requests where ResidentID ='" + rid + "' AND ManagerID is NULL");
             }
             ResultSet resultSet = statement.executeQuery();
-            String row0, row1,row2,row3;
+            String row0, row1, row2, row3, row5;
             int row4;
             while (resultSet.next()) {
                 row0 = resultSet.getString("ResidentID");
@@ -276,46 +276,50 @@ public class Model_TableValues {
                 row2 = resultSet.getString("Main_Request");
                 row3 = resultSet.getString("Descrip");
                 row4 = resultSet.getInt("Urgency");
+                row5 = resultSet.getString("DTID");
 
-                data.add(new Controller_RequestHandle(row0, row1, row2,row3,row4));
+                data.add(new Controller_RequestHandle(row0, row1, row2, row3, row4, row5));
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
         return data;
     }
-    
+
     // Method to retirieve amount of money stored in a Flats account
-    public int retrieveAmountinFlat(String Flat_No){
+    public int retrieveAmountinFlat(String Flat_No) {
         int amount = 0;
-        try{
-            PreparedStatement stmt = connection.prepareStatement("SELECT Amount_Paid FROM Fund Where ResidentID = (SELECT ResidentID from Flat Where Flat_No = '"+ Flat_No+"')");
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT Amount_Paid FROM Fund Where ResidentID = (SELECT ResidentID from Flat Where Flat_No = '" + Flat_No + "')");
             ResultSet rs = stmt.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 amount += rs.getInt(1);
             }
-            
-            stmt = connection.prepareStatement("Select Paid_Amount FROM Transactions Where Flat_No = '"+Flat_No+"'");
+
+            stmt = connection.prepareStatement("Select Paid_Amount FROM Transactions Where Flat_No = '" + Flat_No + "'");
             rs = stmt.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 amount -= rs.getInt(1);
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println(e);
             return -1;
         }
         return amount;
     }
-    
-    public ArrayList<Controller_ServiceProviderInfo> servicePersonalTransExtractTable(String name,String contact, String designation) {
+
+    public ArrayList<Controller_ServiceProviderInfo> servicePersonalTransExtractTable(String name, String contact, String designation, String Flat) {
         ArrayList<Controller_ServiceProviderInfo> data = new ArrayList<>();
 
         try {
             PreparedStatement statement;
 
-            statement = connection.prepareStatement("SELECT * from ServiceProvider where Name Like '%"+name+"%' AND Contact_No Like '%" + contact + "%'  AND Designation LIKE '%" + designation + "%'");
+            statement = connection.prepareStatement("Select  ServiceProvider.Name,ServiceProvider.Contact_No,ServiceProvider.SPID,ServiceProvider.Present_Address,ServiceProvider.Designation from ServiceProvider\n"
+                    + "INNER JOIN\n"
+                    + "ServiceDuration ON ServiceProvider.SPID=ServiceDuration.SPID\n"
+                    + "where ServiceDuration.Flat_No='" + Flat + "' AND ServiceProvider.Name Like '%" + name + "%' AND ServiceProvider.Contact_No Like '%" + contact + "%'  AND ServiceProvider.Designation LIKE '%" + designation + "%'");
 
             statement.execute();
             ResultSet resultSet = statement.executeQuery();
@@ -330,6 +334,101 @@ public class Model_TableValues {
                 row0 = row0.substring(0, row0.length() - 4);
 
                 data.add(new Controller_ServiceProviderInfo(Integer.parseInt(row0), row1, row2, row3, row4));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
+
+    public ArrayList<Controller_Transaction> transHistory(String flat) {
+        ArrayList<Controller_Transaction> data = new ArrayList<>();
+
+        try {
+            PreparedStatement statement;
+
+            statement = connection.prepareStatement("Select Transactions.DTID as DTID,ServiceProvider.SPID as SPID,ServiceProvider.Name as Name, ServiceProvider.Contact_No As Contact_No,Transactions.Flat_No as Flat_No,Transactions.Paid_Amount as Paid_Amount,Transactions.Report from ServiceProvider\n"
+                    + "INNER JOIN\n"
+                    + "Transactions ON ServiceProvider.SPID = Transactions.SPID\n"
+                    + "where Transactions.Flat_No='" + flat + "'");
+
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
+            String row0, row1, row2, row3, row4, row5, row6;
+            while (resultSet.next()) {
+                row0 = resultSet.getString("Flat_No");
+                row1 = resultSet.getString("SPID");
+                row2 = resultSet.getString("Report");
+                row3 = resultSet.getString("Paid_Amount");
+                row4 = resultSet.getString("Name");
+                row5 = resultSet.getString("Contact_No");
+                row6 = resultSet.getString("DTID");
+
+                data.add(new Controller_Transaction(row0, row1, row2, row3, row4, row5, row6));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
+
+    public ArrayList<Controller_Transaction> transHistory(String flat, String Report) {
+        ArrayList<Controller_Transaction> data = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = null;
+            if (Report.equals("Reported")) {
+                statement = connection.prepareStatement("Select Transactions.DTID as DTID,ServiceProvider.SPID as SPID,ServiceProvider.Name as Name, ServiceProvider.Contact_No As Contact_No,Transactions.Flat_No as Flat_No,Transactions.Paid_Amount as Paid_Amount,Transactions.Report from ServiceProvider\n"
+                        + "INNER JOIN\n"
+                        + "Transactions ON ServiceProvider.SPID = Transactions.SPID\n"
+                        + "where Transactions.Flat_No='" + flat + "' AND Transactions.Report= 'Reported'");
+            } else if (Report.equals("Completed")) {
+                statement = connection.prepareStatement("Select Transactions.DTID as DTID,ServiceProvider.SPID as SPID,ServiceProvider.Name as Name, ServiceProvider.Contact_No As Contact_No,Transactions.Flat_No as Flat_No,Transactions.Paid_Amount as Paid_Amount,Transactions.Report from ServiceProvider\n"
+                        + "INNER JOIN\n"
+                        + "Transactions ON ServiceProvider.SPID = Transactions.SPID\n"
+                        + "where Transactions.Flat_No='" + flat + "' AND Transactions.Report is NULL");
+            }
+            ResultSet resultSet = statement.executeQuery();
+            String row0, row1, row2, row3, row4, row5, row6;
+            while (resultSet.next()) {
+                row0 = resultSet.getString("Flat_No");
+                row1 = resultSet.getString("SPID");
+                row2 = resultSet.getString("Report");
+                row3 = resultSet.getString("Paid_Amount");
+                row4 = resultSet.getString("Name");
+                row5 = resultSet.getString("Contact_No");
+                row6 = resultSet.getString("DTID");
+
+                data.add(new Controller_Transaction(row0, row1, row2, row3, row4, row5, row6));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
+
+    public ArrayList<Controller_RequestHandle> show_request(String flat) {
+        ArrayList<Controller_RequestHandle> data = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = null;
+            statement = connection.prepareStatement("Select Requests.DTID as DTID,Requests.ResidentID as ResidentID,Requests.ManagerID as ManagerID, Requests.Main_Request As Main_Request,Requests.Descrip as Descrip,Requests.Urgency as Urgency,Resident.Flat_No as Flat_No from Requests\n"
+                    + "INNER JOIN\n"
+                    + "Resident ON Requests.ResidentID = Resident.ResidentID \n"
+                    + "where Resident.Flat_No='"+flat+"' AND ManagerID is NULL order by Urgency DESC");
+
+            ResultSet resultSet = statement.executeQuery();
+            String row0, row1, row2, row3, row5;
+            int row4;
+            while (resultSet.next()) {
+                row0 = resultSet.getString("ResidentID");
+                row1 = resultSet.getString("ManagerID");
+                row2 = resultSet.getString("Main_Request");
+                row3 = resultSet.getString("Descrip");
+                row4 = resultSet.getInt("Urgency");
+                row5 = resultSet.getString("DTID");
+
+                data.add(new Controller_RequestHandle(row0, row1, row2, row3, row4, row5));
             }
         } catch (SQLException e) {
             System.out.println(e);

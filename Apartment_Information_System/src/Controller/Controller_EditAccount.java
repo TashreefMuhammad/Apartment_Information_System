@@ -24,4 +24,14 @@ public class Controller_EditAccount {
     public boolean editinfo(int id_to_edit,String Contact,String Address,String Designation,String FlatNo, String tme){
         return givendata.returnvalue(id_to_edit,Contact, Address, Designation, FlatNo, tme);
     }
+
+    public boolean report_trans(String DTID){
+        return givendata.reportval(DTID);
+    }
+    
+    public boolean check_reqs(int id,String DTID){
+        return givendata.req_check(id,DTID);
+    }
+
+    
 }

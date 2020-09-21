@@ -49,6 +49,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
     ArrayList<Controller_ResidentTransaction> restran_info;
     
     ArrayList<Controller_RequestHandle> res_req_his;
+    
+    ArrayList<Controller_Transaction> trans_tab;
 
     int wtv_res;
     int sp_ent;
@@ -269,7 +271,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         reportedtransiction = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        reeportedtransictiontable = new javax.swing.JTable();
+        trans_history = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         requestpanel = new javax.swing.JPanel();
         rqstscrollpane = new javax.swing.JScrollPane();
@@ -290,9 +292,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         fundhistorytable = new javax.swing.JTable();
         transpanel = new javax.swing.JPanel();
         transactionfilterLabel = new javax.swing.JLabel();
-        transactionfilterComboBox = new javax.swing.JComboBox<>();
+        trans_filter = new javax.swing.JComboBox<>();
         transictionscrollpanel = new javax.swing.JScrollPane();
-        transictiontable = new javax.swing.JTable();
+        transiction_Res = new javax.swing.JTable();
         newreqpanel = new javax.swing.JPanel();
         newreqLabel1 = new javax.swing.JLabel();
         request = new javax.swing.JTextField();
@@ -1799,7 +1801,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(soe_namepfinst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel30))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(spoacBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1840,7 +1842,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             spotablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(spotablepanelLayout.createSequentialGroup()
                 .addComponent(spotablescrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(spotablebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -1858,9 +1860,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         spolayeredpanelLayout.setVerticalGroup(
             spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+            .addComponent(spotablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(spolayeredpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
+                .addComponent(spopanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         managertabbedpane.addTab("  Specialized Official Entry  ", spolayeredpanel);
@@ -1875,7 +1877,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel1.setText("Select Flat No :");
 
         flatcombobox.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        flatcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "A1", "A2", "B1.B2", "C1", "C2" }));
+        flatcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2" }));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Which Information To Interact :");
@@ -1911,15 +1913,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
         rescommainLayout.setVerticalGroup(
             rescommainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rescommainLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(79, 79, 79)
                 .addComponent(jLabel1)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addComponent(flatcombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addGap(89, 89, 89)
                 .addComponent(jLabel2)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addComponent(informationbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addComponent(okbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104))
         );
@@ -2054,7 +2056,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
         transictiontabbedpane.addTab("  Entry  ", newtransiction);
 
-        reeportedtransictiontable.setModel(new javax.swing.table.DefaultTableModel(
+        trans_history.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2065,7 +2067,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(reeportedtransictiontable);
+        trans_history.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                trans_historyMouseReleased(evt);
+            }
+        });
+        jScrollPane3.setViewportView(trans_history);
 
         javax.swing.GroupLayout reportedtransictionLayout = new javax.swing.GroupLayout(reportedtransiction);
         reportedtransiction.setLayout(reportedtransictionLayout);
@@ -2119,6 +2126,11 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        requesttable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                requesttableMouseReleased(evt);
+            }
+        });
         rqstscrollpane.setViewportView(requesttable);
 
         requestback.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -2319,9 +2331,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         transactionfilterLabel.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         transactionfilterLabel.setText("Filter By:");
 
-        transactionfilterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Confirm/Report", "Reported", "Resolved" }));
+        trans_filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Completed", "Reported" }));
 
-        transictiontable.setModel(new javax.swing.table.DefaultTableModel(
+        transiction_Res.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2332,7 +2344,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        transictionscrollpanel.setViewportView(transictiontable);
+        transiction_Res.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                transiction_ResMouseReleased(evt);
+            }
+        });
+        transictionscrollpanel.setViewportView(transiction_Res);
 
         javax.swing.GroupLayout transpanelLayout = new javax.swing.GroupLayout(transpanel);
         transpanel.setLayout(transpanelLayout);
@@ -2343,7 +2360,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(transactionfilterLabel)
                 .addGap(18, 18, 18)
-                .addComponent(transactionfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(trans_filter, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
         transpanelLayout.setVerticalGroup(
@@ -2352,7 +2369,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(transpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(transactionfilterLabel)
-                    .addComponent(transactionfilterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(trans_filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(transictionscrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1177, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -3662,7 +3679,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_transictionbackActionPerformed
 
     private void submitbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbuttonActionPerformed
-        
+        boolean add_trans = add.add_trans(id,dtid,SPTrans_Name.getText(),SpTrans_des.getText(),SPTrans_Contact.getText(),amount_paid.getText(),flat_man_resCom);
     }//GEN-LAST:event_submitbuttonActionPerformed
 
     private void SPTrans_NameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SPTrans_NameKeyReleased
@@ -3684,6 +3701,22 @@ public class View_CommonInterface extends javax.swing.JFrame {
         SPTrans_Contact.setText(sp_info.get(selected).getContact());
         SpTrans_des.setText(sp_info.get(selected).getdesignation());
     }//GEN-LAST:event_jTable2MouseReleased
+
+    private void transiction_ResMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transiction_ResMouseReleased
+        selected = transiction_Res.getSelectedRow();
+        String report = trans_tab.get(selected).getDTID();
+        boolean trans_rep = edit.report_trans(report);
+    }//GEN-LAST:event_transiction_ResMouseReleased
+
+    private void trans_historyMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trans_historyMouseReleased
+
+    }//GEN-LAST:event_trans_historyMouseReleased
+
+    private void requesttableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requesttableMouseReleased
+        selected = requesttable.getSelectedRow();
+        String report = res_req_his.get(selected).getDTID();
+        boolean req_check = edit.check_reqs(id,report);
+    }//GEN-LAST:event_requesttableMouseReleased
 
     private void initializeSelf() {
 
@@ -3735,6 +3768,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
                         press_to_GetResInfo();
                         Completed_TransactionTable();
                         Resident_Request();
+                        trans_man();
+                        trans_res();
+                        req_man();
                     } catch (InterruptedException ex) {
                         System.out.println(ex);
                     }
@@ -4024,7 +4060,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     
     //Show data for Manager transaction panel
     protected void press_to_GetSPInfo_Trans() {
-        sp_info = sec_val.ServicePersonal_Trans(SPTrans_Name.getText(), SPTrans_Contact.getText(), SpTrans_des.getText());
+        sp_info = sec_val.ServicePersonal_Trans(SPTrans_Name.getText(), SPTrans_Contact.getText(), SpTrans_des.getText(),flat_man_resCom);
         DefaultTableModel sp_edit = (DefaultTableModel) jTable2.getModel();
         sp_edit.setRowCount(0);
         sp_edit.setColumnIdentifiers(new Object[]{"Name","ContactNo", "Designation"});
@@ -4038,6 +4074,64 @@ public class View_CommonInterface extends javax.swing.JFrame {
             sp_edit.addRow(row);
         }
         jTable2.setModel(sp_edit);
+    }
+    
+    //Show data for Manager transaction history panel
+    protected void trans_man() {
+        trans_tab= sec_val.Trans_History(flat_man_resCom);
+        DefaultTableModel sp_edit = (DefaultTableModel) trans_history.getModel();
+        sp_edit.setRowCount(0);
+        sp_edit.setColumnIdentifiers(new Object[]{"Name","ContactNo", "Flat_No", "Amount", "Report"});
+
+        Object[] row = new Object[5];
+        for (int i = 0; i < trans_tab.size(); ++i) {
+            row[0] = trans_tab.get(i).getName();
+            row[1] = trans_tab.get(i).getContact();
+            row[2] = trans_tab.get(i).getFlat();
+            row[3] = trans_tab.get(i).getAmount();
+            row[4] = trans_tab.get(i).getReport();
+
+            sp_edit.addRow(row);
+        }
+        trans_history.setModel(sp_edit);
+    }
+    
+    //Show data for Resdent transaction history panel
+    protected void trans_res() {
+        trans_tab= sec_val.Trans_History_Res(apartmentshowLabel.getText(),trans_filter.getSelectedItem().toString());
+        DefaultTableModel sp_edit = (DefaultTableModel) transiction_Res.getModel();
+        sp_edit.setRowCount(0);
+        sp_edit.setColumnIdentifiers(new Object[]{"Name","ContactNo", "Flat_No", "Amount"});
+
+        Object[] row = new Object[5];
+        for (int i = 0; i < trans_tab.size(); ++i) {
+            row[0] = trans_tab.get(i).getName();
+            row[1] = trans_tab.get(i).getContact();
+            row[2] = trans_tab.get(i).getFlat();
+            row[3] = trans_tab.get(i).getAmount();
+
+            sp_edit.addRow(row);
+        }
+        transiction_Res.setModel(sp_edit);
+    }
+    
+    //Show Request Table to Manager
+    protected void req_man(){
+        res_req_his = sec_val.man_reqHisTable(flat_man_resCom);
+        DefaultTableModel res_req = (DefaultTableModel) requesttable.getModel();
+
+        res_req.setRowCount(0);
+        res_req.setColumnIdentifiers(new Object[]{"Request", "Description", "Urgency"});
+
+        Object[] row = new Object[4];
+        for (int i = 0; i < res_req_his.size(); ++i) {
+            row[0] = res_req_his.get(i).getReq();
+            row[1] = res_req_his.get(i).getDescrip();
+            row[2] = res_req_his.get(i).getUrgency();
+            
+            res_req.addRow(row);
+        }
+        requesttable.setModel(res_req);
     }
 
     public static void main(String args[]) {
@@ -4259,7 +4353,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> paymenttype;
     private javax.swing.JTextField presentadressinput;
     private javax.swing.JComboBox<String> priority;
-    private javax.swing.JTable reeportedtransictiontable;
     private javax.swing.JPanel reportedtransiction;
     private javax.swing.JComboBox<String> reqhisfilter;
     private javax.swing.JLabel reqhisfilterLabel;
@@ -4339,14 +4432,15 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JScrollPane svscrollpanel;
     private javax.swing.JButton svsubmitBut;
     private javax.swing.JTable tableguest;
+    private javax.swing.JComboBox<String> trans_filter;
+    private javax.swing.JTable trans_history;
     private javax.swing.JTextField transactionID;
-    private javax.swing.JComboBox<String> transactionfilterComboBox;
     private javax.swing.JLabel transactionfilterLabel;
     private javax.swing.JPanel transiction;
+    private javax.swing.JTable transiction_Res;
     private javax.swing.JButton transictionback;
     private javax.swing.JScrollPane transictionscrollpanel;
     private javax.swing.JTabbedPane transictiontabbedpane;
-    private javax.swing.JTable transictiontable;
     private javax.swing.JPanel transpanel;
     private javax.swing.JTextField whomtovis_flat;
     private javax.swing.JTextField whomtovis_name;
