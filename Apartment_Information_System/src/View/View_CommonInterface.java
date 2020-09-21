@@ -47,9 +47,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
     ArrayList<Controller_ServiceProviderInfo> spv_info;
 
     ArrayList<Controller_ResidentTransaction> restran_info;
-    
+
     ArrayList<Controller_RequestHandle> res_req_his;
-    
+
     ArrayList<Controller_Transaction> trans_tab;
 
     int wtv_res;
@@ -151,8 +151,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
         res_job_address = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        staying = new javax.swing.JRadioButton();
-        left = new javax.swing.JRadioButton();
         saveinfo = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         residenttable = new javax.swing.JTable();
@@ -162,6 +160,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         res_name = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        stayorLeft = new javax.swing.JCheckBox();
         manager = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         addmanager = new javax.swing.JPanel();
@@ -265,10 +264,10 @@ public class View_CommonInterface extends javax.swing.JFrame {
         SPTrans_Contact = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         amount_paid = new javax.swing.JTextField();
-        submitbutton = new javax.swing.JButton();
         transictionback = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        submitbutton = new javax.swing.JButton();
         reportedtransiction = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         trans_history = new javax.swing.JTable();
@@ -336,6 +335,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
         svsubmitBut = new javax.swing.JButton();
         svscrollpanel = new javax.swing.JScrollPane();
         Sp_table = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        sp_flat = new javax.swing.JTextField();
         signinasLabel = new javax.swing.JLabel();
         signindesLabel = new javax.swing.JLabel();
         signinimageLabel = new javax.swing.JLabel();
@@ -644,7 +645,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(editsecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(editsecurityLayout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(editsecurityLayout.createSequentialGroup()
                         .addComponent(jLabel10)
@@ -689,7 +690,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         securityLayout.setVerticalGroup(
             securityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("Security", security);
@@ -933,34 +934,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel35.setText("Status");
 
-        ResidentLiving.add(staying);
-        staying.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        staying.setText("Staying");
-        staying.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                stayingMouseReleased(evt);
-            }
-        });
-        staying.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stayingActionPerformed(evt);
-            }
-        });
-
-        ResidentLiving.add(left);
-        left.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        left.setText("Left");
-        left.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                leftMouseReleased(evt);
-            }
-        });
-        left.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                leftActionPerformed(evt);
-            }
-        });
-
         saveinfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         saveinfo.setText("Save");
         saveinfo.addActionListener(new java.awt.event.ActionListener() {
@@ -1014,6 +987,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("Contact");
 
+        stayorLeft.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        stayorLeft.setText("Left");
+
         javax.swing.GroupLayout editresidentLayout = new javax.swing.GroupLayout(editresident);
         editresident.setLayout(editresidentLayout);
         editresidentLayout.setHorizontalGroup(
@@ -1043,14 +1019,10 @@ public class View_CommonInterface extends javax.swing.JFrame {
                                 .addComponent(res_nid, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(jLabel35)
                             .addGroup(editresidentLayout.createSequentialGroup()
-                                .addComponent(staying)
-                                .addGap(50, 50, 50)
-                                .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(editresidentLayout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
-                                        .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(left)))
-                            .addComponent(jLabel13))
+                                .addGap(146, 146, 146)
+                                .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel13)
+                            .addComponent(stayorLeft))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1091,10 +1063,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel35)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(editresidentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(left)
-                    .addComponent(staying))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(stayorLeft)
+                .addGap(12, 12, 12)
                 .addComponent(saveinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editresidentLayout.createSequentialGroup()
@@ -1666,7 +1636,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         servicepersonalLayout.setVerticalGroup(
             servicepersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
         );
 
         acountmngtabpane.addTab("Service Personnel", servicepersonal);
@@ -1968,14 +1938,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Amount Paid :");
 
-        submitbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        submitbutton.setText("Submit");
-        submitbutton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitbuttonActionPerformed(evt);
-            }
-        });
-
         transictionback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         transictionback.setText("Back");
         transictionback.setMaximumSize(new java.awt.Dimension(77, 29));
@@ -2003,6 +1965,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable2);
+
+        submitbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        submitbutton.setText("Submit");
+        submitbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitbuttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout newtransictionLayout = new javax.swing.GroupLayout(newtransiction);
         newtransiction.setLayout(newtransictionLayout);
@@ -2048,8 +2018,8 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(amount_paid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(newtransictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(transictionback, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
         );
@@ -2096,12 +2066,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
         transictionLayout.setHorizontalGroup(
             transictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(transictionLayout.createSequentialGroup()
+                .addComponent(transictiontabbedpane, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+            .addGroup(transictionLayout.createSequentialGroup()
                 .addGap(186, 186, 186)
                 .addComponent(jLabel3)
-                .addContainerGap(327, Short.MAX_VALUE))
-            .addGroup(transictionLayout.createSequentialGroup()
-                .addComponent(transictiontabbedpane, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         transictionLayout.setVerticalGroup(
             transictionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2110,7 +2080,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(transictiontabbedpane, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         requestpanel.setPreferredSize(new java.awt.Dimension(840, 605));
@@ -2208,7 +2178,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
         );
         managerpanelLayout.setVerticalGroup(
             managerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(managertabbedpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(managertabbedpane, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
         );
 
         residentpanel.setPreferredSize(new java.awt.Dimension(840, 610));
@@ -2673,7 +2643,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addComponent(guestflatLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(whomtovis_flat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(guestsubmitBut1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
             .addGroup(grouppanelLayout.createSequentialGroup()
@@ -2683,7 +2653,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        securitytab.addTab("                       Guest                     ", grouppanel);
+        securitytab.addTab("                 Guest                 ", grouppanel);
 
         svpanel.setPreferredSize(new java.awt.Dimension(840, 605));
 
@@ -2744,12 +2714,21 @@ public class View_CommonInterface extends javax.swing.JFrame {
         });
         svscrollpanel.setViewportView(Sp_table);
 
+        jLabel4.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jLabel4.setText("Flat_No:");
+
+        sp_flat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sp_flatKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout svpanelLayout = new javax.swing.GroupLayout(svpanel);
         svpanel.setLayout(svpanelLayout);
         svpanelLayout.setHorizontalGroup(
             svpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(svpanelLayout.createSequentialGroup()
-                .addGroup(svpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(svpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(svpanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(svheaderLabel))
@@ -2762,7 +2741,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
                             .addComponent(SP_name)))
                     .addGroup(svpanelLayout.createSequentialGroup()
                         .addGap(93, 93, 93)
-                        .addComponent(svsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(svsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(svpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4))
+                    .addGroup(svpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(sp_flat)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(svscrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -2771,14 +2756,18 @@ public class View_CommonInterface extends javax.swing.JFrame {
             .addGroup(svpanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(svheaderLabel)
-                .addGap(96, 96, 96)
+                .addGap(77, 77, 77)
                 .addComponent(svnameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SP_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(41, 41, 41)
                 .addComponent(svcontactLabel)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(SP_contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(sp_flat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(svsubmitBut, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
@@ -2980,7 +2969,24 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     // Service Provider Entry
     private void svsubmitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svsubmitButActionPerformed
-        boolean spv_entry = add.sp_checkdata(dtid, sp_ent, SP_name.getText(), SP_contact.getText(), contactshowLabel.getText());
+        boolean con = validate.validateContact(SP_contact.getText());
+
+        if (con) {
+            boolean spv_entry = add.sp_checkdata(dtid, sp_ent, SP_name.getText(), SP_contact.getText(), contactshowLabel.getText(), sp_flat.getText());
+
+            if (spv_entry) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            SP_name.setText("");
+            contactshowLabel.setText("");
+            sp_flat.setText("");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+            SP_contact.setText("");
+        }
     }//GEN-LAST:event_svsubmitButActionPerformed
 
     private void paymenttypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymenttypeActionPerformed
@@ -2989,11 +2995,35 @@ public class View_CommonInterface extends javax.swing.JFrame {
 
     //Fund Entry Call 
     private void addfundButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addfundButActionPerformed
-        boolean fund_entry = add.trans_checkdata(transactionID.getText(), tme, paymenttype.getSelectedItem().toString(), amountpaid.getText(), contactshowLabel.getText());
+        boolean money = validate.validateMoney(amountpaid.getText());
+
+        if (money) {
+            boolean fund_entry = add.trans_checkdata(transactionID.getText(), tme, paymenttype.getSelectedItem().toString(), amountpaid.getText(), contactshowLabel.getText());
+
+            if (fund_entry) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            transactionID.setText("");
+            amountpaid.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Amount paid should be a numeric value.");
+            amountpaid.setText("");
+        }
     }//GEN-LAST:event_addfundButActionPerformed
 
     private void newreqsubmitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newreqsubmitButActionPerformed
         boolean newReq_entry = add.req_checkdata(dtid, contactshowLabel.getText(), "NULL", request.getText(), explain_req.getText(), priority.getSelectedItem().toString());
+
+        if (newReq_entry) {
+            JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+        } else {
+            JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+        }
+        contactshowLabel.setText("");
+        request.setText("");
+        explain_req.setText("");
     }//GEN-LAST:event_newreqsubmitButActionPerformed
 
     private void guestnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestnameActionPerformed
@@ -3013,15 +3043,32 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_whomtovis_flatActionPerformed
 
     private void guestsubmitBut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestsubmitBut1ActionPerformed
-        if (entry_id == -1) {
-            boolean guest = add.checkdata(guestname.getText(), guestcontact.getText(), "Guest");
-            //Getting The ID of The New Guest
-            entry_id = add.getguestID();
+        boolean con = validate.validateContact(guestcontact.getText());
+
+        if (con) {
+            if (entry_id == -1) {
+                boolean guest = add.checkdata(guestname.getText(), guestcontact.getText(), "Guest");
+                //Getting The ID of The New Guest
+                entry_id = add.getguestID();
+            }
+
+            boolean whomtovisit = add.checkdata(dtid, contactshowLabel.getText(), wtv_res, entry_id, "GuestEntry");
+            if (whomtovisit) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            guestname.setText("");
+            guestcontact.setText("");
+            whomtovis_name.setText("");
+            whomtovis_flat.setText("");
+            entry_id = -1;
+        } else {
+            JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+            guestcontact.setText("");
         }
-
-        boolean whomtovisit = add.checkdata(dtid, contactshowLabel.getText(), wtv_res, entry_id, "GuestEntry");
-
-
+        Check_GuestList();
+        Check_WhomToVisit();
     }//GEN-LAST:event_guestsubmitBut1ActionPerformed
 
     private void reqhisfilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reqhisfilterActionPerformed
@@ -3122,12 +3169,18 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private void changepassLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassLabelMouseClicked
         // TODO add your handling code here:
         String newPass = JOptionPane.showInputDialog("Provide new password: ");
-        boolean res = checker.resetPass(emailshowLabel.getText(), signindesLabel.getText(), newPass);
 
-        if (res) {
-            JOptionPane.showMessageDialog(null, "Your password has been changed");
-        } else {
-            JOptionPane.showMessageDialog(null, "Something unexpected occured. Please try again later");
+        if (newPass != null) {
+            boolean res = checker.resetPass(emailshowLabel.getText(), signindesLabel.getText(), newPass);
+
+            if (res) {
+                JOptionPane.showMessageDialog(null, "Your password has been changed");
+                View_LoginPage tmp = new View_LoginPage();
+                tmp.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Something unexpected occured. Please try again later");
+            }
         }
     }//GEN-LAST:event_changepassLabelMouseClicked
 
@@ -3267,11 +3320,14 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private void spoacBut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spoacBut1ActionPerformed
         // TODO add your handling code here:
         boolean con = validate.validateContact(soe_contact.getText());
-        if (con) {
+        boolean num = validate.isNumber(count_people.getText());
+        if (con && num) {
             boolean res = add.checkdata(dtid, id, soe_nameoforg.getText(), soe_reasonofvis.getText(), soe_nid.getText(), count_people.getText(),
                     soe_name.getText(), soe_contact.getText(), soe_prof.getText(), soe_namepfinst.getText(), "OfficialPersonnel");
             if (res) {
                 JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+                spopanel.setVisible(false);
+                spotablepanel.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
             }
@@ -3284,13 +3340,16 @@ public class View_CommonInterface extends javax.swing.JFrame {
             soe_prof.setText("");
             soe_namepfinst.setText("");
 
-            spopanel.setVisible(false);
-            spotablepanel.setVisible(true);
-
             GetResInfoforSOP();
         } else {
-            JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
-            soe_contact.setText("");
+            if(!con){
+                JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+                soe_contact.setText("");
+            }
+            if(!num){
+                JOptionPane.showMessageDialog(null, "Number of People has to be an integer.");
+                soe_contact.setText("");
+            }
         }
     }//GEN-LAST:event_spoacBut1ActionPerformed
 
@@ -3359,17 +3418,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
         sec_act_stat = 0;
     }//GEN-LAST:event_inactiveActionPerformed
 
-    private void stayingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stayingActionPerformed
-        res_act_stat = 1;
-    }//GEN-LAST:event_stayingActionPerformed
-
-    private void leftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftActionPerformed
-        res_act_stat = 0;
-    }//GEN-LAST:event_leftActionPerformed
-
     private void saveinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveinfoActionPerformed
         boolean con = validate.validateContact(contactno_input.getText());
         boolean mail = validate.validateEmail(emailinput.getText());
+        if(stayorLeft.isSelected()){
+            res_act_stat = 0;
+        }
 
         if (con && mail && res_act_stat != 2) {
             boolean editres = edit.editinfo(id_to_edit, res_contact.getText(), res_name.getText(), res_nid.getText(),
@@ -3503,14 +3557,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private void res_job_addressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_res_job_addressKeyReleased
         press_to_GetResInfo();
     }//GEN-LAST:event_res_job_addressKeyReleased
-
-    private void stayingMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stayingMouseReleased
-        press_to_GetResInfo();
-    }//GEN-LAST:event_stayingMouseReleased
-
-    private void leftMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leftMouseReleased
-        press_to_GetResInfo();
-    }//GEN-LAST:event_leftMouseReleased
 
     private void citiorminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citiorminMouseEntered
         press_to_GetResInfo();
@@ -3657,12 +3703,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
             flat_man_resCom = flatcombobox.getSelectedItem().toString();
             jLabel3.setText("Amount in Store for Flat " + flat_man_resCom + ": " + sec_val.retrieve_amount(flat_man_resCom));
             transiction.setVisible(true);
-            rescommain.setVisible(false);    
+            rescommain.setVisible(false);
         } else if ("Request".equals(informationbox.getSelectedItem().toString())) {
             jLabel3.setText("Amount in Store for Flat " + flatcombobox.getSelectedItem().toString());
             flat_man_resCom = flatcombobox.getSelectedItem().toString();
             requestpanel.setVisible(true);
-            rescommain.setVisible(false);  
+            rescommain.setVisible(false);
         }
     }//GEN-LAST:event_okbuttonActionPerformed
 
@@ -3679,7 +3725,30 @@ public class View_CommonInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_transictionbackActionPerformed
 
     private void submitbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbuttonActionPerformed
-        boolean add_trans = add.add_trans(id,dtid,SPTrans_Name.getText(),SpTrans_des.getText(),SPTrans_Contact.getText(),amount_paid.getText(),flat_man_resCom);
+        boolean money = validate.validateMoney(amount_paid.getText());
+        boolean contact = validate.validateContact(SPTrans_Contact.getText());
+
+        if (money && contact) {
+            boolean add_trans = add.add_trans(id, dtid, SPTrans_Name.getText(), SpTrans_des.getText(), SPTrans_Contact.getText(), amount_paid.getText(), flat_man_resCom);
+            if (add_trans) {
+                JOptionPane.showMessageDialog(null, "Entry is successfully Recorded");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something went wrong. Please try again later and inform the system admin");
+            }
+            jLabel3.setText("Amount in Store for Flat " + flat_man_resCom + ": " + sec_val.retrieve_amount(flat_man_resCom));
+            SPTrans_Name.setText("");
+            SpTrans_des.setText("");
+            SPTrans_Contact.setText("");
+            amount_paid.setText("");
+        } else {
+            if (!contact) {
+                JOptionPane.showMessageDialog(null, "Contact Number is expected to be in the format '01XXXXXXXXX'. Please try again.");
+                SPTrans_Contact.setText("");
+            } if(!money) {
+                JOptionPane.showMessageDialog(null, "Amount paid should be a numeric value.");
+                amount_paid.setText("");
+            }
+        }
     }//GEN-LAST:event_submitbuttonActionPerformed
 
     private void SPTrans_NameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SPTrans_NameKeyReleased
@@ -3715,8 +3784,12 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private void requesttableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requesttableMouseReleased
         selected = requesttable.getSelectedRow();
         String report = res_req_his.get(selected).getDTID();
-        boolean req_check = edit.check_reqs(id,report);
+        boolean req_check = edit.check_reqs(id, report);
     }//GEN-LAST:event_requesttableMouseReleased
+
+    private void sp_flatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sp_flatKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sp_flatKeyReleased
 
     private void initializeSelf() {
 
@@ -3891,7 +3964,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     //Show Data According to Entry in Edit Resident
     protected void press_to_GetResInfo() {
 
-        res_info = sec_val.residentInfoTable(res_contact.getText(), res_name.getText(), res_nid.getText(), res_email.getText(), res_profession.getText(), res_job_address.getText(), res_act_stat, citi_Min);
+        res_info = sec_val.residentInfoTable(res_contact.getText(), res_name.getText(), res_nid.getText(), res_email.getText(), res_profession.getText(), res_job_address.getText(), 1, citi_Min);
         DefaultTableModel res_edit = (DefaultTableModel) residenttable.getModel();
         res_edit.setRowCount(0);
         res_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Profession", "Status"});
@@ -4002,7 +4075,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     //Show Data According to Entry in Resident
     protected void GetResInfoforSOP() {
 
-        res_info = sec_val.residentInfoTable("", "", "", "", "", "", 2, 1);
+        res_info = sec_val.residentInfoTable("", "", "", "", "", "", 2, 2);
         DefaultTableModel res_edit = (DefaultTableModel) spotable.getModel();
         res_edit.setRowCount(0);
         res_edit.setColumnIdentifiers(new Object[]{"ContactNo", "Name", "Email", "Profession", "Status"});
@@ -4039,9 +4112,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         fundhistorytable.setModel(res_trans);
 
     }
-    
-    protected void Resident_Request(){
-        res_req_his = sec_val.res_reqHisTable(id+"RID",reqhisfilter.getSelectedItem().toString());
+
+    protected void Resident_Request() {
+        res_req_his = sec_val.res_reqHisTable(id + "RID", reqhisfilter.getSelectedItem().toString());
         DefaultTableModel res_req = (DefaultTableModel) ReqHistory_Res.getModel();
 
         res_req.setRowCount(0);
@@ -4052,18 +4125,18 @@ public class View_CommonInterface extends javax.swing.JFrame {
             row[0] = res_req_his.get(i).getReq();
             row[1] = res_req_his.get(i).getDescrip();
             row[2] = res_req_his.get(i).getUrgency();
-            
+
             res_req.addRow(row);
         }
         ReqHistory_Res.setModel(res_req);
     }
-    
+
     //Show data for Manager transaction panel
     protected void press_to_GetSPInfo_Trans() {
-        sp_info = sec_val.ServicePersonal_Trans(SPTrans_Name.getText(), SPTrans_Contact.getText(), SpTrans_des.getText(),flat_man_resCom);
+        sp_info = sec_val.ServicePersonal_Trans(SPTrans_Name.getText(), SPTrans_Contact.getText(), SpTrans_des.getText(), flat_man_resCom);
         DefaultTableModel sp_edit = (DefaultTableModel) jTable2.getModel();
         sp_edit.setRowCount(0);
-        sp_edit.setColumnIdentifiers(new Object[]{"Name","ContactNo", "Designation"});
+        sp_edit.setColumnIdentifiers(new Object[]{"Name", "ContactNo", "Designation"});
 
         Object[] row = new Object[3];
         for (int i = 0; i < sp_info.size(); ++i) {
@@ -4075,13 +4148,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
         }
         jTable2.setModel(sp_edit);
     }
-    
+
     //Show data for Manager transaction history panel
     protected void trans_man() {
-        trans_tab= sec_val.Trans_History(flat_man_resCom);
+        trans_tab = sec_val.Trans_History(flat_man_resCom);
         DefaultTableModel sp_edit = (DefaultTableModel) trans_history.getModel();
         sp_edit.setRowCount(0);
-        sp_edit.setColumnIdentifiers(new Object[]{"Name","ContactNo", "Flat_No", "Amount", "Report"});
+        sp_edit.setColumnIdentifiers(new Object[]{"Name", "ContactNo", "Flat_No", "Amount", "Report"});
 
         Object[] row = new Object[5];
         for (int i = 0; i < trans_tab.size(); ++i) {
@@ -4095,13 +4168,13 @@ public class View_CommonInterface extends javax.swing.JFrame {
         }
         trans_history.setModel(sp_edit);
     }
-    
+
     //Show data for Resdent transaction history panel
     protected void trans_res() {
-        trans_tab= sec_val.Trans_History_Res(apartmentshowLabel.getText(),trans_filter.getSelectedItem().toString());
+        trans_tab = sec_val.Trans_History_Res(apartmentshowLabel.getText(), trans_filter.getSelectedItem().toString());
         DefaultTableModel sp_edit = (DefaultTableModel) transiction_Res.getModel();
         sp_edit.setRowCount(0);
-        sp_edit.setColumnIdentifiers(new Object[]{"Name","ContactNo", "Flat_No", "Amount"});
+        sp_edit.setColumnIdentifiers(new Object[]{"Name", "ContactNo", "Flat_No", "Amount"});
 
         Object[] row = new Object[5];
         for (int i = 0; i < trans_tab.size(); ++i) {
@@ -4114,9 +4187,9 @@ public class View_CommonInterface extends javax.swing.JFrame {
         }
         transiction_Res.setModel(sp_edit);
     }
-    
+
     //Show Request Table to Manager
-    protected void req_man(){
+    protected void req_man() {
         res_req_his = sec_val.man_reqHisTable(flat_man_resCom);
         DefaultTableModel res_req = (DefaultTableModel) requesttable.getModel();
 
@@ -4128,7 +4201,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
             row[0] = res_req_his.get(i).getReq();
             row[1] = res_req_his.get(i).getDescrip();
             row[2] = res_req_his.get(i).getUrgency();
-            
+
             res_req.addRow(row);
         }
         requesttable.setModel(res_req);
@@ -4282,6 +4355,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -4324,7 +4398,6 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable jTable2;
-    private javax.swing.JRadioButton left;
     private javax.swing.JPanel manager;
     private javax.swing.JTextField manager_address;
     private javax.swing.JTextField manageremail;
@@ -4409,6 +4482,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JTextField soe_prof;
     private javax.swing.JTextField soe_reasonofvis;
     private javax.swing.JLabel sopLabel1;
+    private javax.swing.JTextField sp_flat;
     private javax.swing.JLabel spoLabel11;
     private javax.swing.JLabel spoLabel12;
     private javax.swing.JLabel spoLabel13;
@@ -4423,7 +4497,7 @@ public class View_CommonInterface extends javax.swing.JFrame {
     private javax.swing.JPanel spotablepanel;
     private javax.swing.JScrollPane spotablescrollpane;
     private javax.swing.JCheckBox statuscheck;
-    private javax.swing.JRadioButton staying;
+    private javax.swing.JCheckBox stayorLeft;
     private javax.swing.JButton submitbutton;
     private javax.swing.JLabel svcontactLabel;
     private javax.swing.JLabel svheaderLabel;

@@ -1,4 +1,3 @@
-
 package Model;
 
 import static Model.Model_ConnectMSSQL.connection;
@@ -7,13 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class Model_AddNewAccountData {
 
     int guestID_GE;
 
     //Adding New Entry to Security Table
-    
     public boolean returnval(String name, String nid, String contact, String permanenetadress, String email, String presentadress, String role) {
         try {
             Statement statement = connection.createStatement();
@@ -51,38 +48,53 @@ public class Model_AddNewAccountData {
     }
 
     //Adding New Entry to Resident Table By Manager
-    
     public boolean returnval(String dtid, String tme, String name, String nid_bid, int citizenship, String flatno, String contactno, String email, String permanentaddress, String profession, String jobaddress, String role) {
         try {
             Statement statement = connection.createStatement();
-            ResultSet res = statement.executeQuery("SELECT COUNT(*) FROM " + role);
-            int id = 0;
-            String sid = "RID";
 
+            ResultSet res = statement.executeQuery("SELECT COUNT(*) From " + role + " where NID_BID='" + nid_bid + "'");
+            int cnt = 0;
             if (res.next()) {
-                id = res.getInt(1);
+                cnt = res.getInt(1);
             }
-            id++;
-            sid = id + sid;
-            System.out.println(role);
-            PreparedStatement stmt = connection.prepareStatement("INSERT INTO " + role + " (ResidentID, NID_BID,Name,Citizenship, Flat_No,Contact_No,Email,Permanent_Address,Profession,Job_Address,Current_Living,Pass) VALUES (?, ?, ?, ?, ?, ?, ?, ? , ? , ? , ? , HASHBYTES('MD5', ?) )");
+            PreparedStatement stmt = null;
+            String sid=null;
+            if (cnt == 0) {
+                res = statement.executeQuery("SELECT COUNT(*) FROM " + role);
+                int id = 0;
+                sid = "RID";
 
-            //  stmt.setString(1, role);
-            stmt.setString(1, sid);
-            stmt.setString(2, nid_bid);
-            stmt.setString(3, name);
-            stmt.setInt(4, citizenship);
-            stmt.setString(5, flatno);
-            stmt.setString(6, contactno);
-            stmt.setString(7, email);
-            stmt.setString(8, permanentaddress);
-            stmt.setString(9, profession);
-            stmt.setString(10, jobaddress);
-            stmt.setInt(11, 1);
-            stmt.setString(12, contactno);
+                if (res.next()) {
+                    id = res.getInt(1);
+                }
+                id++;
+                sid = id + sid;
+                System.out.println(role);
+                stmt = connection.prepareStatement("INSERT INTO " + role + " (ResidentID, NID_BID,Name,Citizenship, Flat_No,Contact_No,Email,Permanent_Address,Profession,Job_Address,Current_Living,Pass) VALUES (?, ?, ?, ?, ?, ?, ?, ? , ? , ? , ? , HASHBYTES('MD5', ?) )");
 
-            stmt.executeQuery();
+                //  stmt.setString(1, role);
+                stmt.setString(1, sid);
+                stmt.setString(2, nid_bid);
+                stmt.setString(3, name);
+                stmt.setInt(4, citizenship);
+                stmt.setString(5, flatno);
+                stmt.setString(6, contactno);
+                stmt.setString(7, email);
+                stmt.setString(8, permanentaddress);
+                stmt.setString(9, profession);
+                stmt.setString(10, jobaddress);
+                stmt.setInt(11, 1);
+                stmt.setString(12, contactno);
 
+                stmt.executeQuery();
+            }else{
+                Statement state= connection.createStatement();
+                state.executeQuery("Upadate Resident set Flat_No='"+flatno+"' where NID_BID ='"+nid_bid+"'");
+                ResultSet r = state.executeQuery("Select ResidentID from Resident where NID_BID='"+nid_bid+"'");
+                if(r.next()){
+                    sid= r.getString(1);
+                }
+            }
             stmt = connection.prepareStatement("INSERT into Flat(DTID,DTIN,DTOUT,Flat_No,ResidentID)VALUES(?,?,?,?,?)");
 
             stmt.setString(1, dtid + "FL");
@@ -98,7 +110,7 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-    
+
     //Adding New Entry to Manager Table by Manager
     public boolean returnval(String name, String nid, String contactno, String email, String permanentaddress, String role) {
         try {
@@ -134,9 +146,8 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-    
+
     //Adding New Entry to Service Provider Table by Manager
-    
     public boolean returnval(String dtid, String tme, String name, String nid, String contactno, String presentaddress, String permanenetaddress, String designation, String flatno, String explainationofservice, String role) {
         try {
             int id = 0;
@@ -185,9 +196,8 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-    
-    //Adding New Entry to Official Personnel Table By Manager
 
+    //Adding New Entry to Official Personnel Table By Manager
     public boolean returnval(String dtid, int mid, String namoforg, String reasonofvis, String nid, String count, String name, String contact, String prof, String namofinst, String role) {
         try {
             Statement statement = connection.createStatement();
@@ -224,9 +234,8 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-    
-    //Adding New Entry to Guest Table by Security
 
+    //Adding New Entry to Guest Table by Security
     public boolean returnval(String Name, String Contact, String role) {
         try {
             Statement statement = connection.createStatement();
@@ -260,7 +269,6 @@ public class Model_AddNewAccountData {
     }
 
     //Adding New Entry to Guest Entry Table By Security
-    
     public boolean returnval(String Dtid, String sec, int resi, int gues, String role) {
         try {
             Statement statement = connection.createStatement();
@@ -288,10 +296,9 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-    
+
     //Adding New Entry to Service Provider Entry Table by Security
-    
-    public boolean sp_returnval(String Dtid, int id, String Name, String Contact, String Sec_Contact) {
+    public boolean sp_returnval(String Dtid, int id, String Name, String Contact, String Sec_Contact, String flat) {
         try {
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery("SELECT SecurityID FROM SecurityGuard where Contact_No='" + Sec_Contact + "'");
@@ -301,11 +308,7 @@ public class Model_AddNewAccountData {
                 Security_id = res.getString(1);
             }
 
-            ResultSet res1 = statement.executeQuery("SELECT Flat_No FROM ServiceDuration where SPID='" + id + "SPID'");
-            String sp_flat = "NULL";
-            if (res1.next()) {
-                sp_flat = res1.getString(1);
-            }
+            String sp_flat = flat;
 
             PreparedStatement stmt = connection.prepareStatement("INSERT INTO ServiceProviderEntry (DTID,SPID,SecurityID,Flat_No) VALUES (?, ?, ?, ?)");
 
@@ -324,10 +327,9 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-    
+
     //Adding New Entry to Transactiuon Table By  Resident
-    
-    public boolean trans_returnval(String transID, String time,String payType, String amount, String contact) {
+    public boolean trans_returnval(String transID, String time, String payType, String amount, String contact) {
         try {
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery("SELECT ResidentID FROM Resident where Contact_No='" + contact + "'");
@@ -354,9 +356,9 @@ public class Model_AddNewAccountData {
 
         return true;
     }
-    
+
     //Adding New Request to Request  Table By Resident
-    public boolean req_returnval(String Dtid, String rid,String mid, String req, String explain,String urgency) {
+    public boolean req_returnval(String Dtid, String rid, String mid, String req, String explain, String urgency) {
         try {
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery("SELECT ResidentID FROM Resident where Contact_No='" + rid + "'");
@@ -366,20 +368,18 @@ public class Model_AddNewAccountData {
                 res_id = res.getString(1);
             }
             Statement stmt = connection.createStatement();
-            stmt.execute("INSERT into Requests(DTID,ResidentID,ManagerID,Main_Request,Descrip,Urgency)VALUES('"+Dtid+"RQ','"+res_id+"',NULL,'"+req+"','"+explain+"',"+Integer.parseInt(urgency)+")");
-           
+            stmt.execute("INSERT into Requests(DTID,ResidentID,ManagerID,Main_Request,Descrip,Urgency)VALUES('" + Dtid + "RQ','" + res_id + "',NULL,'" + req + "','" + explain + "'," + Integer.parseInt(urgency) + ")");
 
             //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
-
         } catch (SQLException e) {
             System.out.println(e);
         }
 
         return true;
     }
-    
+
     //Adding New Data to Transaction Table By Manager
-    public boolean add_trans(int id,String dtid,String Name, String Desig,String Contact, String Amount, String Flat) {
+    public boolean add_trans(int id, String dtid, String Name, String Desig, String Contact, String Amount, String Flat) {
         try {
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery("SELECT SPID FROM ServiceProvider where Contact_No='" + Contact + "'");
@@ -389,18 +389,16 @@ public class Model_AddNewAccountData {
                 res_id = res.getString(1);
             }
             Statement stmt = connection.createStatement();
-            stmt.execute("INSERT into Transactions(DTID,Flat_No,Paid_Amount,SPID,Report,ManagerID)VALUES('"+dtid+"TR','"+Flat+"',"+Float.parseFloat(Amount)+",'"+res_id+"',NULL,'"+id+"MID')");
-           
+            stmt.execute("INSERT into Transactions(DTID,Flat_No,Paid_Amount,SPID,Report,ManagerID)VALUES('" + dtid + "TR','" + Flat + "'," + Float.parseFloat(Amount) + ",'" + res_id + "',NULL,'" + id + "MID')");
 
             //ResultSet resultSet = statement.executeQuery("INSERT INTO "+role+"(NID,Name, Contact_No,Present_Address,Permanent_Address,Email,Stat,Pass) VALUES ("+nid+","+name+","+contact","+presentadress+","+permanenetadress+","+email+",0,HASHBYTES('MD5','"+ contact +"') )");
-
         } catch (SQLException e) {
             System.out.println(e);
         }
 
         return true;
     }
-    
+
     //Passing the New Guest's ID
     public int returnGuestID() {
         return guestID_GE;

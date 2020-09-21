@@ -42,8 +42,8 @@ public class Controller_AddNewAccount {
     }
     
     //Adding data to Service Provider Entry 
-    public boolean sp_checkdata(String dtid,int id,String Name,String Contact,String Sec_Contact){
-        return givedata.sp_returnval(dtid,id,Name,Contact,Sec_Contact);
+    public boolean sp_checkdata(String dtid,int id,String Name,String Contact,String Sec_Contact, String flat){
+        return givedata.sp_returnval(dtid,id,Name,Contact,Sec_Contact, flat);
     }
     
     //Adding data to Transaction

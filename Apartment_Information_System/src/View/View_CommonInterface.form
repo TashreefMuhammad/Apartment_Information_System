@@ -220,7 +220,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="managertabbedpane" alignment="0" max="32767" attributes="0"/>
+                      <Component id="managertabbedpane" alignment="0" pref="635" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -301,7 +301,7 @@
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTabbedPane1" alignment="0" pref="600" max="32767" attributes="0"/>
+                                      <Component id="jTabbedPane1" alignment="0" pref="575" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
@@ -551,7 +551,7 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="1" attributes="0">
                                                       <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="jScrollPane4" pref="558" max="32767" attributes="0"/>
+                                                          <Component id="jScrollPane4" pref="533" max="32767" attributes="0"/>
                                                           <EmptySpace min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="1" attributes="0">
@@ -1124,18 +1124,12 @@
                                                                   <Component id="res_nid" alignment="0" max="32767" attributes="0"/>
                                                               </Group>
                                                               <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <Component id="staying" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                                      <Group type="102" attributes="0">
-                                                                          <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                                                                          <Component id="saveinfo" min="-2" pref="80" max="-2" attributes="0"/>
-                                                                      </Group>
-                                                                      <Component id="left" min="-2" max="-2" attributes="0"/>
-                                                                  </Group>
+                                                              <Group type="102" attributes="0">
+                                                                  <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                                                                  <Component id="saveinfo" min="-2" pref="80" max="-2" attributes="0"/>
                                                               </Group>
                                                               <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="stayorLeft" alignment="0" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
@@ -1183,11 +1177,8 @@
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="left" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="staying" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="stayorLeft" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                                   <Component id="saveinfo" min="-2" pref="25" max="-2" attributes="0"/>
                                                   <EmptySpace max="32767" attributes="0"/>
                                               </Group>
@@ -1282,36 +1273,6 @@
                                             <Property name="text" type="java.lang.String" value="Status"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.JRadioButton" name="staying">
-                                          <Properties>
-                                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                                              <ComponentRef name="ResidentLiving"/>
-                                            </Property>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Tahoma" size="14" style="1"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" value="Staying"/>
-                                          </Properties>
-                                          <Events>
-                                            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="stayingMouseReleased"/>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stayingActionPerformed"/>
-                                          </Events>
-                                        </Component>
-                                        <Component class="javax.swing.JRadioButton" name="left">
-                                          <Properties>
-                                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                                              <ComponentRef name="ResidentLiving"/>
-                                            </Property>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Tahoma" size="14" style="1"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" value="Left"/>
-                                          </Properties>
-                                          <Events>
-                                            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="leftMouseReleased"/>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="leftActionPerformed"/>
-                                          </Events>
-                                        </Component>
                                         <Component class="javax.swing.JButton" name="saveinfo">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1381,6 +1342,14 @@
                                               <Font name="Tahoma" size="14" style="1"/>
                                             </Property>
                                             <Property name="text" type="java.lang.String" value="Contact"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JCheckBox" name="stayorLeft">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="sansserif" size="12" style="1"/>
+                                            </Property>
+                                            <Property name="text" type="java.lang.String" value="Left"/>
                                           </Properties>
                                         </Component>
                                       </SubComponents>
@@ -1798,7 +1767,7 @@
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTabbedPane4" alignment="0" pref="600" max="32767" attributes="0"/>
+                                      <Component id="jTabbedPane4" alignment="0" pref="575" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
@@ -2618,7 +2587,7 @@
                                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="informationbox" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="137" max="32767" attributes="0"/>
+                                          <EmptySpace pref="142" max="32767" attributes="0"/>
                                           <Component id="okbutton" min="-2" pref="52" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                                       </Group>
@@ -2704,14 +2673,14 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="transictiontabbedpane" min="-2" pref="834" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                                      </Group>
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
                                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="327" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="transictiontabbedpane" min="-2" pref="834" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -2722,7 +2691,7 @@
                                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="transictiontabbedpane" min="-2" pref="501" max="-2" attributes="0"/>
-                                          <EmptySpace pref="58" max="32767" attributes="0"/>
+                                          <EmptySpace pref="63" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -2788,8 +2757,8 @@
                                                   <Component id="amount_paid" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="32767" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="submitbutton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                                       <Component id="transictionback" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                                      <Component id="submitbutton" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                               </Group>
@@ -2849,17 +2818,6 @@
                                         </Component>
                                         <Component class="javax.swing.JTextField" name="amount_paid">
                                         </Component>
-                                        <Component class="javax.swing.JButton" name="submitbutton">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Tahoma" size="14" style="1"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" value="Submit"/>
-                                          </Properties>
-                                          <Events>
-                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitbuttonActionPerformed"/>
-                                          </Events>
-                                        </Component>
                                         <Component class="javax.swing.JButton" name="transictionback">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -2901,6 +2859,17 @@
                                             </Component>
                                           </SubComponents>
                                         </Container>
+                                        <Component class="javax.swing.JButton" name="submitbutton">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Tahoma" size="14" style="1"/>
+                                            </Property>
+                                            <Property name="text" type="java.lang.String" value="Submit"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitbuttonActionPerformed"/>
+                                          </Events>
+                                        </Component>
                                       </SubComponents>
                                     </Container>
                                     <Container class="javax.swing.JPanel" name="reportedtransiction">
@@ -3612,8 +3581,8 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                          <JTabbedPaneConstraints tabName="                       Guest                     ">
-                            <Property name="tabTitle" type="java.lang.String" value="                       Guest                     "/>
+                          <JTabbedPaneConstraints tabName="                 Guest                 ">
+                            <Property name="tabTitle" type="java.lang.String" value="                 Guest                 "/>
                           </JTabbedPaneConstraints>
                         </Constraint>
                       </Constraints>
@@ -3670,7 +3639,7 @@
                                   <Component id="guestflatLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="whomtovis_flat" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="55" max="32767" attributes="0"/>
+                                  <EmptySpace pref="69" max="32767" attributes="0"/>
                                   <Component id="guestsubmitBut1" min="-2" pref="50" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               </Group>
@@ -3838,7 +3807,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="svheaderLabel" min="-2" max="-2" attributes="0"/>
@@ -3856,6 +3825,14 @@
                                           <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                                           <Component id="svsubmitBut" min="-2" pref="140" max="-2" attributes="0"/>
                                       </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="sp_flat" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace pref="49" max="32767" attributes="0"/>
                                   <Component id="svscrollpanel" min="-2" pref="485" max="-2" attributes="0"/>
@@ -3867,14 +3844,18 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="svheaderLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                                   <Component id="svnameLabel" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="SP_name" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                   <Component id="svcontactLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="SP_contact" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="sp_flat" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="svsubmitBut" min="-2" pref="55" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
@@ -3955,6 +3936,19 @@
                             </Component>
                           </SubComponents>
                         </Container>
+                        <Component class="javax.swing.JLabel" name="jLabel4">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="sansserif" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Flat_No:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="sp_flat">
+                          <Events>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sp_flatKeyReleased"/>
+                          </Events>
+                        </Component>
                       </SubComponents>
                     </Container>
                   </SubComponents>

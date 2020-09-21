@@ -55,15 +55,15 @@ public class Model_TableValues {
                 if (citi_Min != 2) {
                     statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND (Contact_No Like '%" + contact + "%' OR Contact_No IS NULL) AND (Profession LIKE '%" + profession + "%' OR Profession IS NULL) AND (Job_Address LIKE '%" + jobAddress + "%' OR Job_Address IS NULL) AND (Email LIKE '%" + email + "%' OR Email IS NULL) AND Current_Living = " + stat + " AND Citizenship=" + citi_Min);
                 } else {
-                    statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND Contact_No Like '%" + contact + "%' AND Profession LIKE '%" + profession + "%' AND Job_Address LIKE '%" + jobAddress + "%' AND Email LIKE '%" + email + "%' AND Current_Living = " + stat);
+                    statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND (Contact_No Like '%" + contact + "%' OR Contact_No IS NULL) AND (Profession LIKE '%" + profession + "%' OR Profession IS NULL) AND (Job_Address LIKE '%" + jobAddress + "%' OR Job_Address IS NULL) AND (Email LIKE '%" + email + "%' OR Email IS NULL)  AND Current_Living = " + stat);
                 }
             } else {
                 if (citi_Min != 2) {
 
-                    statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND Contact_No Like '%" + contact + "%' AND Profession LIKE '%" + profession + "%' AND Job_Address LIKE '%" + jobAddress + "%' AND Email LIKE '%" + email + "%' AND Citizenship=" + citi_Min);
+                    statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND (Contact_No Like '%" + contact + "%' OR Contact_No IS NULL)  AND (Profession LIKE '%" + profession + "%' OR Profession IS NULL) AND (Job_Address LIKE '%" + jobAddress + "%' OR Job_Address IS NULL) AND (Email LIKE '%" + email + "%' OR Email IS NULL) AND Citizenship=" + citi_Min);
                 } else {
 
-                    statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND Contact_No Like '%" + contact + "%' AND Profession LIKE '%" + profession + "%' AND Job_Address LIKE '%" + jobAddress + "%' AND Email LIKE '%" + email + "%'");
+                    statement = connection.prepareStatement("SELECT * from Resident where Name Like '%" + name + "%' AND (Contact_No Like '%" + contact + "%' OR Contact_No IS NULL) AND (Profession LIKE '%" + profession + "%' OR Profession IS NULL) AND (Job_Address LIKE '%" + jobAddress + "%' OR Job_Address IS NULL) AND (Email LIKE '%" + email + "%' OR Email IS NULL)");
                 }
             }
             ResultSet resultSet = statement.executeQuery();
@@ -96,7 +96,7 @@ public class Model_TableValues {
         try {
             PreparedStatement statement;
 
-            statement = connection.prepareStatement("SELECT * from Manager where Name Like '%" + name + "%' AND Contact_No Like '%" + contact + "%' AND Permanent_Address LIKE '%" + Address + "%' AND Email LIKE '%" + email + "%' AND Stat = " + 0);
+            statement = connection.prepareStatement("SELECT * from Manager where Name Like '%" + name + "%' AND Contact_No Like '%" + contact + "%' AND Permanent_Address LIKE '%" + Address + "%' AND Email LIKE '%" + email + "%'");
 
             statement.execute();
             ResultSet resultSet = statement.executeQuery();
